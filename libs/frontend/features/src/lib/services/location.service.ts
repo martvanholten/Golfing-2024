@@ -17,16 +17,11 @@ export class LocationService {
   ];
 
   constructor() {}
-
-  getLocations(): Location[] {
-    return this.locations;
-  }
-
-  getLocationsAsObservable(): Observable<Location[]> {
+  getLocations(): Observable<Location[]> {
     return of(this.locations);
   }
 
-  getLocationById(id: number): Location {
-    return this.locations.filter((location) => location.id === id)[0];
+  getLocationById(id: number): Observable<Location> {
+    return of(this.locations.filter((location) => location.id === id)[0]);
   }
 }

@@ -35,30 +35,25 @@ export class GameService {
 
   constructor() {}
 
-  async getGames(): Promise<Game[]> {
-    return this.games;
+  getGamesThisWeek(): Observable<Game[]> {
+    return of(this.games
+      .filter((g) => {
+          var date = new Date()
+          if(g.date != null){
+              if(g.date > date){
+                  return true;
+              }
+          }
+          return false;
+      })
+    );
   }
 
-  async getGamesThisWeek(): Promise<Game[]> {
-    return this.games
-    .filter((g) => {
-        var date = new Date()
-        if(g.date != null){
-            if(g.date > date){
-                return true;
-            }
-        }
-        return false;
-    })
-    ;
-  }
-
-  async getGamesAsObservable(): Promise<Observable<Game[]>> {
+  getGames(): Observable<Game[]> {
     return of(this.games);
   }
 
-  async getGameOneGame(name: string, location: string): Promise<Game> {
-    //DOES NOT WORK
-    return this.games.filter((game) => game.name?.match(name) && game.location?.match(location))[0];
+  getGameOneGame(name: string, location: string): Observable<Game> {
+    return of(this.games.filter((game) => game.name === name && game.location === location)[0]);
   }
 }
