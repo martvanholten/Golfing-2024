@@ -1,0 +1,17 @@
+<div class="text-center p-2">
+    <div class="text-success">
+        <h6 class="font-weight-bold">Game</h6>
+    </div>
+    <div class="row font-weight-bold">
+        <div class="col">Naam:</div>
+        <div class="col">Datum:</div>
+    </div>
+    <div class="row text-success">
+        <div class="col">{{game?.name}}</div>
+        <div class="col">{{ game?.date?.getFullYear() }}-{{ game?.date?.getMonth() }}-{{ game?.date?.getDay() }}</div>
+    </div>
+    <div class="row text-success">
+        <div class="col"><a class="btn btn-success mt-3" routerLink="detail" routerLinkActive="actieve-link">Detail</a></div>
+        <div class="col"><a class="btn btn-success mt-3" routerLink="edit" routerLinkActive="actieve-link">Wijzig</a></div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+[NX Daemon Server] - 2024-11-18T10:05:00.602Z - Started listening on: \\.\pipe\nx\C:\Users\MARTVA~1\AppData\Local\Temp\0b229bc805\d.sock
+[NX Daemon Server] - 2024-11-18T10:05:00.614Z - [WATCHER]: Subscribed to changes within: C:\Avans\Jaar 2\CS\avans-nx-workshop (native)
+[NX Daemon Server] - 2024-11-18T10:05:00.634Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-11-18T10:05:00.639Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-11-18T10:05:00.642Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-11-18T10:05:00.662Z - [REQUEST]: Responding to the client. Shutdown initiated
+[NX Daemon Server] - 2024-11-18T10:05:00.664Z - Done responding to the client Shutdown initiated
+[NX Daemon Server] - 2024-11-18T10:05:00.666Z - Handled FORCE_SHUTDOWN. Handling time: 0. Response time: 4.
+[NX Daemon Server] - 2024-11-18T10:05:00.667Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-11-18T10:05:00.668Z - [WATCHER]: Stopping the watcher for C:\Avans\Jaar 2\CS\avans-nx-workshop (sources)
+[NX Daemon Server] - 2024-11-18T10:05:00.668Z - [WATCHER]: Stopping the watcher for C:\Avans\Jaar 2\CS\avans-nx-workshop (outputs)

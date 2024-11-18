@@ -1,0 +1,22 @@
+<div class="text-center p-2">
+    <table class="table table-bordered table-striped table-sm">
+        <thead>
+            <tr>
+                <th>Naam</th>
+                <th>Locatie</th>
+                <th>Datum</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let game of games">
+                <td class="text-success">{{ game.name }}</td>
+                <td class="text-success">
+                    <a class="text-success" routerLink="{{ game.name }}/{{ game.location }}">
+                        {{ game.location }}
+                    </a>
+                </td>
+                <td class="text-success">{{ game?.date?.getFullYear() }}-{{ game?.date?.getMonth() }}-{{ game?.date?.getDay() }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

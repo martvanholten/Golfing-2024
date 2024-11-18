@@ -1,0 +1,34 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "rootDir": ".",
+        "sourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "target": "es2015",
+        "module": "esnext",
+        "lib": ["es2020", "dom"],
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+        "baseUrl": ".",
+        "paths": {
+            "@avans-nx-workshop/frontend/comon": [
+                "libs/frontend/comon/src/index.ts"
+            ],
+            "@avans-nx-workshop/frontend/features": [
+                "libs/frontend/features/src/index.ts"
+            ],
+            "@avans-nx-workshop/frontend/ui": ["libs/frontend/ui/src/index.ts"],
+            "@avans-nx-workshop/shared/interfaces": [
+                "libs/shared/interfaces/src/index.ts"
+            ],
+            "@avans-nx-workshop/shared/util-env": [
+                "libs/shared/util-env/src/index.ts"
+            ]
+        }
+    },
+    "exclude": ["node_modules", "tmp"]
+}

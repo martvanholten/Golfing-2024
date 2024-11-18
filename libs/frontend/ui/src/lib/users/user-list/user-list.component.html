@@ -1,0 +1,22 @@
+<div class="text-center p-2">
+    <table class="table table-bordered table-striped table-sm">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Naam</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td class="text-success">{{ user.id }}</td>
+                <td class="text-success">
+                    <a class="text-success" routerLink="{{ user.id }}">
+                        {{ user.firstName }}
+                    </a>
+                </td>
+                <td class="text-success">{{ user.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

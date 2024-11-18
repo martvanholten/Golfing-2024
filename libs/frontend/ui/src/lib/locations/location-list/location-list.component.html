@@ -1,0 +1,22 @@
+<div class="text-center p-2">
+    <table class="table table-bordered table-striped table-sm">
+        <thead>
+            <tr>
+                <th>Naam</th>
+                <th>Stad</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let location of locations">
+                <td class="text-success">
+                    <a class="text-success" routerLink="{{ location.id }}">
+                        {{ location.name }}
+                    </a>
+                </td>
+                <td class="text-success">{{ location.city }}</td>
+                <td class="text-success">{{ location.address }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
