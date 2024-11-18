@@ -1,0 +1,1258 @@
+{
+  "version": "6.0",
+  "nxVersion": "20.1.2",
+  "pathMappings": {
+    "@avans-nx-workshop/frontend/comon": [
+      "libs/frontend/comon/src/index.ts"
+    ],
+    "@avans-nx-workshop/frontend/features": [
+      "libs/frontend/features/src/index.ts"
+    ],
+    "@avans-nx-workshop/frontend/ui": [
+      "libs/frontend/ui/src/index.ts"
+    ],
+    "@avans-nx-workshop/shared/interfaces": [
+      "libs/shared/interfaces/src/index.ts"
+    ],
+    "@avans-nx-workshop/shared/util-env": [
+      "libs/shared/util-env/src/index.ts"
+    ]
+  },
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {
+      "util-env": [
+        {
+          "file": "libs/shared/util-env/.eslintrc.json",
+          "hash": "14803369877490046397"
+        },
+        {
+          "file": "libs/shared/util-env/README.md",
+          "hash": "9316519027226229526"
+        },
+        {
+          "file": "libs/shared/util-env/jest.config.ts",
+          "hash": "342988293264216826"
+        },
+        {
+          "file": "libs/shared/util-env/project.json",
+          "hash": "5670522147730240415"
+        },
+        {
+          "file": "libs/shared/util-env/src/index.ts",
+          "hash": "9306622506208637328"
+        },
+        {
+          "file": "libs/shared/util-env/src/lib/environment.development.ts",
+          "hash": "2658168945417351789"
+        },
+        {
+          "file": "libs/shared/util-env/src/lib/environment.interface.ts",
+          "hash": "6901534070706269043"
+        },
+        {
+          "file": "libs/shared/util-env/src/lib/environment.production.ts",
+          "hash": "16659012079913550517"
+        },
+        {
+          "file": "libs/shared/util-env/src/lib/environment.ts",
+          "hash": "6096651325099897968"
+        },
+        {
+          "file": "libs/shared/util-env/tsconfig.json",
+          "hash": "18309056100680416803"
+        },
+        {
+          "file": "libs/shared/util-env/tsconfig.lib.json",
+          "hash": "11543095524060174729"
+        },
+        {
+          "file": "libs/shared/util-env/tsconfig.spec.json",
+          "hash": "2579164740543429247"
+        }
+      ],
+      "shared-interfaces": [
+        {
+          "file": "libs/shared/interfaces/.eslintrc.json",
+          "hash": "12096744579003383200"
+        },
+        {
+          "file": "libs/shared/interfaces/README.md",
+          "hash": "12529304555068786879"
+        },
+        {
+          "file": "libs/shared/interfaces/jest.config.ts",
+          "hash": "12095003696342054987"
+        },
+        {
+          "file": "libs/shared/interfaces/project.json",
+          "hash": "10525616735170414946"
+        },
+        {
+          "file": "libs/shared/interfaces/src/index.ts",
+          "hash": "6922921422640892620"
+        },
+        {
+          "file": "libs/shared/interfaces/src/lib/game.interface.ts",
+          "hash": "8297157335934370201"
+        },
+        {
+          "file": "libs/shared/interfaces/src/lib/location.interface.ts",
+          "hash": "3176705205216143063"
+        },
+        {
+          "file": "libs/shared/interfaces/src/lib/team.interface.ts",
+          "hash": "11502618210103115429"
+        },
+        {
+          "file": "libs/shared/interfaces/src/lib/user.interface.ts",
+          "hash": "15809183492208080636"
+        },
+        {
+          "file": "libs/shared/interfaces/src/test-setup.ts",
+          "hash": "18384032036193434871"
+        },
+        {
+          "file": "libs/shared/interfaces/tsconfig.json",
+          "hash": "2952183243805677762"
+        },
+        {
+          "file": "libs/shared/interfaces/tsconfig.lib.json",
+          "hash": "5606283485481779905"
+        },
+        {
+          "file": "libs/shared/interfaces/tsconfig.spec.json",
+          "hash": "10021680246547187312"
+        }
+      ],
+      "share-a-meal-web": [
+        {
+          "file": "apps/share-a-meal-web/.eslintrc.json",
+          "hash": "12118854377797659445"
+        },
+        {
+          "file": "apps/share-a-meal-web/jest.config.ts",
+          "hash": "2667253891853561832"
+        },
+        {
+          "file": "apps/share-a-meal-web/project.json",
+          "hash": "6021475482155891052"
+        },
+        {
+          "file": "apps/share-a-meal-web/src/app/app.component.html",
+          "hash": "14096303333607304980"
+        },
+        {
+          "file": "apps/share-a-meal-web/src/app/app.component.ts",
+          "hash": "10064478920892536205"
+        },
+        {
+          "file": "apps/share-a-meal-web/src/app/app.config.ts",
+          "hash": "8993342557759126848"
+        },
+        {
+          "file": "apps/share-a-meal-web/src/app/app.routes.ts",
+          "hash": "1640601350016319054"
+        },
+        {
+          "file": "apps/share-a-meal-web/src/app/components/about/about.component.html",
+          "hash": "16089002778921768123"
+        },
+        {
+          "file": "apps/share-a-meal-web/src/app/components/about/about.component.spec.ts",
+          "hash": "8855752337671383617"
+        },
+        {
+          "file": "apps/share-a-meal-web/src/app/components/about/about.component.ts",
+          "hash": "12127380471888693726"
+        },
+        {
+          "file": "apps/share-a-meal-web/src/app/components/dashboard/dashboard.component.html",
+          "hash": "13178263766354848654"
+        },
+        {
+          "file": "apps/share-a-meal-web/src/app/components/dashboard/dashboard.component.ts",
+          "hash": "3591264399526952365"
+        },
+        {
+          "file": "apps/share-a-meal-web/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/share-a-meal-web/src/assets/Entity-Relationship-Diagram.png",
+          "hash": "10440411800400986942"
+        },
+        {
+          "file": "apps/share-a-meal-web/src/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "apps/share-a-meal-web/src/index.html",
+          "hash": "1306304337514846625"
+        },
+        {
+          "file": "apps/share-a-meal-web/src/main.ts",
+          "hash": "7323565367452876306",
+          "deps": [
+            "util-env"
+          ]
+        },
+        {
+          "file": "apps/share-a-meal-web/src/styles.css",
+          "hash": "6917432578050628436"
+        },
+        {
+          "file": "apps/share-a-meal-web/src/test-setup.ts",
+          "hash": "12935735732682149507"
+        },
+        {
+          "file": "apps/share-a-meal-web/tailwind.config.js",
+          "hash": "17076277411316600840"
+        },
+        {
+          "file": "apps/share-a-meal-web/tsconfig.app.json",
+          "hash": "12911920861351469827"
+        },
+        {
+          "file": "apps/share-a-meal-web/tsconfig.editor.json",
+          "hash": "17511610827034788226"
+        },
+        {
+          "file": "apps/share-a-meal-web/tsconfig.json",
+          "hash": "12094030803572703611"
+        },
+        {
+          "file": "apps/share-a-meal-web/tsconfig.spec.json",
+          "hash": "2927375835638640771"
+        }
+      ],
+      "golfing-e2e": [
+        {
+          "file": "apps/golfing-e2e/.eslintrc.json",
+          "hash": "2268504342791978563"
+        },
+        {
+          "file": "apps/golfing-e2e/cypress.config.ts",
+          "hash": "13758650857735414517"
+        },
+        {
+          "file": "apps/golfing-e2e/project.json",
+          "hash": "5169983888102655560"
+        },
+        {
+          "file": "apps/golfing-e2e/src/e2e/app.cy.ts",
+          "hash": "16488491556291926919"
+        },
+        {
+          "file": "apps/golfing-e2e/src/fixtures/example.json",
+          "hash": "8244047265829016264"
+        },
+        {
+          "file": "apps/golfing-e2e/src/support/app.po.ts",
+          "hash": "11157016311132186162"
+        },
+        {
+          "file": "apps/golfing-e2e/src/support/commands.ts",
+          "hash": "4709268516280968380"
+        },
+        {
+          "file": "apps/golfing-e2e/src/support/e2e.ts",
+          "hash": "1054106023200826784"
+        },
+        {
+          "file": "apps/golfing-e2e/tsconfig.json",
+          "hash": "16101841879267239062"
+        }
+      ],
+      "rcmnd-api-e2e": [
+        {
+          "file": "apps/rcmnd-api-e2e/.eslintrc.json",
+          "hash": "13800677001662881425"
+        },
+        {
+          "file": "apps/rcmnd-api-e2e/jest.config.ts",
+          "hash": "14918991315131840020"
+        },
+        {
+          "file": "apps/rcmnd-api-e2e/project.json",
+          "hash": "2771499577721644088"
+        },
+        {
+          "file": "apps/rcmnd-api-e2e/src/rcmnd-api/rcmnd-api.spec.ts",
+          "hash": "110394728024017389"
+        },
+        {
+          "file": "apps/rcmnd-api-e2e/src/support/global-setup.ts",
+          "hash": "2568409276037275290"
+        },
+        {
+          "file": "apps/rcmnd-api-e2e/src/support/global-teardown.ts",
+          "hash": "5275447082211835490"
+        },
+        {
+          "file": "apps/rcmnd-api-e2e/src/support/test-setup.ts",
+          "hash": "10984585515912236441"
+        },
+        {
+          "file": "apps/rcmnd-api-e2e/tsconfig.json",
+          "hash": "15443990093475294480"
+        },
+        {
+          "file": "apps/rcmnd-api-e2e/tsconfig.spec.json",
+          "hash": "14954872453723519891"
+        }
+      ],
+      "data-api-e2e": [
+        {
+          "file": "apps/data-api-e2e/.eslintrc.json",
+          "hash": "13800677001662881425"
+        },
+        {
+          "file": "apps/data-api-e2e/jest.config.ts",
+          "hash": "11289544556175763105"
+        },
+        {
+          "file": "apps/data-api-e2e/project.json",
+          "hash": "14487847278478867191"
+        },
+        {
+          "file": "apps/data-api-e2e/src/data-api/api-meal.spec.ts",
+          "hash": "12634385605556572883"
+        },
+        {
+          "file": "apps/data-api-e2e/src/support/global-setup.ts",
+          "hash": "2568409276037275290"
+        },
+        {
+          "file": "apps/data-api-e2e/src/support/global-teardown.ts",
+          "hash": "5275447082211835490"
+        },
+        {
+          "file": "apps/data-api-e2e/src/support/test-setup.ts",
+          "hash": "10984585515912236441"
+        },
+        {
+          "file": "apps/data-api-e2e/tsconfig.json",
+          "hash": "15443990093475294480"
+        },
+        {
+          "file": "apps/data-api-e2e/tsconfig.spec.json",
+          "hash": "14954872453723519891"
+        }
+      ],
+      "rcmnd-api": [
+        {
+          "file": "apps/rcmnd-api/.env",
+          "hash": "10204480241532389462"
+        },
+        {
+          "file": "apps/rcmnd-api/.eslintrc.json",
+          "hash": "13800677001662881425"
+        },
+        {
+          "file": "apps/rcmnd-api/jest.config.ts",
+          "hash": "4799419067996328130"
+        },
+        {
+          "file": "apps/rcmnd-api/project.json",
+          "hash": "4542380656080258925"
+        },
+        {
+          "file": "apps/rcmnd-api/src/app/app.controller.spec.ts",
+          "hash": "9499997688052526633"
+        },
+        {
+          "file": "apps/rcmnd-api/src/app/app.controller.ts",
+          "hash": "9005150069945785676"
+        },
+        {
+          "file": "apps/rcmnd-api/src/app/app.module.ts",
+          "hash": "3492701680234226929"
+        },
+        {
+          "file": "apps/rcmnd-api/src/app/app.service.spec.ts",
+          "hash": "8587461140686713758"
+        },
+        {
+          "file": "apps/rcmnd-api/src/app/app.service.ts",
+          "hash": "9967902337593410053"
+        },
+        {
+          "file": "apps/rcmnd-api/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/rcmnd-api/src/main.ts",
+          "hash": "2813640680959726837"
+        },
+        {
+          "file": "apps/rcmnd-api/tsconfig.app.json",
+          "hash": "3171572500325445971"
+        },
+        {
+          "file": "apps/rcmnd-api/tsconfig.json",
+          "hash": "3490524966360018312"
+        },
+        {
+          "file": "apps/rcmnd-api/tsconfig.spec.json",
+          "hash": "11550347367511341917"
+        },
+        {
+          "file": "apps/rcmnd-api/webpack.config.js",
+          "hash": "10619490397189790225"
+        }
+      ],
+      "share-a-meal-web-e2e": [
+        {
+          "file": "apps/share-a-meal-web-e2e/.eslintrc.json",
+          "hash": "9199987846761270635"
+        },
+        {
+          "file": "apps/share-a-meal-web-e2e/cypress.config.ts",
+          "hash": "16639359929265687390"
+        },
+        {
+          "file": "apps/share-a-meal-web-e2e/project.json",
+          "hash": "15924191116928498889"
+        },
+        {
+          "file": "apps/share-a-meal-web-e2e/src/e2e/app.cy.ts",
+          "hash": "7534840248335012081"
+        },
+        {
+          "file": "apps/share-a-meal-web-e2e/src/fixtures/example.json",
+          "hash": "11785586596216172004"
+        },
+        {
+          "file": "apps/share-a-meal-web-e2e/src/support/app.po.ts",
+          "hash": "11157016311132186162"
+        },
+        {
+          "file": "apps/share-a-meal-web-e2e/src/support/commands.ts",
+          "hash": "5397443931564808659"
+        },
+        {
+          "file": "apps/share-a-meal-web-e2e/src/support/e2e.ts",
+          "hash": "1054106023200826784"
+        },
+        {
+          "file": "apps/share-a-meal-web-e2e/tsconfig.json",
+          "hash": "4332380883180617610"
+        }
+      ],
+      "features": [
+        {
+          "file": "libs/frontend/features/.eslintrc.json",
+          "hash": "12096744579003383200"
+        },
+        {
+          "file": "libs/frontend/features/README.md",
+          "hash": "4889711814290329090"
+        },
+        {
+          "file": "libs/frontend/features/jest.config.ts",
+          "hash": "11710821989000506970"
+        },
+        {
+          "file": "libs/frontend/features/project.json",
+          "hash": "4260016787627459463"
+        },
+        {
+          "file": "libs/frontend/features/src/index.ts",
+          "hash": "10339660179975460442"
+        },
+        {
+          "file": "libs/frontend/features/src/lib/features.module.ts",
+          "hash": "10949898385254785801"
+        },
+        {
+          "file": "libs/frontend/features/src/lib/models/game.ts",
+          "hash": "1877651356239031321",
+          "deps": [
+            "shared-interfaces"
+          ]
+        },
+        {
+          "file": "libs/frontend/features/src/lib/models/location.ts",
+          "hash": "8023714685327166273",
+          "deps": [
+            "shared-interfaces"
+          ]
+        },
+        {
+          "file": "libs/frontend/features/src/lib/models/team.ts",
+          "hash": "8020734745924749850",
+          "deps": [
+            "shared-interfaces"
+          ]
+        },
+        {
+          "file": "libs/frontend/features/src/lib/models/user.ts",
+          "hash": "14434329985552913441",
+          "deps": [
+            "shared-interfaces"
+          ]
+        },
+        {
+          "file": "libs/frontend/features/src/lib/services/game.service.ts",
+          "hash": "3594495591205625789"
+        },
+        {
+          "file": "libs/frontend/features/src/lib/services/location.service.ts",
+          "hash": "10192689507254785171"
+        },
+        {
+          "file": "libs/frontend/features/src/lib/services/team.service.ts",
+          "hash": "11082951378274145215"
+        },
+        {
+          "file": "libs/frontend/features/src/lib/services/user.service.ts",
+          "hash": "11581851227015296170"
+        },
+        {
+          "file": "libs/frontend/features/src/test-setup.ts",
+          "hash": "18384032036193434871"
+        },
+        {
+          "file": "libs/frontend/features/tsconfig.json",
+          "hash": "2952183243805677762"
+        },
+        {
+          "file": "libs/frontend/features/tsconfig.lib.json",
+          "hash": "5606283485481779905"
+        },
+        {
+          "file": "libs/frontend/features/tsconfig.spec.json",
+          "hash": "10021680246547187312"
+        }
+      ],
+      "data-api": [
+        {
+          "file": "apps/data-api/.eslintrc.json",
+          "hash": "13800677001662881425"
+        },
+        {
+          "file": "apps/data-api/jest.config.ts",
+          "hash": "4536376685111812873"
+        },
+        {
+          "file": "apps/data-api/project.json",
+          "hash": "9844984168826012667"
+        },
+        {
+          "file": "apps/data-api/src/app/app.module.ts",
+          "hash": "9940766460323426276",
+          "deps": [
+            "util-env"
+          ]
+        },
+        {
+          "file": "apps/data-api/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/data-api/src/main.ts",
+          "hash": "7217832273289412444"
+        },
+        {
+          "file": "apps/data-api/tsconfig.app.json",
+          "hash": "3171572500325445971"
+        },
+        {
+          "file": "apps/data-api/tsconfig.json",
+          "hash": "3490524966360018312"
+        },
+        {
+          "file": "apps/data-api/tsconfig.spec.json",
+          "hash": "11550347367511341917"
+        },
+        {
+          "file": "apps/data-api/webpack.config.js",
+          "hash": "10619490397189790225"
+        }
+      ],
+      "golfing": [
+        {
+          "file": "apps/golfing/.eslintrc.json",
+          "hash": "16921288866599104771"
+        },
+        {
+          "file": "apps/golfing/jest.config.ts",
+          "hash": "17436411479244898047"
+        },
+        {
+          "file": "apps/golfing/project.json",
+          "hash": "4633127469769167225"
+        },
+        {
+          "file": "apps/golfing/src/app/app.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/golfing/src/app/app.component.html",
+          "hash": "1313917360858776184"
+        },
+        {
+          "file": "apps/golfing/src/app/app.component.spec.ts",
+          "hash": "10459802259896326559"
+        },
+        {
+          "file": "apps/golfing/src/app/app.component.ts",
+          "hash": "14956082743855914938",
+          "deps": [
+            "ui"
+          ]
+        },
+        {
+          "file": "apps/golfing/src/app/app.config.ts",
+          "hash": "12628782015339600624"
+        },
+        {
+          "file": "apps/golfing/src/app/app.routes.ts",
+          "hash": "14540639932741125952",
+          "deps": [
+            "ui"
+          ]
+        },
+        {
+          "file": "apps/golfing/src/app/nx-welcome.component.ts",
+          "hash": "15884860509626438075"
+        },
+        {
+          "file": "apps/golfing/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/golfing/src/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "apps/golfing/src/index.html",
+          "hash": "7109762676964208167"
+        },
+        {
+          "file": "apps/golfing/src/main.ts",
+          "hash": "5432768832348368295"
+        },
+        {
+          "file": "apps/golfing/src/styles.css",
+          "hash": "5195668842064076916"
+        },
+        {
+          "file": "apps/golfing/src/test-setup.ts",
+          "hash": "18384032036193434871"
+        },
+        {
+          "file": "apps/golfing/tsconfig.app.json",
+          "hash": "10832768672368521252"
+        },
+        {
+          "file": "apps/golfing/tsconfig.editor.json",
+          "hash": "3782190314296404468"
+        },
+        {
+          "file": "apps/golfing/tsconfig.json",
+          "hash": "8118050493832768378"
+        },
+        {
+          "file": "apps/golfing/tsconfig.spec.json",
+          "hash": "7582695473675793029"
+        }
+      ],
+      "ui": [
+        {
+          "file": "libs/frontend/ui/.eslintrc.json",
+          "hash": "12096744579003383200"
+        },
+        {
+          "file": "libs/frontend/ui/README.md",
+          "hash": "3098996868279451883"
+        },
+        {
+          "file": "libs/frontend/ui/jest.config.ts",
+          "hash": "4961509621072703264"
+        },
+        {
+          "file": "libs/frontend/ui/project.json",
+          "hash": "15680745253196039786"
+        },
+        {
+          "file": "libs/frontend/ui/src/index.ts",
+          "hash": "6035358904976531366"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/about/about.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/about/about.component.html",
+          "hash": "6187455090444286465"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/about/about.component.spec.ts",
+          "hash": "12328982562222272307"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/about/about.component.ts",
+          "hash": "8186730988777872769"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/dashboard/dashboard.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/dashboard/dashboard.component.html",
+          "hash": "12970784565185393908"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/dashboard/dashboard.component.spec.ts",
+          "hash": "6405377503999413989"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/dashboard/dashboard.component.ts",
+          "hash": "8551069320449288903"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/games/game-columns/game-columns.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/games/game-columns/game-columns.component.html",
+          "hash": "5471934583190412854"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/games/game-columns/game-columns.component.spec.ts",
+          "hash": "4793767448636611987"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/games/game-columns/game-columns.component.ts",
+          "hash": "9149723694355118617"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/games/game-details-small/game-details-small.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/games/game-details-small/game-details-small.component.html",
+          "hash": "11855865129518614711"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/games/game-details-small/game-details-small.component.spec.ts",
+          "hash": "15027227527096819279"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/games/game-details-small/game-details-small.component.ts",
+          "hash": "17595806555808548567",
+          "deps": [
+            "features"
+          ]
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/games/game-details/game-details.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/games/game-details/game-details.component.html",
+          "hash": "6292016815408160277"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/games/game-details/game-details.component.spec.ts",
+          "hash": "15560187911831865601"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/games/game-details/game-details.component.ts",
+          "hash": "7263121750839694742",
+          "deps": [
+            "features"
+          ]
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/games/game-list/game-list.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/games/game-list/game-list.component.html",
+          "hash": "7656157428619415141"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/games/game-list/game-list.component.spec.ts",
+          "hash": "11151038203275373431"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/games/game-list/game-list.component.ts",
+          "hash": "11735154176313098242",
+          "deps": [
+            "features"
+          ]
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/games/game-update/game-update.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/games/game-update/game-update.component.html",
+          "hash": "17417181871895406562"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/games/game-update/game-update.component.spec.ts",
+          "hash": "8691474419739416299"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/games/game-update/game-update.component.ts",
+          "hash": "7073745416490589770",
+          "deps": [
+            "features"
+          ]
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/locations/location-columns/location-columns.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/locations/location-columns/location-columns.component.html",
+          "hash": "5052377430199693774"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/locations/location-columns/location-columns.component.spec.ts",
+          "hash": "12287131266400211558"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/locations/location-columns/location-columns.component.ts",
+          "hash": "8945642198481160765"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/locations/location-details-small/location-details-small.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/locations/location-details-small/location-details-small.component.html",
+          "hash": "389251123104878703"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/locations/location-details-small/location-details-small.component.spec.ts",
+          "hash": "4047564566792279661"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/locations/location-details-small/location-details-small.component.ts",
+          "hash": "17115138414646348449",
+          "deps": [
+            "features"
+          ]
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/locations/location-details/location-details.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/locations/location-details/location-details.component.html",
+          "hash": "8479920928068056389"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/locations/location-details/location-details.component.spec.ts",
+          "hash": "8469487936077711137"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/locations/location-details/location-details.component.ts",
+          "hash": "9691205656928520562",
+          "deps": [
+            "features"
+          ]
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/locations/location-list/location-list.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/locations/location-list/location-list.component.html",
+          "hash": "639353652369366458"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/locations/location-list/location-list.component.spec.ts",
+          "hash": "730382117041269254"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/locations/location-list/location-list.component.ts",
+          "hash": "16337062907974084139",
+          "deps": [
+            "features"
+          ]
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/locations/location-update/location-update.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/locations/location-update/location-update.component.html",
+          "hash": "16859994985891782347"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/locations/location-update/location-update.component.spec.ts",
+          "hash": "7852601004930411292"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/locations/location-update/location-update.component.ts",
+          "hash": "9535851952935415292",
+          "deps": [
+            "features"
+          ]
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/teams/team-columns/team-columns.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/teams/team-columns/team-columns.component.html",
+          "hash": "4403553482783138555"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/teams/team-columns/team-columns.component.spec.ts",
+          "hash": "9881716089072256275"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/teams/team-columns/team-columns.component.ts",
+          "hash": "11297937958082723363"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/teams/team-details-small/team-details-small.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/teams/team-details-small/team-details-small.component.html",
+          "hash": "13435085671072408029"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/teams/team-details-small/team-details-small.component.spec.ts",
+          "hash": "812950371692242987"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/teams/team-details-small/team-details-small.component.ts",
+          "hash": "7057844229799828957",
+          "deps": [
+            "features"
+          ]
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/teams/team-details/team-details.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/teams/team-details/team-details.component.html",
+          "hash": "198932883212581111"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/teams/team-details/team-details.component.spec.ts",
+          "hash": "17074809249421014184"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/teams/team-details/team-details.component.ts",
+          "hash": "4416170340805827960",
+          "deps": [
+            "features"
+          ]
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/teams/team-list/team-list.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/teams/team-list/team-list.component.html",
+          "hash": "9819913328665144129"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/teams/team-list/team-list.component.spec.ts",
+          "hash": "13137275494707116961"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/teams/team-list/team-list.component.ts",
+          "hash": "11576992981793363830",
+          "deps": [
+            "features"
+          ]
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/teams/team-update/team-update.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/teams/team-update/team-update.component.html",
+          "hash": "4250971154580934247"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/teams/team-update/team-update.component.spec.ts",
+          "hash": "14787621834026884806"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/teams/team-update/team-update.component.ts",
+          "hash": "1000119131720398991",
+          "deps": [
+            "features"
+          ]
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/ui.module.ts",
+          "hash": "6022696683715189025"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/ui/error/error.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/ui/error/error.component.html",
+          "hash": "1113298563591654350"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/ui/error/error.component.spec.ts",
+          "hash": "3084736382383391747"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/ui/error/error.component.ts",
+          "hash": "7568755344879524164"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/ui/footer/footer.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/ui/footer/footer.component.html",
+          "hash": "4877657477299309014"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/ui/footer/footer.component.spec.ts",
+          "hash": "110552621397706656"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/ui/footer/footer.component.ts",
+          "hash": "16382419733654954269"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/ui/header/header.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/ui/header/header.component.html",
+          "hash": "12280352350696130440"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/ui/header/header.component.spec.ts",
+          "hash": "16055522321408437692"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/ui/header/header.component.ts",
+          "hash": "4317033436403944797"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/users/user-columns/user-columns.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/users/user-columns/user-columns.component.html",
+          "hash": "15958222452968642405"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/users/user-columns/user-columns.component.spec.ts",
+          "hash": "14497322204271594979"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/users/user-columns/user-columns.component.ts",
+          "hash": "2204807875967312098"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/users/user-details-small/user-details-small.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/users/user-details-small/user-details-small.component.html",
+          "hash": "5541079245049331829"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/users/user-details-small/user-details-small.component.spec.ts",
+          "hash": "10926844082725424625"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/users/user-details-small/user-details-small.component.ts",
+          "hash": "16986422863844458309",
+          "deps": [
+            "features"
+          ]
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/users/user-details/user-details.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/users/user-details/user-details.component.html",
+          "hash": "16507776237651629509"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/users/user-details/user-details.component.spec.ts",
+          "hash": "7616339880468685723"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/users/user-details/user-details.component.ts",
+          "hash": "10374175519547701187",
+          "deps": [
+            "features"
+          ]
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/users/user-list/user-list.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/users/user-list/user-list.component.html",
+          "hash": "14162957609729122563"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/users/user-list/user-list.component.spec.ts",
+          "hash": "12335393023948363062"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/users/user-list/user-list.component.ts",
+          "hash": "5886379809212094415",
+          "deps": [
+            "features"
+          ]
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/users/user-update/user-update.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/users/user-update/user-update.component.html",
+          "hash": "13700760628307573528"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/users/user-update/user-update.component.spec.ts",
+          "hash": "4843471024557974900"
+        },
+        {
+          "file": "libs/frontend/ui/src/lib/users/user-update/user-update.component.ts",
+          "hash": "12242180791122500217",
+          "deps": [
+            "features"
+          ]
+        },
+        {
+          "file": "libs/frontend/ui/src/test-setup.ts",
+          "hash": "18384032036193434871"
+        },
+        {
+          "file": "libs/frontend/ui/tsconfig.json",
+          "hash": "2952183243805677762"
+        },
+        {
+          "file": "libs/frontend/ui/tsconfig.lib.json",
+          "hash": "5606283485481779905"
+        },
+        {
+          "file": "libs/frontend/ui/tsconfig.spec.json",
+          "hash": "10021680246547187312"
+        }
+      ],
+      "comon": [
+        {
+          "file": "libs/frontend/comon/.eslintrc.json",
+          "hash": "12096744579003383200"
+        },
+        {
+          "file": "libs/frontend/comon/README.md",
+          "hash": "6201475549998503311"
+        },
+        {
+          "file": "libs/frontend/comon/jest.config.ts",
+          "hash": "14958582190900268249"
+        },
+        {
+          "file": "libs/frontend/comon/project.json",
+          "hash": "6125879394270804973"
+        },
+        {
+          "file": "libs/frontend/comon/src/index.ts",
+          "hash": "6645701776256987237"
+        },
+        {
+          "file": "libs/frontend/comon/src/lib/comon.module.ts",
+          "hash": "6236097780985174902"
+        },
+        {
+          "file": "libs/frontend/comon/src/test-setup.ts",
+          "hash": "18384032036193434871"
+        },
+        {
+          "file": "libs/frontend/comon/tsconfig.json",
+          "hash": "2952183243805677762"
+        },
+        {
+          "file": "libs/frontend/comon/tsconfig.lib.json",
+          "hash": "5606283485481779905"
+        },
+        {
+          "file": "libs/frontend/comon/tsconfig.spec.json",
+          "hash": "10021680246547187312"
+        }
+      ]
+    },
+    "nonProjectFiles": [
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": ".eslintignore",
+        "hash": "7663861978715868291"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "18315524891129148814"
+      },
+      {
+        "file": ".github/workflows/azure-static-web-apps-happy-pond-0613f1a03.yml",
+        "hash": "7557787981465032996"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "8491837053101957257"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "3395189204293871444"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "6192629144332209564"
+      },
+      {
+        "file": "Nx-workshop.postman_collection.json",
+        "hash": "7975152560232430547"
+      },
+      {
+        "file": "README.md",
+        "hash": "1955868086715526908"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "12333515226966617182"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "9430166341120122740"
+      },
+      {
+        "file": "migrations.json",
+        "hash": "10764924908146528248"
+      },
+      {
+        "file": "nx.json",
+        "hash": "4494248826616246957"
+      },
+      {
+        "file": "package.json",
+        "hash": "2356550473628960872"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "6230147344008059535"
+      }
+    ]
+  }
+}
