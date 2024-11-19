@@ -6,6 +6,9 @@ import { Location } from '@avans-nx-workshop/frontend/features';
 import { LocationService } from '@avans-nx-workshop/frontend/features';
 import { Subscription } from 'rxjs';
 
+// FROM nx.json
+// nxCloudAccessToken: "ZjM2ZDA1YjgtMWY1Ny00M2YxLWFlZmMtNjUxYzk3OWFjYmJmfHJlYWQtd3JpdGU="
+
 @Component({
     selector: 'avans-nx-workshop-location-details',
     standalone: true,
