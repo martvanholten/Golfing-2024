@@ -4,11 +4,12 @@ import { ActivatedRoute } from '@angular/router';
 import { User } from '../../../../../../../libs/frontend/features/src/lib/models/user';
 import { UserService } from '../../../../../../../libs/frontend/features/src/lib/services/user.service';
 import { Subscription } from 'rxjs';
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'avans-nx-workshop-user-details',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, RouterModule],
     templateUrl: './user-details.component.html',
     styleUrls: ['./user-details.component.css']
 })

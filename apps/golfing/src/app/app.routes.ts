@@ -23,6 +23,8 @@ import { TeamUpdateComponent } from "@avans-nx-workshop/frontend/ui";
 export const appRoutes: Routes = [
     { path: "", pathMatch: "full", redirectTo: "home" },
     { path: "home", pathMatch: "full", component: DashboardComponent },
+    { path: "home/:id", pathMatch: "full", redirectTo: "teams/:id/detail" },
+    { path: "home/:name/:location", pathMatch: "full", redirectTo: "games/:name/:location/detail" },
     { path: "about", pathMatch: "full", component: AboutComponent },
     { path: "teams/new", pathMatch: "full", component: TeamUpdateComponent },
     { 
@@ -33,6 +35,7 @@ export const appRoutes: Routes = [
         ],
     },
     { path: "teams/:id/detail", pathMatch: "full", component: TeamDetailsComponent },
+    { path: "teams/:id/detail/edit", pathMatch: "full", redirectTo: "teams/:id/edit" },
     { path: "teams/:id/edit", pathMatch: "full", component: TeamUpdateComponent },
     { path: "games/new", pathMatch: "full", component: GameUpdateComponent },
     { 
@@ -43,6 +46,7 @@ export const appRoutes: Routes = [
         ],
     },
     { path: "games/:name/:location/detail", pathMatch: "full", component: GameDetailsComponent },
+    { path: "games/:name/:location/detail/edit", pathMatch: "full", redirectTo: "games/:name/:location/edit" },
     { path: "games/:name/:location/edit", pathMatch: "full", component: GameUpdateComponent },
     { path: "locations/new", pathMatch: "full", component: LocationUpdateComponent },
     { 
@@ -53,6 +57,7 @@ export const appRoutes: Routes = [
         ],
     },
     { path: "locations/:id/detail", pathMatch: "full", component: LocationDetailsComponent },
+    { path: "locations/:id/detail/edit", pathMatch: "full", redirectTo: "locations/:id/edit" },
     { path: "locations/:id/edit", pathMatch: "full", component: LocationUpdateComponent },
     { path: "users/new", pathMatch: "full", component: UserUpdateComponent },
     { 
@@ -63,6 +68,7 @@ export const appRoutes: Routes = [
         ],
     },
     { path: "users/:id/detail", pathMatch: "full", component: UserDetailsComponent },
+    { path: "users/:id/detail/edit", pathMatch: "full", redirectTo: "users/:id/edit" },
     { path: "users/:id/edit", pathMatch: "full", component: UserUpdateComponent },
     { path: "**", component:  ErrorComponent},
 ];

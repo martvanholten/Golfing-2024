@@ -22,68 +22,68 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
-        "file": ".eslintignore",
-        "hash": "7663861978715868291"
-      },
-      {
         "file": ".eslintrc.json",
         "hash": "18315524891129148814"
-      },
-      {
-        "file": ".github/workflows/azure-static-web-apps-happy-pond-0613f1a03.yml",
-        "hash": "7557787981465032996"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "8491837053101957257"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "3395189204293871444"
-      },
-      {
-        "file": ".prettierrc",
-        "hash": "6192629144332209564"
-      },
-      {
-        "file": "Nx-workshop.postman_collection.json",
-        "hash": "13796819436055774183"
-      },
-      {
-        "file": "README.md",
-        "hash": "1955868086715526908"
-      },
-      {
-        "file": "jest.config.ts",
-        "hash": "12333515226966617182"
       },
       {
         "file": "jest.preset.js",
         "hash": "9430166341120122740"
       },
       {
-        "file": "migrations.json",
-        "hash": "10764924908146528248"
+        "file": "Nx-workshop.postman_collection.json",
+        "hash": "13796819436055774183"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "6230147344008059535"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "8491837053101957257"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "3395189204293871444"
       },
       {
         "file": "nx.json",
         "hash": "4494248826616246957"
       },
       {
+        "file": ".prettierrc",
+        "hash": "6192629144332209564"
+      },
+      {
+        "file": ".eslintignore",
+        "hash": "7663861978715868291"
+      },
+      {
         "file": "package-lock.json",
         "hash": "12876901067176983332"
+      },
+      {
+        "file": ".github/workflows/azure-static-web-apps-happy-pond-0613f1a03.yml",
+        "hash": "7557787981465032996"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "12333515226966617182"
+      },
+      {
+        "file": "README.md",
+        "hash": "1955868086715526908"
       },
       {
         "file": "package.json",
         "hash": "2356550473628960872"
       },
       {
-        "file": "tsconfig.base.json",
-        "hash": "6230147344008059535"
+        "file": "migrations.json",
+        "hash": "10764924908146528248"
       }
     ],
     "projectFileMap": {
@@ -411,7 +411,7 @@
         },
         {
           "file": "libs/frontend/ui/src/lib/about/about.component.html",
-          "hash": "1928815850310207231"
+          "hash": "2691345678215251002"
         },
         {
           "file": "libs/frontend/ui/src/lib/about/about.component.spec.ts",
@@ -457,7 +457,7 @@
         },
         {
           "file": "libs/frontend/ui/src/lib/games/game-columns/game-columns.component.html",
-          "hash": "5471934583190412854"
+          "hash": "7195018732634415638"
         },
         {
           "file": "libs/frontend/ui/src/lib/games/game-columns/game-columns.component.spec.ts",
@@ -507,7 +507,7 @@
         },
         {
           "file": "libs/frontend/ui/src/lib/games/game-details/game-details.component.html",
-          "hash": "6292016815408160277"
+          "hash": "18263511528140248349"
         },
         {
           "file": "libs/frontend/ui/src/lib/games/game-details/game-details.component.spec.ts",
@@ -585,7 +585,7 @@
         },
         {
           "file": "libs/frontend/ui/src/lib/locations/location-columns/location-columns.component.html",
-          "hash": "5052377430199693774"
+          "hash": "5212246538000617514"
         },
         {
           "file": "libs/frontend/ui/src/lib/locations/location-columns/location-columns.component.spec.ts",
@@ -635,7 +635,7 @@
         },
         {
           "file": "libs/frontend/ui/src/lib/locations/location-details/location-details.component.html",
-          "hash": "8479920928068056389"
+          "hash": "14723473417341765943"
         },
         {
           "file": "libs/frontend/ui/src/lib/locations/location-details/location-details.component.spec.ts",
@@ -687,7 +687,7 @@
         },
         {
           "file": "libs/frontend/ui/src/lib/locations/location-update/location-update.component.html",
-          "hash": "16859994985891782347"
+          "hash": "18088253897246430943"
         },
         {
           "file": "libs/frontend/ui/src/lib/locations/location-update/location-update.component.spec.ts",
@@ -713,7 +713,7 @@
         },
         {
           "file": "libs/frontend/ui/src/lib/teams/team-columns/team-columns.component.html",
-          "hash": "4403553482783138555"
+          "hash": "6245813917226526612"
         },
         {
           "file": "libs/frontend/ui/src/lib/teams/team-columns/team-columns.component.spec.ts",
@@ -763,7 +763,7 @@
         },
         {
           "file": "libs/frontend/ui/src/lib/teams/team-details/team-details.component.html",
-          "hash": "198932883212581111"
+          "hash": "15354465386143955514"
         },
         {
           "file": "libs/frontend/ui/src/lib/teams/team-details/team-details.component.spec.ts",
@@ -774,7 +774,7 @@
         },
         {
           "file": "libs/frontend/ui/src/lib/teams/team-details/team-details.component.ts",
-          "hash": "12171017565055059429",
+          "hash": "5667552561241775467",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
@@ -815,7 +815,7 @@
         },
         {
           "file": "libs/frontend/ui/src/lib/teams/team-update/team-update.component.html",
-          "hash": "4250971154580934247"
+          "hash": "1712998794769656365"
         },
         {
           "file": "libs/frontend/ui/src/lib/teams/team-update/team-update.component.spec.ts",
@@ -919,7 +919,7 @@
         },
         {
           "file": "libs/frontend/ui/src/lib/users/user-columns/user-columns.component.html",
-          "hash": "15958222452968642405"
+          "hash": "1974829267368636170"
         },
         {
           "file": "libs/frontend/ui/src/lib/users/user-columns/user-columns.component.spec.ts",
@@ -969,7 +969,7 @@
         },
         {
           "file": "libs/frontend/ui/src/lib/users/user-details/user-details.component.html",
-          "hash": "16507776237651629509"
+          "hash": "7995956160112473353"
         },
         {
           "file": "libs/frontend/ui/src/lib/users/user-details/user-details.component.spec.ts",
@@ -980,7 +980,7 @@
         },
         {
           "file": "libs/frontend/ui/src/lib/users/user-details/user-details.component.ts",
-          "hash": "6628961663403495814",
+          "hash": "3826930599230210507",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
@@ -1021,7 +1021,7 @@
         },
         {
           "file": "libs/frontend/ui/src/lib/users/user-update/user-update.component.html",
-          "hash": "13700760628307573528"
+          "hash": "16686228506282873143"
         },
         {
           "file": "libs/frontend/ui/src/lib/users/user-update/user-update.component.spec.ts",
@@ -1280,7 +1280,7 @@
         },
         {
           "file": "apps/golfing/src/app/app.component.html",
-          "hash": "1313917360858776184"
+          "hash": "8120656131606635025"
         },
         {
           "file": "apps/golfing/src/app/app.component.spec.ts",
@@ -1307,8 +1307,10 @@
         },
         {
           "file": "apps/golfing/src/app/app.routes.ts",
-          "hash": "14540639932741125952",
+          "hash": "10433855122783108548",
           "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
             "ui"
           ]
         },
@@ -1360,7 +1362,7 @@
         },
         {
           "file": "apps/golfing/tsconfig.json",
-          "hash": "8118050493832768378"
+          "hash": "6755107282832872974"
         },
         {
           "file": "apps/golfing/tsconfig.spec.json",

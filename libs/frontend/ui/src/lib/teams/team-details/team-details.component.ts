@@ -4,11 +4,12 @@ import { ActivatedRoute } from '@angular/router';
 import { Team } from '@avans-nx-workshop/frontend/features';
 import { TeamService } from '@avans-nx-workshop/frontend/features';
 import { Subscription } from 'rxjs';
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'avans-nx-workshop-team-details',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, RouterModule],
     templateUrl: './team-details.component.html',
     styleUrls: ['./team-details.component.css']
 })
