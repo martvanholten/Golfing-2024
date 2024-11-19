@@ -41,15 +41,11 @@ export class UserService {
 
   constructor() {}
 
-  async getUsers(): Promise<User[]> {
-    return this.users;
-  }
-
-  async getUsersAsObservable(): Promise<Observable<User[]>> {
+  getUsers(): Observable<User[]> {
     return of(this.users);
   }
 
-  async getUserById(id: number): Promise<User> {
-    return this.users.filter((user) => user.id === id)[0];
+  getUserById(id: number): Observable<User> {
+    return of(this.users.filter((user) => user.id === id)[0]);
   }
 }

@@ -64,12 +64,12 @@ export class TeamService {
     });
   }
 
-  async getTeams(): Promise<Team[]> {
-    return this.teams;
+  getTeams(): Observable<Team[]> {
+    return of(this.teams);
   }
 
-  async getTopFiveTeams(): Promise<Team[]> {
-    return this.teams.sort((t1, t2) => {
+  getTopFiveTeams(): Observable<Team[]> {
+    return of(this.teams.sort((t1, t2) => {
         if(t1.rank != null && t2.rank != null){
             if (t1.rank > t2.rank) {
                 return 1;
@@ -78,14 +78,10 @@ export class TeamService {
             }
         }    
         return 0;
-    }).slice(0,5);;
+    }).slice(0,5));
   }
 
-  async getTeamsAsObservable(): Promise<Observable<Team[]>> {
-    return of(this.teams);
-  }
-
-  async getTeamById(id: number): Promise<Team> {
-    return this.teams.filter((team) => team.id === id)[0];
+  getTeamById(id: number): Observable<Team> {
+    return of(this.teams.filter((team) => team.id === id)[0]);
   }
 }

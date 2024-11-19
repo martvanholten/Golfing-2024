@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Team } from '@avans-nx-workshop/frontend/features';
 import { TeamService } from '@avans-nx-workshop/frontend/features';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'avans-nx-workshop-team-update',
@@ -11,23 +12,30 @@ import { TeamService } from '@avans-nx-workshop/frontend/features';
     templateUrl: './team-update.component.html',
     styleUrls: ['./team-update.component.css']
 })
-export class TeamUpdateComponent {
+export class TeamUpdateComponent implements OnDestroy{
     teamId: string | null = null;
-    team: Team | null = null;
+    team?: Team;
+    sub$?: Subscription;
   
     constructor(
       private route: ActivatedRoute,
       private teamService: TeamService
     ) {}
   
-    async ngOnInit(): Promise<void> {
-      this.route.paramMap.subscribe(async (params) => {
+    ngOnInit(): void {
+      this.route.paramMap.subscribe((params) => {
         if(params.get('id')){
             this.teamId = params.get('id');
-            this.team = await this.teamService.getTeamById(Number(this.teamId));
+            this.sub$ = this.teamService.getTeamById(Number(this.teamId)).subscribe((t) => {
+              this.team = t;
+            });
         }else{
             this.team = new Team;
         }
       });
+    }
+
+    ngOnDestroy(): void {
+        this.sub$?.unsubscribe();
     }
 }

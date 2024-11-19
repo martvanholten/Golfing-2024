@@ -11,7 +11,7 @@ export class Game implements GameInterface{
         this.winner = winner,
         this.date = date,
         this.holes = holes,
-        this.name = name,
+        this.name = location,
         this.location = location
     }
 }
