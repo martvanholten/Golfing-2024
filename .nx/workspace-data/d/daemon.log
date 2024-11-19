@@ -10121,3 +10121,49 @@ Error: EPERM: operation not permitted, rename 'C:\Avans\Jaar 2\CS\avans-nx-works
 
 > NX runtime error err=cannot send event from fs watcher: sending into a closed channel
 
+[NX Daemon Server] - 2024-11-19T11:47:56.269Z - Started listening on: \\.\pipe\nx\C:\Users\MARTVA~1\AppData\Local\Temp\0b229bc805\d.sock
+[NX Daemon Server] - 2024-11-19T11:47:56.276Z - [WATCHER]: Subscribed to changes within: C:\Avans\Jaar 2\CS\avans-nx-workshop (native)
+[NX Daemon Server] - 2024-11-19T11:47:56.282Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-11-19T11:47:56.284Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-11-19T11:47:56.288Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-11-19T11:47:56.292Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-11-19T11:47:56.873Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-11-19T11:47:56.873Z - [REQUEST]: 
+[NX Daemon Server] - 2024-11-19T11:47:56.873Z - [REQUEST]: 
+[NX Daemon Server] - 2024-11-19T11:47:56.885Z - Time taken for 'loadNxPlugins' 578.3967ms
+[NX Daemon Server] - 2024-11-19T11:47:56.947Z - Time taken for 'build-project-configs' 32.81510000000003ms
+[NX Daemon Server] - 2024-11-19T11:47:57.143Z - [SYNC]: collect registered sync generators
+[NX Daemon Server] - 2024-11-19T11:47:57.146Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-11-19T11:47:57.147Z - Time taken for 'total for creating and serializing project graph' 853.8177999999998ms
+[NX Daemon Server] - 2024-11-19T11:47:57.148Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-11-19T11:47:57.148Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 854. Response time: 2.
+[NX Daemon Server] - 2024-11-19T11:47:57.243Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-11-19T11:47:57.243Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-11-19T11:47:57.243Z - Handled HASH_TASKS. Handling time: 24. Response time: 0.
+[NX Daemon Server] - 2024-11-19T11:47:57.601Z - [REQUEST]: Responding to the client. handleGetEstimatedTaskTimings
+[NX Daemon Server] - 2024-11-19T11:47:57.601Z - Done responding to the client handleGetEstimatedTaskTimings
+[NX Daemon Server] - 2024-11-19T11:47:57.601Z - Handled GET_ESTIMATED_TASK_TIMINGS. Handling time: 4. Response time: 0.
+[NX Daemon Server] - 2024-11-19T11:47:58.645Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-11-19T11:47:58.646Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-11-19T11:47:58.647Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-11-19T11:47:58.650Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-11-19T11:47:58.651Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-11-19T11:47:58.652Z - Time taken for 'total for creating and serializing project graph' 0.7149999999996908ms
+[NX Daemon Server] - 2024-11-19T11:47:58.652Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-11-19T11:47:58.652Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 1.
+[NX Daemon Server] - 2024-11-19T11:48:06.573Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-11-19T11:48:06.808Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-11-19T11:48:06.951Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-11-19T11:48:07.073Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-11-19T11:48:07.134Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-11-19T11:48:07.231Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-11-19T11:48:07.316Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-11-19T11:48:07.407Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-11-19T11:48:07.493Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-11-19T11:48:09.453Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-11-19T11:48:09.577Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-11-19T11:48:39.754Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-11-19T11:48:39.766Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-11-19T11:49:34.711Z - [WATCHER]: Stopping the watcher for C:\Avans\Jaar 2\CS\avans-nx-workshop (sources)
+[NX Daemon Server] - 2024-11-19T11:49:34.712Z - [WATCHER]: Stopping the watcher for C:\Avans\Jaar 2\CS\avans-nx-workshop (outputs)
+[NX Daemon Server] - 2024-11-19T11:49:34.724Z - Server stopped because: "this process is no longer the current daemon (native)"
