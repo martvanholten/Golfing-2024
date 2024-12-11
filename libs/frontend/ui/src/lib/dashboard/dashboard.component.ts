@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GameListComponent } from '../games/game-list/game-list.component';
-import { TeamListComponent } from '../teams/team-list/team-list.component';
+import { FeaturesModule } from '@avans-nx-workshop/frontend/features';
 
 @Component({
     selector: 'avans-nx-workshop-dashboard',
     standalone: true,
-    imports: [CommonModule, GameListComponent, TeamListComponent],
+    imports: [CommonModule, FeaturesModule],
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.css']
 })

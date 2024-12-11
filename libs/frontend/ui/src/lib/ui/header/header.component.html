@@ -25,8 +25,21 @@
                     <li class="nav-item">
                         <a class="nav-link text-success" routerLink="about" routerLinkActive="actieve-link">About</a>
                     </li>
+                    @if(currentUser === undefined) 
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-success" routerLink="users/login" routerLinkActive="actieve-link">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-success" routerLink="register" routerLinkActive="actieve-link">Register</a>
+                        </li>
+                    }@else{
+                        <li class="nav-item">
+                            <a class="nav-link text-success" routerLink="own" routerLinkActive="actieve-link">{{ currentUser.firstName }} {{ currentUser.lastName }}</a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
     </nav>
-</header>  
+</header>

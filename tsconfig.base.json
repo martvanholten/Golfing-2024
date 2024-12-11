@@ -15,8 +15,12 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
-            "@avans-nx-workshop/frontend/comon": [
-                "libs/frontend/comon/src/index.ts"
+            "@avans-nx-workshop/backend/dto": ["libs/backend/dto/src/index.ts"],
+            "@avans-nx-workshop/backend/features": [
+                "libs/backend/features/src/index.ts"
+            ],
+            "@avans-nx-workshop/frontend/common": [
+                "libs/frontend/common/src/index.ts"
             ],
             "@avans-nx-workshop/frontend/features": [
                 "libs/frontend/features/src/index.ts"

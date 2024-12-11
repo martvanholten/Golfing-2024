@@ -1,0 +1,47 @@
+<h5 class="bg-success text-white text-center m-2 p-2">Login</h5>
+<div class="d-flex justify-content-center">
+    <form 
+        #loginForm = "ngForm"
+        name="form"
+        (ngSubmit)="loginForm.form.valid && onSubmit()"
+        novalidate
+    >
+        <div class="form-group">
+            <label class="form-label text-success" for="email">Email:</label>
+            <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="loginData.email"
+                name="email"
+                #email="ngModel"
+                [ngClass]="{
+                    'is-invalid': email.invalid
+                }"
+                required
+            />
+        </div>
+        <div class="form-group">
+            <label class="form-label text-success" for="password">Wachtwoord:</label>
+            <input
+                type="password"
+                class="form-control"
+                [(ngModel)]="loginData.password"
+                name="password"
+                #password="ngModel"
+                [ngClass]="{
+                    'is-invalid': password.invalid
+                }"
+                required
+            />
+        </div>
+        <div class="text-center">
+            <button
+                    type = "submit"
+                    class="btn btn-success mt-3"
+                    [disabled]="!loginForm.valid"
+                >
+                    Login
+                </button>
+        </div>
+    </form>
+</div>
