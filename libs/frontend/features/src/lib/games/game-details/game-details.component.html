@@ -6,11 +6,15 @@
         </div>
         <div class="row font-weight-bold text-success">
             <div class="col">Datum:</div>
-            <div class="col">Locatie:</div>
+            <div class="col">Winnaar:</div>
         </div>
         <div class="row">
-            <div class="col">{{ game?.date?.getFullYear() }}-{{ game?.date?.getMonth() }}-{{ game?.date?.getDay() }}</div>
-            <div class="col">{{game?.location}}</div>
+            <div class="col">{{ game?.date }}</div>
+            @if(game?.winner !== ""){
+                <div class="col">{{game?.winner}}</div>
+            }@else{
+                <div class="col">Nog niet gespeeld</div>
+            }
         </div>
         <hr>
         <div class="text-success">
@@ -18,12 +22,11 @@
         </div>
         <div class="row font-weight-bold text-success">
             <div class="col">Holes:</div>
-            <div class="col">Winnaar:</div>
+            <div class="col">Locatie:</div>
         </div>
         <div class="row">
                 <div class="col">{{game?.holes}}</div>
-                <div class="col">{{game?.winner}}</div>
+                <div class="col">{{game?.location}}</div>
         </div>
     </div>
-</div>   
-<div class="col" align="center"><a class="btn btn-success mt-3" routerLink="edit" routerLinkActive="actieve-link">Wijzig</a></div>
+</div>

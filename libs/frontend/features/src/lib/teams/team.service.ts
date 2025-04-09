@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { catchError, map, Observable, of, tap, throwError } from 'rxjs';
+import { catchError, map, Observable, tap, throwError } from 'rxjs';
 import { ApiResponseInterface, CreateTeamInterface, TeamInterface } from '@avans-nx-workshop/shared/interfaces';
 import { environment } from '@avans-nx-workshop/shared/util-env';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
@@ -32,7 +32,7 @@ export class TeamService {
     }
 
     public getTopFive(options?: any): Observable<ApiResponseInterface<TeamInterface[]>> {
-        console.log(`read ${this.endpoint}`);
+        console.log(`read ${this.endpoint}/top`);
         return this.http
             .get<ApiResponseInterface<TeamInterface[]>>(this.endpoint + "/top", {
                 ...options,
@@ -59,10 +59,10 @@ export class TeamService {
             );
     }
 
-    public updateOne(team: TeamInterface, options?: any): Observable<ApiResponseInterface<TeamInterface>> {
+    public updateOne(userId: string, team: TeamInterface, options?: any): Observable<ApiResponseInterface<TeamInterface>> {
         console.log(`read ${this.endpoint}`);
         return this.http
-            .put<ApiResponseInterface<TeamInterface>>(this.endpoint + "/" + team._id, team, {
+            .put<ApiResponseInterface<TeamInterface>>(this.endpoint + "/" + userId, team, {
                 ...options,
                 ...httpOptionsTeam,
             })
@@ -88,9 +88,9 @@ export class TeamService {
     }
 
     public deleteOne(_id: string, options?: any): Observable<ApiResponseInterface<TeamInterface>> {
-        console.log(`delete ${this.endpoint}`);
+        console.log(`delete ${this.endpoint}/${_id}`);
         return this.http
-            .delete<ApiResponseInterface<TeamInterface>>(this.endpoint, {
+            .delete<ApiResponseInterface<TeamInterface>>(this.endpoint + `/${_id}`, {
                 ...options,
                 ...httpOptionsTeam,
             })

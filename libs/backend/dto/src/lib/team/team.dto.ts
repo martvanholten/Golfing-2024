@@ -9,8 +9,8 @@ import {
 import { CreateTeamInterface, GameInterface, UserInterface } from '@avans-nx-workshop/shared/interfaces';
 
 export class TeamDto implements CreateTeamInterface{
-    @IsNotEmpty()
-    _id = '123';
+    // @IsNotEmpty()
+    // _id = '123';
     @IsNotEmpty()
     rank!: number;
     @IsNotEmpty()
@@ -20,7 +20,7 @@ export class TeamDto implements CreateTeamInterface{
     @IsNotEmpty()
     games: GameInterface[] = new Array<GameInterface>;
     @IsNotEmpty()
-    golfers: UserInterface[] = new Array<UserInterface>;
-    @IsOptional()
-    teamCaptain?: string;
+    golfers!: UserInterface[]
+    @IsNotEmpty()
+    teamCaptain!: string;
 }

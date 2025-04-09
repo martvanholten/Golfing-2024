@@ -12,3 +12,5 @@ export * from './lib/location/location.schema';
 export * from './lib/location/location.controller';
 export * from './lib/location/location.service';
 export * from './lib/location/location.repo';
+export * from './lib/auth/guard/access-token.guard';
+export * from './lib/auth/password-stratagy/access-token.strategy';

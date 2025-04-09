@@ -13,6 +13,8 @@ import { JwtModule } from '@nestjs/jwt';
 import { UserRepo } from './user/user.repo';
 import { TeamRepo } from './team/team.repo';
 import { LocationRepo } from './location/location.repo';
+import { ConfigService } from '@nestjs/config';
+import { AccessTokenStrategy } from './auth/password-stratagy/access-token.strategy';
 
 @Module({
     imports: [
@@ -21,7 +23,7 @@ import { LocationRepo } from './location/location.repo';
             { name: LocationModel.name, schema: LocationSchema },
             { name: TeamModel.name, schema: TeamSchema }
         ]),
-        JwtModule,
+        JwtModule.register({}),
     ],
     controllers: [
         UserController, 
@@ -34,7 +36,9 @@ import { LocationRepo } from './location/location.repo';
         TeamService,
         UserRepo,
         TeamRepo,
-        LocationRepo
+        LocationRepo,
+        ConfigService,
+        AccessTokenStrategy,
     ],
     exports: [
         UserService, 
@@ -42,7 +46,7 @@ import { LocationRepo } from './location/location.repo';
         TeamService,
         UserRepo,
         TeamRepo,
-        LocationRepo
+        LocationRepo,
     ]
 })
 export class BackendFeaturesModule {}

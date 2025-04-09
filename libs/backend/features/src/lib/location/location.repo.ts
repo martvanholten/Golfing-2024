@@ -7,9 +7,13 @@ import { GameInterface, LocationInterface } from '@avans-nx-workshop/shared/inte
 @Injectable()
 export class LocationRepo {
     private readonly logger: Logger = new Logger(LocationRepo.name);
+    location?: LocationInterface | null;
+    locations: LocationInterface[] = new Array<LocationInterface>;
+    games: GameInterface[] = new Array<GameInterface>;
+    game?: GameInterface | undefined;
 
     constructor(
-        @InjectModel(LocationModel.name) private locationModel: Model<LocationDocument> // @InjectModel(Meal.name) private meetupModel: Model<MealDocument>
+        @InjectModel(LocationModel.name) private locationModel: Model<LocationDocument>
     ) {}
 
     async findAll(): Promise<LocationInterface[]> {
@@ -20,15 +24,42 @@ export class LocationRepo {
         return await this.locationModel.findOne({ _id }).exec();
     }
 
-    // async findAllGames(): Promise<GameInterface[]> {
-    //     return  this.locationService.findAllGames();
-    // }
+    async findAllGames(): Promise<GameInterface[]> {
+        this.games.length = 0;
+        this.locations = await this.locationModel.find().exec();
+        this.locations.forEach(location => {
+            location.games.forEach(game => {
+                this.games.push(game)
+            })
+        })
+        return  this.games;
+    }
 
-    // async findOneGame(id: string, name: string): Promise<GameInterface | null> {
-    //     return this.locationService.findOneGame(id, name);
-    // }
+    async findAllLocationGames(_id: string): Promise<GameInterface[]> {
+        this.location = await this.locationModel.findOne({ _id }).exec();
+        this.location?.games.forEach(game => {
+            this.games.push(game)
+        })
+        return this.games
+    }
 
-    // async findGamesThisWeek(): Promise<GameInterface[]> {
-    //     return this.locationService.findGamesThisWeek();
-    // }
+    async findOneGame(name: string, gameName: string): Promise<GameInterface | undefined> {
+        this.location = await this.locationModel.findOne({ name }).exec();
+        this.location?.games.forEach(game => {
+            if(game.name === gameName){
+                this.game = game
+            }
+        })
+        return this.game
+    }
+
+    async updateOneGame(location: LocationInterface, updateGame: GameInterface): Promise<void> {
+        location.games.forEach(game => {
+            if(game.name === updateGame.name){
+                game = updateGame
+            } 
+        })
+        var _id = location._id
+        this.locationModel.updateOne({ _id }, location)
+    }
 }

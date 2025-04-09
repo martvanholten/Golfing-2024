@@ -1,8 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from '@avans-nx-workshop/frontend/features';
 import { UserService } from '@avans-nx-workshop/frontend/features';
-import { UserInterface } from '@avans-nx-workshop/shared/interfaces';
+import { UserInterfaceResponse } from '@avans-nx-workshop/shared/interfaces';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -12,7 +11,7 @@ import { Subscription } from 'rxjs';
 })
 export class UserDetailsSmallComponent implements OnDestroy{
     userId: string | null = null;
-    user?: UserInterface;
+    user?: UserInterfaceResponse;
     sub$?: Subscription;
   
     constructor(
@@ -26,13 +25,12 @@ export class UserDetailsSmallComponent implements OnDestroy{
         this.userId = params.get('id');
         try {
           this.sub$ = this.userService.getOne(this.userId!).subscribe((r) =>{
-            console.log(r);
             if(r.message === "not found"){
               //show alert
             }else if(r.message === "error"){
               this.router.navigate(['/error']);
             }else if(r.message === "succes"){
-              this.user = r.results as UserInterface;
+              this.user = r.results as UserInterfaceResponse;
             }
           });
         } catch (error) {

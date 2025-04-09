@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, of, tap, throwError } from 'rxjs';
-import { Game } from './game';
 import { ApiResponseInterface, GameInterface } from '@avans-nx-workshop/shared/interfaces';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '@avans-nx-workshop/shared/util-env';
@@ -14,12 +13,12 @@ export const httpOptionsGame = {
   providedIn: 'root',
 })
 export class GameService {
-  endpoint = environment.dataApiUrl + "/location";
+    endpoint = environment.dataApiUrl + "/location";
 
     constructor(private readonly http: HttpClient) {}
 
     public getAll(options?: any): Observable<ApiResponseInterface<GameInterface[]>> {
-        console.log(`read ${this.endpoint}`);
+        console.log(`read ${this.endpoint}/game`);
         return this.http
             .get<ApiResponseInterface<GameInterface[]>>(this.endpoint + "/game", {
                 ...options,

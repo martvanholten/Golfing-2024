@@ -18,11 +18,11 @@ import { TeamDetailsComponent } from "@avans-nx-workshop/frontend/features";
 import { TeamDetailsSmallComponent } from "@avans-nx-workshop/frontend/features";
 import { TeamUpdateComponent } from "@avans-nx-workshop/frontend/features";
 import { LoginComponent } from "@avans-nx-workshop/frontend/features";
+import { LogoutComponent } from "@avans-nx-workshop/frontend/features";
 
 export const appRoutes: Routes = [
     { path: "", pathMatch: "full", redirectTo: "home" },
     { path: "home", pathMatch: "full", component: DashboardComponent },
-    { path: "home/login", pathMatch: "full", component: LoginComponent },
     { path: "home/:id", pathMatch: "full", redirectTo: "teams/:id/detail" },
     { path: "home/:name/:location", pathMatch: "full", redirectTo: "games/:name/:location/detail" },
     { path: "about", pathMatch: "full", component: AboutComponent },
@@ -52,8 +52,9 @@ export const appRoutes: Routes = [
         ],
     },
     { path: "locations/:id/detail", pathMatch: "full", component: LocationDetailsComponent },
-    { path: "users/regester", pathMatch: "full", component: UserUpdateComponent },
-    { path: "users/own", pathMatch: "full", component: UserDetailsComponent },
+    { path: "users/register", pathMatch: "full", component: UserUpdateComponent },
+    { path: "users/login", pathMatch: "full", component: LoginComponent },
+    { path: "users/logout", pathMatch: "full", component: LogoutComponent },
     { 
         path: "users", 
         component: UserColumnsComponent,

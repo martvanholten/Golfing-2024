@@ -1,5 +1,4 @@
 import { CreateTeamInterface, GameInterface, TeamInterface, UserInterface } from '@avans-nx-workshop/shared/interfaces'
-import { Game } from '../games/game';
 
 export class Team implements TeamInterface{
     _id!: string;

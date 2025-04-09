@@ -5,8 +5,8 @@
             <h6 class="font-weight-bold">Team informatie</h6>
         </div>
         <div class="row font-weight-bold text-success">
-            <div class="col">Rank:</div>
-            <div class="col">Baan groote:</div>
+            <div class="text-center col">Rank:</div>
+            <div class="text-center col">Baan groote:</div>
         </div>
         <div class="row">
             <div class="col">{{team?.rank}}</div>
@@ -16,6 +16,31 @@
                 <div class="col">Doet aan 18 holes</div>
             }         
         </div>
+        <div class="text-success">
+            <h6 class="font-weight-bold">Team leden</h6>
+        </div>
+        <table class="table table-bordered table-striped table-sm">
+            <thead>
+                <tr>
+                    <th class="text-center text-success">Voornaam</th>
+                    <th class="text-center text-success">Achternaam</th>
+                    <th class="text-center text-success">Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of team?.golfers">
+                    <td class="text-center">{{ user.firstName }}</td>
+                    <td class="text-center">{{ user.lastName }}</td>
+                    <td class="text-center">{{ user.email }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+    
+    <!-- add user list -->
+    @if(this.isCaptain){
+        <div class="col" align="center"><a class="btn btn-success mt-3" routerLink="edit" routerLinkActive="actieve-link">Verwijder</a></div>
+        <!-- add input for user email -->
+        <div class="col" align="center"><a class="btn btn-success mt-3" routerLink="edit" routerLinkActive="actieve-link">Voeg toe</a></div>
+    }
 </div>
-<div class="col" align="center"><a class="btn btn-success mt-3" routerLink="edit" routerLinkActive="actieve-link">Wijzig</a></div>

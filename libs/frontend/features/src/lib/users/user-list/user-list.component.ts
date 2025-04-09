@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { User, UserService } from '@avans-nx-workshop/frontend/features';
+import { UserService } from '@avans-nx-workshop/frontend/features';
 import { UserInterface } from '@avans-nx-workshop/shared/interfaces';
 import { Subscription } from 'rxjs';
 
@@ -21,8 +21,6 @@ export class UserListComponent implements OnDestroy{
                 if(r.message === "error"){
                     this.router.navigate(['/error']);
                 }else{
-                    console.log("results");
-                    console.log(r.results);
                     this.users = r.results as UserInterface[];
                 }
             });

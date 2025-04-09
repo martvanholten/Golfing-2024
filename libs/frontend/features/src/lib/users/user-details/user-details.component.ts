@@ -1,8 +1,8 @@
 import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from '@avans-nx-workshop/frontend/features';
+import { AuthService } from '@avans-nx-workshop/frontend/features';
 import { UserService } from '@avans-nx-workshop/frontend/features';
-import { UserInterface } from '@avans-nx-workshop/shared/interfaces';
+import { UserInterfaceResponse } from '@avans-nx-workshop/shared/interfaces';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -11,61 +11,48 @@ import { Subscription } from 'rxjs';
     styleUrls: ['./user-details.component.css']
 })
 export class UserDetailsComponent implements OnDestroy{
-    private readonly CURRENT_USER = 'currentuser';
     userId: string | null = null;
-    user?: UserInterface;
+    currentUser = false;
+    user?: UserInterfaceResponse;
     sub$?: Subscription;
+    authSub$?: Subscription;
   
     constructor(
       private route: ActivatedRoute,
       private userService: UserService,
-      private router: Router
+      private router: Router,
+      private authService: AuthService,
     ) {}
   
     ngOnInit(): void {
       this.route.paramMap.subscribe((params) => {
-        if(params.get('own') !== null){
-          if(localStorage.getItem(this.CURRENT_USER)!== null){
-            this.userId = JSON.parse(localStorage.getItem(this.CURRENT_USER)!);
-            try {
-              this.sub$ = this.userService.getOne(this.userId!).subscribe((r) =>{
-                console.log(r);
-                if(r.message === "not found"){
-                  //show alert
-                }else if(r.message === "error"){
-                  this.router.navigate(['/error']);
-                }else if(r.message === "succes"){
-                  this.user = r.results as UserInterface;
-                }
-              });
-            } catch (error) {
-              this.router.navigate(['error']);
+        this.userId = params.get('id');
+        try {
+          this.authSub$ = this.authService.getUserFromLocalStorage().subscribe((u) =>{
+            if(u != null && u._id == params.get('id')){
+              this.currentUser = true;
+              this.user = u;
             }
-          }else{
-            this.router.navigate(['error']);
-          }
-        }else{
-          this.userId = params.get('id');
-          try {
+          });
+          if(!this.currentUser){
             this.sub$ = this.userService.getOne(this.userId!).subscribe((r) =>{
-              console.log("not own");
-              console.log(r);
               if(r.message === "not found"){
                 //show alert
               }else if(r.message === "error"){
                 this.router.navigate(['error']);
               }else if(r.message === "succes"){
-                this.user = r.results as UserInterface;
+                this.user = r.results as UserInterfaceResponse;
               }
             });
-          } catch (error) {
-            this.router.navigate(['error']);
           }
+        } catch (error) {
+          this.router.navigate(['error']);
         }
       });
     }
 
     ngOnDestroy(): void {
         this.sub$?.unsubscribe();
+        this.authSub$?.unsubscribe();
     }
 }

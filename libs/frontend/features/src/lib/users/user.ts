@@ -16,7 +16,7 @@ export class User implements UserInterface{
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.password = password;
+        this.password = password
         this.role = role;
         this.handicap = handicap;
         this.age = age;

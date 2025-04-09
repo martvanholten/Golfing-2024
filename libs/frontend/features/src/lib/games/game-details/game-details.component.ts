@@ -1,8 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GameService } from '@avans-nx-workshop/frontend/features';
-import { LocationService } from '@avans-nx-workshop/frontend/features';
-import { GameInterface, LocationInterface } from '@avans-nx-workshop/shared/interfaces';
+import { GameInterface } from '@avans-nx-workshop/shared/interfaces';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -13,31 +12,25 @@ import { Subscription } from 'rxjs';
 export class GameDetailsComponent implements OnDestroy{
     game?: GameInterface;
     name?: string | null;
-    locationId?: string | null;
+    locationName?: string | null;
     sub$?: Subscription;
-    location?: LocationInterface;
 
 
     constructor(
         private route: ActivatedRoute,
         private gameService: GameService,
-        private locationService: LocationService,
         private router: Router
     ) {}
 
     ngOnInit(): void {
         this.route.paramMap.subscribe((params) => {
             this.name = params.get('name');
-            this.locationId = params.get('location');
+            this.locationName = params.get('location');
             try {
-                if(this.name !== null && this.locationId !== null){
-                    this.sub$ = this.gameService.getOne(this.name, this.locationId)
+                if(this.name !== null && this.locationName !== null){
+                    this.sub$ = this.gameService.getOne(this.name, this.locationName)
                     .subscribe((r) => {
                         this.game = r.results as GameInterface;
-                    });
-                    this.sub$ = this.locationService.getOne(this.locationId)
-                    .subscribe((r) => {
-                        this.location = r.results as LocationInterface;
                     });
                 }
             } catch (error) {

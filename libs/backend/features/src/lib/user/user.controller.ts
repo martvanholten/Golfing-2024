@@ -1,18 +1,21 @@
 import {
     Body,
     Controller,
+    Delete,
     Get,
+    HttpCode,
     Logger,
     Param,
     Post,
     Put,
-    UseGuards
+    UseGuards,
 } from '@nestjs/common';
 import { UserService } from './user.service';
-import { ApiResponse, ApiResponseInterface, CreateUserInterface, LoginDataInterface, UserInterface } from '@avans-nx-workshop/shared/interfaces';
+import { ApiResponse, ApiResponseInterface, CreateUserInterface, LoginDataInterface, UserInterface, UserInterfaceResponse } from '@avans-nx-workshop/shared/interfaces';
 import { UserExistGuard } from './user-exists.guard';
 import { defer, Observable, of } from 'rxjs';
-import { UserDto} from '@avans-nx-workshop/backend/dto'
+import { UpdateUserDto, UserDto} from '@avans-nx-workshop/backend/dto'
+import { AccessTokenGuard } from '@avans-nx-workshop/backend/features';
 
 @Controller('user')
 export class UserController {
@@ -20,41 +23,41 @@ export class UserController {
     constructor(private readonly userService: UserService) {}
 
     @Get()
-    findAll(): Observable<ApiResponse<UserInterface[] | UserInterface>> {
+    findAll(): Observable<ApiResponse<UserInterfaceResponse[]>> {
+        this.logger.log('get users reached')
         return defer(() => this.userService.findAll());
     }
 
-    // this method should precede the general getOne method, otherwise it never matches
-    // @Get('self')
-    // getSelf(@InjectToken() token: Token): Observable<ApiResponseInterface<User[] | User>> {
-    //     return defer(() => this.userService.findOne(token.id));
-    // }
-    // async getSelf(@InjectToken() token: Token): Promise<IUser> {
-    //     const result = await this.userService.getOne(token.id);
-    //     return result;
-    // }
-
     @Get(':id')
-    findOne(@Param('id') id: string): Observable<ApiResponseInterface<UserInterface[] | UserInterface>> {
+    findOne(@Param('id') id: string): Observable<ApiResponseInterface<UserInterfaceResponse>> {
         return defer(() => this.userService.findOne(id));
     }
 
     @Post('')
-    // @UseGuards(UserExistGuard)
-    create(@Body() user: UserDto): Observable<ApiResponseInterface<UserInterface[] | UserInterface>> {
+    create(@Body() user: UserDto): Observable<ApiResponseInterface<UserInterfaceResponse>> {
         return defer(() => this.userService.create(user));
     }
 
-    @Put(':id')
-    update(
-        @Param('id') id: string,
-        @Body() user: CreateUserInterface
-    ): Observable<ApiResponseInterface<UserInterface[] | UserInterface>> {
-        return defer(() => this.userService.update(id, user));
+    @Put('login')
+    login(@Body() login: LoginDataInterface): Observable<ApiResponseInterface<UserInterface>> {
+        return defer(() => this.userService.login(login));
     }
 
     @Put(':id')
-    login(@Body() login: LoginDataInterface): Observable<ApiResponseInterface<UserInterface[] | UserInterface>> {
-        return defer(() => this.userService.login(login));
+    @UseGuards(AccessTokenGuard)
+    update(
+        @Param('id') id: string,
+        @Body() user: UpdateUserDto
+    ): Observable<ApiResponseInterface<UserInterfaceResponse>> {
+        return defer(() => this.userService.update(id, user));
+    }
+
+    @Delete()
+    @UseGuards(AccessTokenGuard)
+    delete(
+        @Body() user: UserInterface
+    ): Observable<ApiResponseInterface<UserInterfaceResponse>> {
+        return defer(() => this.userService.delete(user));
     }
 }
+

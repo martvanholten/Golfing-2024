@@ -6,7 +6,7 @@ import {
     IsDate
 } from 'class-validator';
 
-import { CreateUserInterface, LoginDataInterface, TeamInterface, } from '@avans-nx-workshop/shared/interfaces';
+import { CreateUserInterface, LoginDataInterface, TeamInterface, UserInterface, } from '@avans-nx-workshop/shared/interfaces';
 
 export class LoginData implements LoginDataInterface{
     email!: string;
@@ -16,6 +16,27 @@ export class LoginData implements LoginDataInterface{
 export class UserDto implements CreateUserInterface{
     // @IsNotEmpty()
     // _id!: string;
+    @IsNotEmpty()
+    firstName!: string;
+    @IsNotEmpty()
+    lastName!: string;
+    @IsNotEmpty()
+    email!: string;
+    @IsNotEmpty()
+    password!: string;
+    @IsNotEmpty()
+    role!: string;
+    @IsNotEmpty()
+    handicap!: number;
+    @IsNotEmpty()
+    age!: number;
+    @IsNotEmpty()
+    teams: TeamInterface[] = new Array<TeamInterface>;
+}
+
+export class UpdateUserDto implements UserInterface{
+    @IsNotEmpty()
+    _id!: string;
     @IsNotEmpty()
     firstName!: string;
     @IsNotEmpty()

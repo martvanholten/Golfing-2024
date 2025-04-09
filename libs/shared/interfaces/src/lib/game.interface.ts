@@ -1,8 +1,7 @@
 import { TeamInterface } from "./team.interface";
 
-//Could make a new interface with name and location to add to team
 export interface GameInterface{
-    winner: string;
+    winner?: string;
     date: Date;
     holes: number;
     name:string;

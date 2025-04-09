@@ -56,7 +56,13 @@
                         }"
                         required
                     />
-                </div>               
+                </div>   
+                <div
+                    *ngIf="lastName.invalid && lastName.touched"
+                    class="invalid-feedback"
+                >
+                    <div>Achternaam naam moet gevuld zijn.</div>
+                </div>            
             </div>
             <div class="row font-weight-bold">
                 <div class="col text-success"><label for="handicap">Handicap:</label></div>
@@ -75,6 +81,12 @@
                         }"
                         required
                     />
+                </div>
+                <div
+                    *ngIf="handicap.invalid && handicap.touched"
+                    class="invalid-feedback"
+                >
+                    <div>Handicap naam moet gevuld zijn.</div>
                 </div>
                 <div class="col">
                     <input
@@ -112,6 +124,13 @@
                         required
                     />
                 </div>
+                <div
+                    *ngIf="email.invalid && email.touched"
+                    class="invalid-feedback"
+                >
+                    <div>Email moet een geldige email zijn.</div>
+                </div>
+                <!-- Make a dropdown with captain and member -->
                 <div class="col">
                     <input
                         type="text"
@@ -146,6 +165,12 @@
                         }"
                         required
                     />
+                </div>
+                <div
+                    *ngIf="password.invalid && password.touched"
+                    class="invalid-feedback"
+                >
+                    <div>Wachtwoord moet een cijfer hebben.</div>
                 </div>
             </div>
             <div class="row font-weight-bold">

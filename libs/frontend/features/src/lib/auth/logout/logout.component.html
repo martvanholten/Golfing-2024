@@ -1,0 +1,15 @@
+<h5 class="bg-success text-white text-center m-2 p-2">Logout</h5>
+<div class="d-flex justify-content-center">
+    @if(user === undefined || user === null){
+        <div class="text-center">
+            <p class="display-6 text">Je bent niet ingelogd</p>
+        </div>
+    }@else {
+        <div class="col row font-weight-bold">
+            <div class="text-center">
+                <p class="display-6 text">Je bent ingelogd {{ user.firstName }} {{ user.lastName }}</p>
+            </div>
+            <div class="col" align="center"><button class="btn btn-success mt-3" (click)="logout()">Logout</button></div>
+        </div>
+    }
+</div>

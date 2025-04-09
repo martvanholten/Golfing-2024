@@ -1,8 +1,9 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CreateTeam, Team } from '@avans-nx-workshop/frontend/features';
+import { AuthService, CreateTeam, Team } from '@avans-nx-workshop/frontend/features';
 import { TeamService } from '@avans-nx-workshop/frontend/features';
-import { CreateTeamInterface, TeamInterface } from '@avans-nx-workshop/shared/interfaces';
+import { CreateTeamInterface, TeamInterface, UserInterface } from '@avans-nx-workshop/shared/interfaces';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -11,61 +12,66 @@ import { Subscription } from 'rxjs';
     styleUrls: ['./team-update.component.css']
 })
 export class TeamUpdateComponent implements OnDestroy{
-    teamId: string | null = null;
-    team: TeamInterface | CreateTeamInterface = new CreateTeam;
+    team: CreateTeamInterface = new CreateTeam;
     sub$?: Subscription;
+    authSub$?: Subscription;
+    token$?: Subscription;
+    currentUser?: UserInterface;
+    httpOptions?: any;
+    token?: string;
   
     constructor(
       private route: ActivatedRoute,
       private teamService: TeamService,
+      private authService: AuthService,
       private router: Router
     ) {}
   
     ngOnInit(): void {
       this.route.paramMap.subscribe((params) => {
-        if(params.get('id') !== null){
-          try {
-            this.teamId = params.get('id');
-            this.sub$ = this.teamService.getOne(this.teamId!).subscribe((r) => {
-              if(r.message === 'succes'){
-                this.team = r.results! as TeamInterface;
-              }else if(r.message === 'not found'){
-                //show alert
-              }else if(r.message === 'succes'){
-                this.router.navigate(['error']);
-              }
-            });  
-          } catch (error) {
-            this.router.navigate(['error']);
+        this.authSub$ = this.authService.getUserFromLocalStorage().subscribe((u) =>{
+          if(u != null){
+            this.currentUser = u;
           }
-        }
+        });
+
+        this.token$ = this.authService.getTokenFromLocalStorage().subscribe((t) => {
+          if(t !== null && t !== undefined){
+            this.token = t
+          }
+        });
       });
     }
 
     onSubmit(): void{
       try {
-        if(this.team instanceof CreateTeam){
-          this.sub$ = this.teamService.createOne(this.team).subscribe((r) => {
+        this.httpOptions = {
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+             Authorization: 'Bearer ' + this.token,
+            })
+            }
+        if(this.currentUser !== null && this.currentUser !== undefined){
+          this.team.teamCaptain = this.currentUser._id;
+          this.team.golfers = new Array<UserInterface>()
+          this.team.golfers.push(this.currentUser)
+          this.teamService.createOne(this.team as CreateTeamInterface).subscribe((r) => {
             if(r.message === "error"){
               this.router.navigate(['error']);
+            }else if(r.message = "succes"){
+              this.router.navigate(['teams']);
             }
           });
         }else{
-          if(this.team instanceof Team){
-            this.teamService.updateOne(this.team).subscribe((r) => {
-              if(r.message === "error"){
-                this.router.navigate(['error']);
-              }
-            });
-          }
+          this.router.navigate(['user/login']);
         }
-        this.router.navigate([''], { relativeTo: this.route });
-      } catch (error) {
-        this.router.navigate(['error']);
-      }
+    } catch (error) {
+      this.router.navigate(['error']);
     }
+  }
   
-    ngOnDestroy(): void {
-      this.sub$?.unsubscribe();
-    }
+  ngOnDestroy(): void {
+    this.sub$?.unsubscribe();
+    this.authSub$?.unsubscribe();
+  }
 }

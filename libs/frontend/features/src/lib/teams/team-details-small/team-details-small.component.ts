@@ -1,6 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Team } from '@avans-nx-workshop/frontend/features';
 import { TeamService } from '@avans-nx-workshop/frontend/features';
 import { TeamInterface } from '@avans-nx-workshop/shared/interfaces';
 import { Subscription } from 'rxjs';

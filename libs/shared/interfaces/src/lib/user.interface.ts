@@ -1,6 +1,5 @@
 import { TeamInterface } from "./team.interface";
 
-//Could make a interface with id and name to add to teams
 export interface UserInterface{
     _id: string;
     firstName: string;

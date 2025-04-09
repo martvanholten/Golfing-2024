@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { catchError, map, Observable, of, tap, throwError } from 'rxjs';
-import { Location } from './location';
+import { catchError, map, Observable, tap, throwError } from 'rxjs';
 import { ApiResponseInterface, LocationInterface } from '@avans-nx-workshop/shared/interfaces';
 import { environment } from '@avans-nx-workshop/shared/util-env';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';

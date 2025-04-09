@@ -1,5 +1,4 @@
 import { CreateLocationInterface, GameInterface, LocationInterface } from '@avans-nx-workshop/shared/interfaces';
-import { Game } from '../games/game';
 
 export class Location implements LocationInterface{
     _id!: string;

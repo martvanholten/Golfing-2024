@@ -26,6 +26,7 @@ import { LocationService } from './locations/location.service';
 import { TeamService } from './teams/team.service';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './auth/login/login.component';
+import { LogoutComponent } from './auth/logout/logout.component';
 import { AuthService } from './auth/auth.service';
 
 @NgModule({
@@ -50,6 +51,7 @@ import { AuthService } from './auth/auth.service';
         LocationDetailsComponent,
         LocationDetailsSmallComponent,
         LoginComponent,
+        LogoutComponent,
     ],
     imports: [CommonModule, RouterModule, FormsModule],
     exports: 
@@ -74,6 +76,7 @@ import { AuthService } from './auth/auth.service';
         LocationDetailsComponent,
         LocationDetailsSmallComponent,
         LoginComponent,
+        LogoutComponent,
     ],
     providers: 
     [

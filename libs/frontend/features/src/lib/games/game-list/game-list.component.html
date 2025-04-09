@@ -9,13 +9,15 @@
         </thead>
         <tbody>
             <tr *ngFor="let game of games">
-                <td class="text-success">{{ game.name }}</td>
                 <td class="text-success">
                     <a class="text-success" routerLink="{{ game.name }}/{{ game.location }}">
-                        {{ game.location }}
+                        {{ game.name }}
                     </a>
                 </td>
-                <td class="text-success">{{ game?.date?.getFullYear() }}-{{ game?.date?.getMonth() }}-{{ game?.date?.getDay() }}</td>
+                <td class="text-success">
+                    {{ game.location }}
+                </td>
+                <td class="text-success">{{ game?.date }}</td>
             </tr>
         </tbody>
     </table>

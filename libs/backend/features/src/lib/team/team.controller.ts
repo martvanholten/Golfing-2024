@@ -1,6 +1,7 @@
 import {
     Body,
     Controller,
+    Delete,
     Get,
     Logger,
     Param,
@@ -9,8 +10,10 @@ import {
     UseGuards
 } from '@nestjs/common';
 import { TeamService } from './team.service';
-import { ApiResponse, ApiResponseInterface, CreateTeamInterface, TeamInterface } from '@avans-nx-workshop/shared/interfaces';
+import { ApiResponse, ApiResponseInterface, TeamInterface } from '@avans-nx-workshop/shared/interfaces';
 import { defer, Observable, of } from 'rxjs';
+import { AccessTokenGuard } from '@avans-nx-workshop/backend/features';
+import { TeamDto } from '@avans-nx-workshop/backend/dto';
 
 @Controller('team')
 export class TeamController {
@@ -22,15 +25,11 @@ export class TeamController {
         return defer(() => this.teamService.findAll());
     }
 
-    // this method should precede the general getOne method, otherwise it never matches
-    // @Get('self')
-    // getSelf(@InjectToken() token: Token): Observable<ApiResponseInterface<User[] | User>> {
-    //     return defer(() => this.userService.findOne(token.id));
-    // }
-    // async getSelf(@InjectToken() token: Token): Promise<IUser> {
-    //     const result = await this.userService.getOne(token.id);
-    //     return result;
-    // }
+    @Get('top')
+    topFiveTeams(): Observable<ApiResponseInterface<TeamInterface[]>> {
+        this.logger.log('reached controller top five')
+        return defer(() => this.teamService.findTopFive());
+    }
 
     @Get(':id')
     findOne(@Param('id') id: string): Observable<ApiResponseInterface<TeamInterface>> {
@@ -38,22 +37,24 @@ export class TeamController {
     }
 
     @Post('')
-    // @UseGuards(UserExistGuard)
-    create(@Body() team: CreateTeamInterface): Observable<ApiResponseInterface<TeamInterface>> {
+    @UseGuards(AccessTokenGuard)
+    create(@Body() team: TeamDto): Observable<ApiResponseInterface<TeamInterface>> {
         return defer(() => this.teamService.create(team));
     }
 
-    @Put(':id')
+    @Put(':userId')
+    @UseGuards(AccessTokenGuard)
     update(
-        @Param('id') id: string,
-        @Body() team: CreateTeamInterface
+        @Param('userId') userId: string,
+        @Body() team: TeamInterface
     ): Observable<ApiResponseInterface<TeamInterface>> {
-        return defer(() => this.teamService.update(id, team));
+        return defer(() => this.teamService.update(userId, team));
     }
 
-    @Get('top')
-    topFiveTeams(): Observable<ApiResponseInterface<TeamInterface[]>> {
-        this.logger.log('reached controller top five')
-        return defer(() => this.teamService.findTopFive());
+    //Might be easier to use teamInterface instead of id
+    @Delete(':id/:userId')
+    @UseGuards(AccessTokenGuard)
+    delete(@Param('id') id: string, @Param('userId') userId: string): Observable<ApiResponseInterface<TeamInterface>> {
+        return defer(() => this.teamService.delete(id, userId));
     }
 }

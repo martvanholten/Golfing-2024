@@ -1,4 +1,4 @@
-import { TeamInterface, UserInterface } from "@avans-nx-workshop/shared/interfaces";
+import { TeamInterface, UserInterface, UserInterfaceResponse } from "@avans-nx-workshop/shared/interfaces";
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose"
 import { IsMongoId } from "class-validator";
 import { Document } from "mongoose"

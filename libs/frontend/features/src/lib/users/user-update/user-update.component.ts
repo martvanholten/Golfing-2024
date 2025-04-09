@@ -1,9 +1,10 @@
-import { Component, EventEmitter, OnDestroy } from '@angular/core';
+import { HttpHeaders } from '@angular/common/http';
+import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CreateUser, User } from '@avans-nx-workshop/frontend/features';
+import { AuthService, CreateUser, LoginData, User } from '@avans-nx-workshop/frontend/features';
 import { UserService } from '@avans-nx-workshop/frontend/features';
-import { ApiResponseInterface, CreateUserInterface, UserInterface } from '@avans-nx-workshop/shared/interfaces';
-import { Subscribable, Subscription } from 'rxjs';
+import { CreateUserInterface, UserInterface, UserInterfaceResponse } from '@avans-nx-workshop/shared/interfaces';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'avans-nx-workshop-user-update',
@@ -12,40 +13,52 @@ import { Subscribable, Subscription } from 'rxjs';
 })
 
 export class UserUpdateComponent implements OnDestroy{
-  userId: string | null = null;
   user: UserInterface | CreateUserInterface = new CreateUser;
-  oldUser?: UserInterface | null;
+  currentUser?: UserInterface;
+  user$?: Subscription;
   sub$?: Subscription;
+  token$?: Subscription;
+  token?: string;
+  httpOptions?: any;
+  loginData?: LoginData;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private userService: UserService,
+    private authService: AuthService,
   ) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
-      if(params.get('id') !== null){
-        try {
-          this.userId = params.get('id');
-          this.sub$ = this.userService.getOne(this.userId!).subscribe((r) => {
-            if(r.message === "succes"){
-              this.oldUser = r.results as User
-              this.user = new User(
-                this.oldUser._id, this.oldUser.firstName, this.oldUser.lastName, 
-                this.oldUser.email, this.oldUser.password, this.oldUser.role, 
-                this.oldUser.handicap, this.oldUser.age
-              );
-            }else if(r.message === "not found"){
-              console.log('reached not found')
-             //show alert
-            }else if(r.message === "error"){
-              this.router.navigate(['error']);
-            }
-          });
-        } catch (error) {
-          this.router.navigate(['error']);
+      try {
+        this.user$ = this.authService.getUserFromLocalStorage().subscribe((u) => {
+          if(u !== null && u !== undefined){
+            this.currentUser = u;
+          }
+        });
+
+        this.token$ = this.authService.getTokenFromLocalStorage().subscribe((t) => {
+          if(t !== null && t !== undefined){
+            this.token = t
+          }
+        });
+
+        if(this.currentUser != null){
+          this.user = new User(
+            this.currentUser._id,
+            this.currentUser.firstName,
+            this.currentUser.lastName,
+            this.currentUser.email,
+            "",
+            this.currentUser.role,
+            this.currentUser.handicap,
+            this.currentUser.age
+          )
         }
+        
+      } catch (error) {
+        this.router.navigate(['error']);
       }
     });
   }
@@ -53,30 +66,43 @@ export class UserUpdateComponent implements OnDestroy{
   onSubmit(): void{
     try {
       if(this.user instanceof CreateUser){
-        console.log('reached if no user')
-        this.sub$ = this.userService.createOne(this.user).subscribe((r) => {
+        this.user$ = this.userService.createOne(this.user).subscribe((r) => {
           if(r.message === "error"){
             this.router.navigate(['error']);
+          }else if(r.message === "already exists"){
+            //pop up
+          }else{
+            this.router.navigate(['users']);
           }
         });
       }else{
         if(this.user instanceof User){
-          this.userService.updateOne(this.user).subscribe((r) => {
-            console.log()
+          this.httpOptions = {
+              headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + this.token,
+              })
+            }
+          this.userService.updateOne(this.user, this.httpOptions).subscribe((r) => {
             if(r.message === "error"){
               this.router.navigate(['error']);
+            }else if(r.message = "succes"){
+              if(this.token != null){
+                this.authService.saveUserToLocalStorage(this.user as UserInterface, this.token)
+              }
             }
           });
         }
       }
-      // this.router.navigate([''], { relativeTo: this.route });
+      this.router.navigate([''], { relativeTo: this.route });
     } catch (error) {
-      console.log('reached error')
       this.router.navigate(['error']);
     }
   }
 
   ngOnDestroy(): void {
-    this.sub$?.unsubscribe();
+    this.user$?.unsubscribe();
+    this.token$?.unsubscribe();
+    this.sub$?.unsubscribe()
   }
 }
