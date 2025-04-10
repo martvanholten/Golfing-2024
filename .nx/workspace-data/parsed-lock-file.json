@@ -3289,9 +3289,9 @@
       "type": "npm",
       "name": "npm:@mongodb-js/saslprep",
       "data": {
-        "version": "1.1.9",
+        "version": "1.2.2",
         "packageName": "@mongodb-js/saslprep",
-        "hash": "sha512-tVkljjeEaAhCqTzajSdgbQ6gE6f3oneVwa3iXR6csiEwXXOFsiC6Uh9iAjAhXPtqa/XMDHWjjeNH/77m/Yq2dw=="
+        "hash": "sha512-EB0O3SCSNRUFk66iRCpI+cXzIjdswfCs7F6nOC3RAGJ7xr5YhaicvsRwJ9eyzYvYRlCSDUO/c7g4yNulxKC1WA=="
       }
     },
     "npm:@msgpackr-extract/msgpackr-extract-darwin-arm64": {
@@ -6628,9 +6628,9 @@
       "type": "npm",
       "name": "npm:bson",
       "data": {
-        "version": "6.9.0",
+        "version": "6.10.3",
         "packageName": "bson",
-        "hash": "sha512-X9hJeyeM0//Fus+0pc5dSUMhhrrmWwQUtdavaQeF3Ta6m69matZkGWV/MrBcnwUeLC8W9kwwc2hfkZgUuCX3Ig=="
+        "hash": "sha512-MTxGsqgYTwfshYWTRdmZRC+M7FnG1b4y7RO7p2k3X24Wq0yv1m77Wsj0BzlPzd/IowgESfsruQCUToa7vbOpPQ=="
       }
     },
     "npm:btoa": {
@@ -11380,27 +11380,27 @@
       "type": "npm",
       "name": "npm:mongodb",
       "data": {
-        "version": "6.10.0",
+        "version": "6.15.0",
         "packageName": "mongodb",
-        "hash": "sha512-gP9vduuYWb9ZkDM546M+MP2qKVk5ZG2wPF63OvSRuUbqCR+11ZCAE1mOfllhlAG0wcoJY5yDL/rV3OmYEwXIzg=="
+        "hash": "sha512-ifBhQ0rRzHDzqp9jAQP6OwHSH7dbYIQjD3SbJs9YYk9AikKEettW/9s/tbSFDTpXcRbF+u1aLrhHxDFaYtZpFQ=="
       }
     },
     "npm:mongodb-connection-string-url": {
       "type": "npm",
       "name": "npm:mongodb-connection-string-url",
       "data": {
-        "version": "3.0.1",
+        "version": "3.0.2",
         "packageName": "mongodb-connection-string-url",
-        "hash": "sha512-XqMGwRX0Lgn05TDB4PyG2h2kKO/FfWJyCzYQbIhXUxz7ETt0I/FqHjUeqj37irJ+Dl1ZtU82uYyj14u2XsZKfg=="
+        "hash": "sha512-rMO7CGo/9BFwyZABcKAWL8UJwH/Kc2x0g72uhDWzG48URRax5TCIcJ7Rc3RZqffZzO/Gwff/jyKwCU9TN8gehA=="
       }
     },
-    "npm:tr46@4.1.1": {
+    "npm:tr46@5.1.0": {
       "type": "npm",
-      "name": "npm:tr46@4.1.1",
+      "name": "npm:tr46@5.1.0",
       "data": {
-        "version": "4.1.1",
+        "version": "5.1.0",
         "packageName": "tr46",
-        "hash": "sha512-2lv/66T7e5yNyhAAC4NaKe5nVavzuGJQVVtRYLyQ2OI8tsJ61PMLlelehb0wi2Hx6+hT/OJUWZcw8MjlSRnxvw=="
+        "hash": "sha512-IUWnUK7ADYR5Sl1fZlO1INDUhVhatWl7BtJWsIhwJ0UAK7ilzzIa8uIqOO/aYVWHZPJkKbEL+362wrzoeRF7bw=="
       }
     },
     "npm:tr46@0.0.3": {
@@ -11421,13 +11421,13 @@
         "hash": "sha512-l7FvfAHlcmulp8kr+flpQZmVwtu7nfRV7NZujtN0OqES8EL4O4e0qqzL0DC5gAvx/ZC/9lk6rhcUwYvkBnBnYA=="
       }
     },
-    "npm:whatwg-url@13.0.0": {
+    "npm:whatwg-url@14.2.0": {
       "type": "npm",
-      "name": "npm:whatwg-url@13.0.0",
+      "name": "npm:whatwg-url@14.2.0",
       "data": {
-        "version": "13.0.0",
+        "version": "14.2.0",
         "packageName": "whatwg-url",
-        "hash": "sha512-9WWbymnqj57+XEuqADHrCJ2eSXzn8WXIW/YSGaZtb2WKAInQ6CHfaUUcTyyver0p8BDg5StLQq8h1vtZuwmOig=="
+        "hash": "sha512-De72GdQZzNTUBBChsXueQUnPKDkg/5A5zp7pFDuQAj5UFoENpiACU0wlCvzpAGnTkj++ihpKwKyYewn/XNUbKw=="
       }
     },
     "npm:whatwg-url@5.0.0": {
@@ -11452,9 +11452,9 @@
       "type": "npm",
       "name": "npm:mongoose",
       "data": {
-        "version": "8.8.1",
+        "version": "8.13.2",
         "packageName": "mongoose",
-        "hash": "sha512-l7DgeY1szT98+EKU8GYnga5WnyatAu+kOQ2VlVX1Mxif6A0Umt0YkSiksCiyGxzx8SPhGe9a53ND1GD4yVDrPA=="
+        "hash": "sha512-riCBqZmNkYBWjXpM3qWLDQw7QmTKsVZDPhLXFJqC87+OjocEVpvS3dA2BPPUiLAu+m0/QmEj5pSXKhH+/DgerQ=="
       }
     },
     "npm:mpath": {
@@ -29259,21 +29259,21 @@
     },
     {
       "source": "npm:mongodb-connection-string-url",
-      "target": "npm:whatwg-url@13.0.0",
+      "target": "npm:whatwg-url@14.2.0",
       "type": "static"
     },
     {
-      "source": "npm:tr46@4.1.1",
+      "source": "npm:tr46@5.1.0",
       "target": "npm:punycode",
       "type": "static"
     },
     {
-      "source": "npm:whatwg-url@13.0.0",
-      "target": "npm:tr46@4.1.1",
+      "source": "npm:whatwg-url@14.2.0",
+      "target": "npm:tr46@5.1.0",
       "type": "static"
     },
     {
-      "source": "npm:whatwg-url@13.0.0",
+      "source": "npm:whatwg-url@14.2.0",
       "target": "npm:webidl-conversions",
       "type": "static"
     },
