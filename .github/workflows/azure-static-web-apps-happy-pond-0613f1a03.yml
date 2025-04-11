@@ -1,4 +1,4 @@
-name: Azure Static Web App golfing CI/CD
+name: Azure Static Web Apps CI/CD
 
 on:
   push:
@@ -56,5 +56,3 @@ jobs:
         uses: Azure/static-web-apps-deploy@v1
         with:
           action: "close"
-Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-More GitHub Actions for Azure: https://github.com/Azure/actions
