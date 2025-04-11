@@ -10,7 +10,7 @@ import {
 import { ApiResponse, ApiResponseInterface, GameInterface, LocationInterface } from '@avans-nx-workshop/shared/interfaces';
 import { defer, Observable, of } from 'rxjs';
 import { LocationService } from './location.service';
-import { AccessTokenGuard } from '@avans-nx-workshop/backend/features';
+import { AccessTokenGuard } from '../auth/guard/access-token.guard';
 
 @Controller('location')
 export class LocationController {

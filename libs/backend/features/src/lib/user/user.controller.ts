@@ -14,8 +14,8 @@ import { UserService } from './user.service';
 import { ApiResponse, ApiResponseInterface, CreateUserInterface, LoginDataInterface, UserInterface, UserInterfaceResponse } from '@avans-nx-workshop/shared/interfaces';
 import { UserExistGuard } from './user-exists.guard';
 import { defer, Observable, of } from 'rxjs';
-import { UpdateUserDto, UserDto} from '@avans-nx-workshop/backend/dto'
-import { AccessTokenGuard } from '@avans-nx-workshop/backend/features';
+import { UpdateUserDto, UserDto } from '@avans-nx-workshop/backend/dto'
+import { AccessTokenGuard } from '../auth/guard/access-token.guard';
 
 @Controller('user')
 export class UserController {

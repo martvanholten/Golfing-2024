@@ -1,5 +1,5 @@
 import { HttpException, Injectable, Logger } from '@nestjs/common';
-import { ApiResponse, ApiResponseInterface, CreateTeamInterface, TeamInterface } from '@avans-nx-workshop/shared/interfaces';
+import { ApiResponse, ApiResponseInterface, TeamInterface } from '@avans-nx-workshop/shared/interfaces';
 import { TeamRepo } from './team.repo';
 import { TeamDto } from '@avans-nx-workshop/backend/dto';
 

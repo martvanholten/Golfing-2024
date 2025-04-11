@@ -12,7 +12,7 @@ import {
 import { TeamService } from './team.service';
 import { ApiResponse, ApiResponseInterface, TeamInterface } from '@avans-nx-workshop/shared/interfaces';
 import { defer, Observable, of } from 'rxjs';
-import { AccessTokenGuard } from '@avans-nx-workshop/backend/features';
+import { AccessTokenGuard } from '../auth/guard/access-token.guard';
 import { TeamDto } from '@avans-nx-workshop/backend/dto';
 
 @Controller('team')

@@ -1,7 +1,7 @@
 import { HttpException, Injectable, Logger } from '@nestjs/common';
 import { ApiResponse, ApiResponseInterface, GameInterface, LocationInterface, TeamInterface } from '@avans-nx-workshop/shared/interfaces';
 import { LocationRepo } from './location.repo';
-import { TeamService } from '@avans-nx-workshop/backend/features';
+import { TeamService } from '../team/team.service';
 
 @Injectable()
 export class LocationService {

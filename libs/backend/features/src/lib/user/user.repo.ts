@@ -2,7 +2,7 @@ import { HttpException, Injectable, Logger } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { User as UserModel, UserDocument, User } from './user.schema';
-import { CreateUserInterface, UserInterface, UserInterfaceResponse } from '@avans-nx-workshop/shared/interfaces';
+import { UserInterface, UserInterfaceResponse } from '@avans-nx-workshop/shared/interfaces';
 import { UpdateUserDto, UserDto } from '@avans-nx-workshop/backend/dto';
 import { UserResponse } from './userResponse';
 
