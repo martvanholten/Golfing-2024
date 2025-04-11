@@ -38,52 +38,20 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".eslintrc.json",
-        "hash": "18315524891129148814"
-      },
-      {
-        "file": ".github/workflows/deployment.yml",
-        "hash": "4052549723541968799"
-      },
-      {
-        "file": "README.md",
-        "hash": "1955868086715526908"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "8491837053101957257"
-      },
-      {
-        "file": ".eslintignore",
-        "hash": "7663861978715868291"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "10108623148106491341"
-      },
-      {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
-        "file": "jest.preset.js",
-        "hash": "9430166341120122740"
-      },
-      {
         "file": "jest.config.ts",
         "hash": "12333515226966617182"
       },
       {
-        "file": ".prettierrc",
-        "hash": "6192629144332209564"
-      },
-      {
-        "file": "Nx-workshop.postman_collection.json",
-        "hash": "13796819436055774183"
+        "file": "nx.json",
+        "hash": "13543554231657983656"
       },
       {
         "file": ".prettierignore",
         "hash": "3395189204293871444"
+      },
+      {
+        "file": "Nx-workshop.postman_collection.json",
+        "hash": "13796819436055774183"
       },
       {
         "file": "package.json",
@@ -94,16 +62,48 @@
         "hash": "10764924908146528248"
       },
       {
+        "file": "README.md",
+        "hash": "1955868086715526908"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
         "file": "package-lock.json",
         "hash": "8670711455265567199"
       },
       {
-        "file": "nx.json",
-        "hash": "13543554231657983656"
+        "file": ".eslintignore",
+        "hash": "7663861978715868291"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "8491837053101957257"
       },
       {
         "file": ".github/workflows/azure-static-web-apps-happy-pond-0613f1a03.yml",
         "hash": "2803031564751129662"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "6192629144332209564"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "10108623148106491341"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "18315524891129148814"
+      },
+      {
+        "file": ".github/workflows/deployment.yml",
+        "hash": "4052549723541968799"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "9430166341120122740"
       }
     ],
     "projectFileMap": {
@@ -342,7 +342,7 @@
         },
         {
           "file": "libs/frontend/ui/src/lib/dashboard/dashboard.component.ts",
-          "hash": "6345533060078091305",
+          "hash": "10814813526207683178",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
@@ -386,7 +386,7 @@
         },
         {
           "file": "libs/frontend/ui/src/lib/ui/footer/footer.component.html",
-          "hash": "10331522694681697903"
+          "hash": "4877657477299309014"
         },
         {
           "file": "libs/frontend/ui/src/lib/ui/footer/footer.component.spec.ts",
@@ -602,7 +602,7 @@
         },
         {
           "file": "libs/frontend/features/src/lib/features.module.ts",
-          "hash": "14356423677432288886",
+          "hash": "5720290595617782984",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
@@ -1749,10 +1749,6 @@
           "hash": "4542380656080258925"
         },
         {
-          "file": "apps/rcmnd-api/src/app/app.controller.spec.ts",
-          "hash": "18125570136093717596"
-        },
-        {
           "file": "apps/rcmnd-api/src/app/app.module.ts",
           "hash": "4463783860191234022",
           "deps": [
@@ -1761,21 +1757,6 @@
             "npm:nest-neo4j",
             "util-env"
           ]
-        },
-        {
-          "file": "apps/rcmnd-api/src/app/app.resolver.ts",
-          "hash": "9378763206679469170",
-          "deps": [
-            "npm:@nestjs/graphql"
-          ]
-        },
-        {
-          "file": "apps/rcmnd-api/src/app/app.service.spec.ts",
-          "hash": "1628401526398489560"
-        },
-        {
-          "file": "apps/rcmnd-api/src/app/app.service.ts",
-          "hash": "7090984528915651823"
         },
         {
           "file": "apps/rcmnd-api/src/assets/.gitkeep",

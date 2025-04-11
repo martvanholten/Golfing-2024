@@ -53,7 +53,7 @@ import { AuthService } from './auth/auth.service';
         LoginComponent,
         LogoutComponent,
     ],
-    imports: [CommonModule, RouterModule, FormsModule],
+    imports: [CommonModule, RouterModule, FormsModule,],
     exports: 
     [
         FormsModule,

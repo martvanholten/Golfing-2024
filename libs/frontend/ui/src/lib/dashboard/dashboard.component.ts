@@ -5,7 +5,7 @@ import { FeaturesModule } from '@avans-nx-workshop/frontend/features';
 @Component({
     selector: 'avans-nx-workshop-dashboard',
     standalone: true,
-    imports: [CommonModule, FeaturesModule],
+    imports: [ CommonModule, FeaturesModule ],
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.css']
 })

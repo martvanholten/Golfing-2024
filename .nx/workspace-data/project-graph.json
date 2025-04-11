@@ -18220,11 +18220,6 @@
       },
       {
         "source": "rcmnd-api",
-        "target": "npm:@nestjs/graphql",
-        "type": "static"
-      },
-      {
-        "source": "rcmnd-api",
         "target": "npm:@nestjs/core",
         "type": "static"
       },
