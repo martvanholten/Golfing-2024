@@ -1357,8 +1357,22 @@
               "webpackConfig": "apps/rcmnd-api/webpack.config.js"
             },
             "configurations": {
-              "development": {},
-              "production": {}
+              "development": {
+                "fileReplacements": [
+                  {
+                    "replace": "libs/shared/util-env/src/lib/environment.ts",
+                    "with": "libs/shared/util-env/src/lib/environment.development.ts"
+                  }
+                ]
+              },
+              "production": {
+                "fileReplacements": [
+                  {
+                    "replace": "libs/shared/util-env/src/lib/environment.ts",
+                    "with": "libs/shared/util-env/src/lib/environment.production.ts"
+                  }
+                ]
+              }
             },
             "parallelism": true,
             "cache": true,
@@ -1682,7 +1696,13 @@
                     "maximumError": "4kb"
                   }
                 ],
-                "outputHashing": "all"
+                "outputHashing": "all",
+                "fileReplacements": [
+                  {
+                    "replace": "libs/shared/util-env/src/lib/environment.ts",
+                    "with": "libs/shared/util-env/src/lib/environment.production.ts"
+                  }
+                ]
               },
               "development": {
                 "buildOptimizer": false,
@@ -1690,7 +1710,13 @@
                 "vendorChunk": true,
                 "extractLicenses": false,
                 "sourceMap": true,
-                "namedChunks": true
+                "namedChunks": true,
+                "fileReplacements": [
+                  {
+                    "replace": "libs/shared/util-env/src/lib/environment.ts",
+                    "with": "libs/shared/util-env/src/lib/environment.development.ts"
+                  }
+                ]
               }
             },
             "defaultConfiguration": "production",
