@@ -9,7 +9,7 @@
             <div class="col">Winnaar:</div>
         </div>
         <div class="row">
-            <div class="col">{{ game?.date }}</div>
+            <div class="col">{{ game?.date | date }}</div>
             @if(game?.winner !== ""){
                 <div class="col">{{game?.winner}}</div>
             }@else{
