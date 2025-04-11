@@ -5,8 +5,9 @@ export const environment: IEnvironment = {
 
     ROOT_DOMAIN_URL: 'http://localhost:4200',
     dataApiUrl: 'http://localhost:3000/api',
+    NEO4J_DOMAIN_URL: 'http://localhost:3100/api',
 
-    MONGO_DB_CONNECTION_STRING: 'mongodb://localhost:27017/golfing',
+    MONGO_DB_CONNECTION_STRING: 'mongodb+srv://golfing:Password@golfing.4n543b4.mongodb.net/',
 
     JWT_ACCESS_TOKEN_SECRET: 'golfing-secret',
     JWT_ACCESS_TOKEN_EXP_TIME: '1d',

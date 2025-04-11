@@ -5,8 +5,10 @@ export const environment: IEnvironment = {
 
     ROOT_DOMAIN_URL: 'https://happy-pond-0613f1a03.5.azurestaticapps.net/',
     dataApiUrl: 'https://golfing-data-api.azurewebsites.net/',
+    NEO4J_DOMAIN_URL: 'https://golfing-api-neo4j.azurewebsites.net',
 
-    MONGO_DB_CONNECTION_STRING: 'mongodb+srv://mart:Kwartsio1!@golfing.kalu6wv.mongodb.net/?retryWrites=true&w=majority&appName=Golfing',
+
+    MONGO_DB_CONNECTION_STRING: 'mongodb+srv://golfing:Password@golfing.4n543b4.mongodb.net/',
 
     JWT_ACCESS_TOKEN_SECRET: 'golfing-secret',
     JWT_ACCESS_TOKEN_EXP_TIME: '1d',

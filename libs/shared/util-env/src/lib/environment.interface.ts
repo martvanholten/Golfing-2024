@@ -5,6 +5,7 @@ export interface IEnvironment {
 
     ROOT_DOMAIN_URL: string;
     dataApiUrl: string;
+    NEO4J_DOMAIN_URL: string;
 
     MONGO_DB_CONNECTION_STRING: string;
 
