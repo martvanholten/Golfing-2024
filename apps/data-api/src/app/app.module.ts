@@ -3,6 +3,8 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { environment } from '@avans-nx-workshop/shared/util-env';
 import { Logger } from '@nestjs/common';
 import { BackendFeaturesModule } from '@avans-nx-workshop/backend/features';
+import { ConfigService } from '@nestjs/config'
+ 
 @Module({
     imports: [
         MongooseModule.forRoot(environment.MONGO_DB_CONNECTION_STRING, {
@@ -21,4 +23,6 @@ import { BackendFeaturesModule } from '@avans-nx-workshop/backend/features';
     controllers: [],
     providers: []
 })
-export class AppModule {}
+export class AppModule {
+    confServ: ConfigService = undefined
+}

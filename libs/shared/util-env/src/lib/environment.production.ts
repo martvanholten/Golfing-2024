@@ -13,9 +13,9 @@ export const environment: IEnvironment = {
     JWT_ACCESS_TOKEN_SECRET: 'golfing-secret',
     JWT_ACCESS_TOKEN_EXP_TIME: '1d',
 
-    NEO4J_SCHEME: 'neo4j',
-    NEO4J_HOST: 'localhost',
-    NEO4J_PORT: '7687',
+    NEO4J_SCHEME: 'neo4j+s',
+    NEO4J_HOST: 'd3e9d72d.databases.neo4j.io',
+    NEO4J_PORT: '',
     NEO4J_USERNAME: 'neo4j',
-    NEO4J_PASSWORD: 'Password1!',
+    NEO4J_PASSWORD: 'mq7Xfy3nfb1lw3dpyuKhfgLOv5o3nPqO3oJYEXTPNi0',
 };

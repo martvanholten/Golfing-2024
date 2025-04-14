@@ -1,7 +1,7 @@
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { map, catchError, tap } from 'rxjs/operators';
-import { ApiResponseInterface, CreateUserInterface, UserInterface, UserInterfaceResponse } from '@avans-nx-workshop/shared/interfaces';
+import { ApiResponseInterface, CreateUserInterface, UserInterface, } from '@avans-nx-workshop/shared/interfaces';
 import { Injectable } from '@angular/core';
 import { environment } from '@avans-nx-workshop/shared/util-env';
 
@@ -19,30 +19,30 @@ export class UserService {
 
     constructor(private readonly http: HttpClient) {}
 
-    public getAll(options?: any): Observable<ApiResponseInterface<UserInterfaceResponse[]>> {
+    public getAll(options?: any): Observable<ApiResponseInterface<UserInterface[]>> {
         console.log(`get all users`);
         return this.http
-            .get<ApiResponseInterface<UserInterfaceResponse[]>>(this.endpoint, {
+            .get<ApiResponseInterface<UserInterface[]>>(this.endpoint, {
                 ...options,
                 ...httpOptionsUser,
             })
             .pipe(
-                map((response: any) => response as ApiResponseInterface<UserInterfaceResponse[]>),
+                map((response: any) => response as ApiResponseInterface<UserInterface[]>),
                 tap(console.log),
                 catchError(this.handleError)
             );
     }
 
-    public getOne(_id: string, options?: any): Observable<ApiResponseInterface<UserInterfaceResponse>> {
+    public getOne(_id: string, options?: any): Observable<ApiResponseInterface<UserInterface>> {
         console.log(`read ${this.endpoint}`);
         return this.http
-            .get<ApiResponseInterface<UserInterfaceResponse>>(this.endpoint + "/" + _id, {
+            .get<ApiResponseInterface<UserInterface>>(this.endpoint + "/" + _id, {
                 ...options,
                 ...httpOptionsUser,
             })
             .pipe(
                 tap(console.log),
-                map((response: any) => response as ApiResponseInterface<UserInterfaceResponse>),
+                map((response: any) => response as ApiResponseInterface<UserInterface>),
                 catchError(this.handleError)
             );
     }
@@ -61,32 +61,32 @@ export class UserService {
             );
     }
 
-    public createOne(user: CreateUserInterface, options?: any): Observable<ApiResponseInterface<UserInterfaceResponse>> {
+    public createOne(user: CreateUserInterface, options?: any): Observable<ApiResponseInterface<UserInterface>> {
         console.log(`read ${this.endpoint}`);
         return this.http
-            .post<ApiResponseInterface<UserInterfaceResponse>>(this.endpoint, user, {
+            .post<ApiResponseInterface<UserInterface>>(this.endpoint, user, {
                 ...options,
                 ...httpOptionsUser,
             })
             .pipe(
                 tap(console.log),
-                map((response: any) => response as ApiResponseInterface<UserInterfaceResponse>),
+                map((response: any) => response as ApiResponseInterface<UserInterface>),
                 catchError(this.handleError)
             );
     }
 
     //Could make it with id in the header and could check if adding body to httpOptionsUser works
-    public deleteOne(user: UserInterface, options?: any): Observable<ApiResponseInterface<UserInterfaceResponse>> {
+    public deleteOne(user: UserInterface, options?: any): Observable<ApiResponseInterface<UserInterface>> {
         console.log(`read ${this.endpoint}`);
         return this.http
-            .delete<ApiResponseInterface<UserInterfaceResponse>>(this.endpoint, {
+            .delete<ApiResponseInterface<UserInterface>>(this.endpoint, {
                 ...options,
                 ...httpOptionsUser,
                 body: user
             })
             .pipe(
                 tap(console.log),
-                map((response: any) => response as ApiResponseInterface<UserInterfaceResponse>),
+                map((response: any) => response as ApiResponseInterface<UserInterface>),
                 catchError(this.handleError)
             );
     }

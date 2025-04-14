@@ -18278,6 +18278,11 @@
       },
       {
         "source": "data-api",
+        "target": "npm:@nestjs/config",
+        "type": "static"
+      },
+      {
+        "source": "data-api",
         "target": "npm:@nestjs/core",
         "type": "static"
       },

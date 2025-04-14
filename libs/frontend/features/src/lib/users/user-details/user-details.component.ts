@@ -2,7 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@avans-nx-workshop/frontend/features';
 import { UserService } from '@avans-nx-workshop/frontend/features';
-import { UserInterfaceResponse } from '@avans-nx-workshop/shared/interfaces';
+import { UserInterface } from '@avans-nx-workshop/shared/interfaces';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
 export class UserDetailsComponent implements OnDestroy{
     userId: string | null = null;
     currentUser = false;
-    user?: UserInterfaceResponse;
+    user?: UserInterface;
     sub$?: Subscription;
     authSub$?: Subscription;
   
@@ -41,7 +41,7 @@ export class UserDetailsComponent implements OnDestroy{
               }else if(r.message === "error"){
                 this.router.navigate(['error']);
               }else if(r.message === "succes"){
-                this.user = r.results as UserInterfaceResponse;
+                this.user = r.results as UserInterface;
               }
             });
           }

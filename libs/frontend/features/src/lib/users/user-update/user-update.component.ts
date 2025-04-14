@@ -3,7 +3,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService, CreateUser, LoginData, User } from '@avans-nx-workshop/frontend/features';
 import { UserService } from '@avans-nx-workshop/frontend/features';
-import { CreateUserInterface, UserInterface, UserInterfaceResponse } from '@avans-nx-workshop/shared/interfaces';
+import { CreateUserInterface, UserInterface } from '@avans-nx-workshop/shared/interfaces';
 import { Subscription } from 'rxjs';
 
 @Component({

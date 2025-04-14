@@ -9,7 +9,11 @@
             <div class="text-center col">Baan groote:</div>
         </div>
         <div class="row">
-            <div class="col">{{team?.rank}}</div>
+            @if(team?.rank === 0){
+                <div class="col">Geen rank</div>
+            }@else {
+                <div class="col">{{team?.rank}}</div>
+            }
             @if(team?.largeGames){
                 <div class="col">Doet aan 9 holes</div>
             }@else {
@@ -37,10 +41,8 @@
         </table>
     </div>
     
-    <!-- add user list -->
     @if(this.isCaptain){
-        <div class="col" align="center"><a class="btn btn-success mt-3" routerLink="edit" routerLinkActive="actieve-link">Verwijder</a></div>
-        <!-- add input for user email -->
-        <div class="col" align="center"><a class="btn btn-success mt-3" routerLink="edit" routerLinkActive="actieve-link">Voeg toe</a></div>
+        <div class="col" align="center"><a class="btn btn-success mt-3" routerLink="edit" routerLinkActive="actieve-link">Wijzig</a></div>
+        <div class="col" align="center"><button class="btn btn-success mt-3" (click)="delete()" routerLinkActive="actieve-link">Verwijder</button></div>
     }
 </div>

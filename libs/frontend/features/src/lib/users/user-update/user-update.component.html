@@ -113,7 +113,7 @@
             <div class="row text-success">
                 <div class="col">
                     <input
-                        type="text"
+                        type="email"
                         class="form-control"
                         [(ngModel)]="user.email"
                         name="email"
@@ -130,10 +130,8 @@
                 >
                     <div>Email moet een geldige email zijn.</div>
                 </div>
-                <!-- Make a dropdown with captain and member -->
                 <div class="col">
-                    <input
-                        type="text"
+                    <select
                         class="form-control"
                         [(ngModel)]="user.role"
                         name="role"
@@ -142,7 +140,10 @@
                             'is-invalid': role.invalid
                         }"
                         required
-                    />
+                    >
+                        <option value="member">Team lid</option>
+                        <option value="team captain">Team capitein</option>
+                    </select>
                 </div>
             </div>
             <hr>

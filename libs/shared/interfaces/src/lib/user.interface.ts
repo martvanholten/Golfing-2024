@@ -12,17 +12,6 @@ export interface UserInterface{
     teams: TeamInterface[];
 }
 
-export interface UserInterfaceResponse{
-    _id: string;
-    firstName: string;
-    lastName: string;
-    email: string;
-    role: string;
-    handicap: number;
-    age: number;
-    teams: TeamInterface[];
-}
-
 export interface CreateUserInterface{
     firstName?: string;
     lastName?: string;

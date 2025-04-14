@@ -40,7 +40,8 @@ export class TeamDetailsComponent implements OnDestroy{
               });
             }else if(r.message === 'not found'){
               //show alert
-            }else if(r.message === 'succes'){
+              this.router.navigate(['']);
+            }else if(r.message === 'error'){
               this.router.navigate(['error']);
             }
           });  
@@ -50,8 +51,11 @@ export class TeamDetailsComponent implements OnDestroy{
       });
     }
 
-    onClickDelete(): void{
-
+    delete(): void{
+      if(this.isCaptain && this.team){
+        this.teamService.deleteOne(this.team._id);
+        this.router.navigate(['']);
+      }
     }
 
     ngOnDestroy(): void {

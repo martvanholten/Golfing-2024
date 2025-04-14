@@ -45,8 +45,7 @@
                     <div>Naam moet gevuld zijn.</div>
                 </div>
                 <div class="col">
-                    <input
-                        type="text"
+                    <select
                         class="form-control"
                         [(ngModel)]="team.largeGames"
                         name="largeGames"
@@ -55,7 +54,10 @@
                             'is-invalid': largeGames.invalid
                         }"
                         required
-                    />
+                    >
+                        <option value=true>9</option>
+                        <option value=false>18</option>
+                    </select>
                 </div>   
                 <div
                     *ngIf="largeGames.invalid && largeGames.touched"
@@ -81,5 +83,39 @@
                 </button>
             </div>
         </form>
+        <table class="table table-bordered table-striped table-sm">
+            <thead>
+                <tr>
+                    <th class="text-center text-success">Voornaam</th>
+                    <th class="text-center text-success">Achternaam</th>
+                    <th class="text-center text-success">Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of team?.golfers">
+                    <td class="text-center">{{ user.firstName }}</td>
+                    <td class="text-center">{{ user.lastName }}</td>
+                    <td class="text-center">{{ user.email }}</td>
+                </tr>
+            </tbody>
+        </table>
+        @if(team.teamCaptain === currentUser?._id) {
+            <div class="text-success">
+                <h6 class="font-weight-bold">Voeg team lid toe</h6>
+            </div>
+            <div class="col text-success">
+                <label for="email">
+                    Email:
+                </label>
+            </div>
+            <div class="col">
+                <input
+                    type="email"
+                    [(ngModel)]="addUserEmail"
+                    name="addUserEmail"
+                />
+            </div>
+            <div class="col" align="center"><button class="btn btn-success mt-3" (click)="addTeamMember(addUserEmail)" routerLinkActive="actieve-link">Voeg toe</button></div>
+        }
     </div>
 </div>

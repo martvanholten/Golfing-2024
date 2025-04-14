@@ -1,7 +1,9 @@
-import { HttpException, Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { ApiResponse, ApiResponseInterface, TeamInterface } from '@avans-nx-workshop/shared/interfaces';
 import { TeamRepo } from './team.repo';
-import { TeamDto } from '@avans-nx-workshop/backend/dto';
+import { TeamDto, UpdateUserDto } from '@avans-nx-workshop/backend/dto';
+import { UserRepo } from '../user/user.repo';
+import { ConfigType} from '@nestjs/config'
 
 @Injectable()
 export class TeamService {
@@ -9,9 +11,11 @@ export class TeamService {
     team?: TeamInterface | null;
     teamList: TeamInterface[] = new Array<TeamInterface>;
     response?: ApiResponseInterface<TeamInterface | TeamInterface[]> | null;
+    configType: ConfigType<() => {}> = {}
 
     constructor(
-        private readonly teamRepo: TeamRepo
+        private readonly teamRepo: TeamRepo,
+        private readonly userRepo: UserRepo
     ) {}
 
     async findAll(): Promise<ApiResponseInterface<TeamInterface[]>> {
@@ -99,9 +103,21 @@ export class TeamService {
 
     async delete(_id: string, userId: string): Promise<ApiResponseInterface<TeamInterface>> {
         try {
+            const users = this.userRepo.findAll();
+            const userTeams = new Array<TeamInterface>
+            
             this.team = await this.teamRepo.findOne(_id)
             if(this.team !== null){
                 if(this.team.teamCaptain === userId){
+                    (await users).forEach(u =>{
+                        u.teams.forEach(t =>{
+                            if(t._id !== _id){
+                                userTeams.push(t)
+                            }
+                        })
+                        u.teams = userTeams                        
+                        this.userRepo.update(u._id, u as UpdateUserDto)
+                    })
                     await this.teamRepo.delete(_id);
                     this.response = new ApiResponse<TeamInterface>('succes')
                     return this.response as ApiResponseInterface<TeamInterface>;

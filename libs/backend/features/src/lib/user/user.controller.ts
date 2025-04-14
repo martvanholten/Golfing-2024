@@ -11,7 +11,7 @@ import {
     UseGuards,
 } from '@nestjs/common';
 import { UserService } from './user.service';
-import { ApiResponse, ApiResponseInterface, CreateUserInterface, LoginDataInterface, UserInterface, UserInterfaceResponse } from '@avans-nx-workshop/shared/interfaces';
+import { ApiResponse, ApiResponseInterface, CreateUserInterface, LoginDataInterface, UserInterface } from '@avans-nx-workshop/shared/interfaces';
 import { UserExistGuard } from './user-exists.guard';
 import { defer, Observable, of } from 'rxjs';
 import { UpdateUserDto, UserDto } from '@avans-nx-workshop/backend/dto'
@@ -23,18 +23,18 @@ export class UserController {
     constructor(private readonly userService: UserService) {}
 
     @Get()
-    findAll(): Observable<ApiResponse<UserInterfaceResponse[]>> {
+    findAll(): Observable<ApiResponse<UserInterface[]>> {
         this.logger.log('get users reached')
         return defer(() => this.userService.findAll());
     }
 
     @Get(':id')
-    findOne(@Param('id') id: string): Observable<ApiResponseInterface<UserInterfaceResponse>> {
+    findOne(@Param('id') id: string): Observable<ApiResponseInterface<UserInterface>> {
         return defer(() => this.userService.findOne(id));
     }
 
     @Post('')
-    create(@Body() user: UserDto): Observable<ApiResponseInterface<UserInterfaceResponse>> {
+    create(@Body() user: UserDto): Observable<ApiResponseInterface<UserInterface>> {
         return defer(() => this.userService.create(user));
     }
 
@@ -48,7 +48,7 @@ export class UserController {
     update(
         @Param('id') id: string,
         @Body() user: UpdateUserDto
-    ): Observable<ApiResponseInterface<UserInterfaceResponse>> {
+    ): Observable<ApiResponseInterface<UserInterface>> {
         return defer(() => this.userService.update(id, user));
     }
 
@@ -56,7 +56,7 @@ export class UserController {
     @UseGuards(AccessTokenGuard)
     delete(
         @Body() user: UserInterface
-    ): Observable<ApiResponseInterface<UserInterfaceResponse>> {
+    ): Observable<ApiResponseInterface<UserInterface>> {
         return defer(() => this.userService.delete(user));
     }
 }

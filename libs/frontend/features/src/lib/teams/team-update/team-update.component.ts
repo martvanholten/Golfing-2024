@@ -2,8 +2,8 @@ import { HttpHeaders } from '@angular/common/http';
 import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService, CreateTeam, Team } from '@avans-nx-workshop/frontend/features';
-import { TeamService } from '@avans-nx-workshop/frontend/features';
-import { CreateTeamInterface, TeamInterface, UserInterface } from '@avans-nx-workshop/shared/interfaces';
+import { TeamService, UserService } from '@avans-nx-workshop/frontend/features';
+import { CreateTeamInterface, GameInterface, TeamInterface, UserInterface } from '@avans-nx-workshop/shared/interfaces';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -12,7 +12,9 @@ import { Subscription } from 'rxjs';
     styleUrls: ['./team-update.component.css']
 })
 export class TeamUpdateComponent implements OnDestroy{
-    team: CreateTeamInterface = new CreateTeam;
+    team: CreateTeamInterface | TeamInterface = new CreateTeam;
+    teamId?: string | null;
+    addUserEmail?: string;
     sub$?: Subscription;
     authSub$?: Subscription;
     token$?: Subscription;
@@ -23,12 +25,23 @@ export class TeamUpdateComponent implements OnDestroy{
     constructor(
       private route: ActivatedRoute,
       private teamService: TeamService,
+      private userService: UserService,
       private authService: AuthService,
       private router: Router
     ) {}
   
     ngOnInit(): void {
       this.route.paramMap.subscribe((params) => {
+        this.teamId = params.get('id');
+
+        if(this.teamId !== null){
+          this.sub$ = this.teamService.getOne(this.teamId).subscribe((t) =>{
+            if(t != null){
+              this.team = t.results as TeamInterface
+            }
+          })
+        }
+
         this.authSub$ = this.authService.getUserFromLocalStorage().subscribe((u) =>{
           if(u != null){
             this.currentUser = u;
@@ -48,23 +61,39 @@ export class TeamUpdateComponent implements OnDestroy{
         this.httpOptions = {
           headers: new HttpHeaders({
             'Content-Type': 'application/json',
-             Authorization: 'Bearer ' + this.token,
-            })
-            }
-        if(this.currentUser !== null && this.currentUser !== undefined){
-          this.team.teamCaptain = this.currentUser._id;
-          this.team.golfers = new Array<UserInterface>()
-          this.team.golfers.push(this.currentUser)
-          this.teamService.createOne(this.team as CreateTeamInterface).subscribe((r) => {
-            if(r.message === "error"){
-              this.router.navigate(['error']);
-            }else if(r.message = "succes"){
-              this.router.navigate(['teams']);
-            }
-          });
-        }else{
-          this.router.navigate(['user/login']);
+            Authorization: 'Bearer ' + this.token,
+          })
         }
+        if(this.team instanceof CreateTeam){
+          if(this.currentUser !== null && this.currentUser !== undefined){
+            this.team.teamCaptain = this.currentUser._id;
+            this.team.golfers = new Array<UserInterface>();
+            this.team.golfers.push(this.currentUser);
+            this.team.rank = 0;
+            this.team.games = new Array<GameInterface>();
+            this.teamService.createOne(this.team as CreateTeamInterface).subscribe((r) => {
+              if(r.message === "error"){
+                this.router.navigate(['error']);
+              }else if(r.message = "succes"){
+                this.router.navigate(['teams']);
+              }
+            });
+          }
+        }else{
+          if(this.currentUser && this.team instanceof Team){
+            this.teamService.updateOne(this.currentUser._id, this.team)
+          }
+        }
+    } catch (error) {
+      this.router.navigate(['error']);
+    }
+  }
+
+  addTeamMember(email?: string): void{
+    try {
+      if(this.currentUser && this.team instanceof Team){
+        this.teamService.updateOne(this.currentUser._id, this.team)
+      }
     } catch (error) {
       this.router.navigate(['error']);
     }
