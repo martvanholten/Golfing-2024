@@ -59,9 +59,21 @@ export class TeamService {
             );
     }
 
+    public getOneByName(name: string, options?: any): Observable<ApiResponseInterface<TeamInterface>> {
+        console.log(`read ${this.endpoint}`);
+        return this.http
+            .get<ApiResponseInterface<TeamInterface>>(this.endpoint + "/name/" + name, {
+                ...options,
+                ...httpOptionsTeam,
+            })
+            .pipe(
+                tap(console.log),
+                map((response: any) => response as ApiResponseInterface<TeamInterface>),
+                catchError(this.handleError)
+            );
+    }
+
     public updateOne(userId: string, team: TeamInterface, options?: any): Observable<ApiResponseInterface<TeamInterface>> {
-        console.log('UPDATED TEAM');
-        console.log(team);
         console.log(`read ${this.endpoint}`);
         return this.http
             .put<ApiResponseInterface<TeamInterface>>(this.endpoint + "/" + userId, team, {
@@ -76,8 +88,6 @@ export class TeamService {
     }
 
     public createOne(team: CreateTeamInterface, options?: any): Observable<ApiResponseInterface<TeamInterface>> {
-        console.log('NEW TEAM');
-        console.log(team);
         console.log(`read ${this.endpoint}`);
         return this.http
             .post<ApiResponseInterface<TeamInterface>>(this.endpoint, team, {

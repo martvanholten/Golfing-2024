@@ -28,14 +28,6 @@ export class UserRepo {
     }
 
     async findOneByEmail(email: string): Promise<UserInterface | null>{
-        this.user = await this.userModel.findOne({ email }).exec();
-        if(this.user !== null){
-            return this.user
-        }
-        return null
-    }
-
-    async findOneWithPasswordByEmail(email: string): Promise<UserInterface | null>{
         return this.userModel.findOne({ email:email }).exec();
     }
 

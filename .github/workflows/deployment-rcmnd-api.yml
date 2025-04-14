@@ -31,7 +31,7 @@ jobs:
               run: |
                   echo ${GITHUB_WORKSPACE}
                   cd ${GITHUB_WORKSPACE}/dist/apps/rcmnd-api/ && zip ${GITHUB_WORKSPACE}/rcmnd-api-release.zip ./* -r
-                  
+
             - name: Upload rcmnd-api artifact for deployment job
               uses: actions/upload-artifact@v4
               with:
@@ -62,7 +62,75 @@ jobs:
               id: deploy-to-webapp
               uses: azure/webapps-deploy@v3
               with:
-                  app-name: 'golfing-api-neo4j'
+                  app-name: 'rcmnd-api'
                   slot-name: 'Production'
                   publish-profile: ${{ secrets.AZURE_WEB_APPS_API_TOKEN_GOLFING_API_NEO4J }}
                   package: .
+# name: Azure Web App rcmnd-api CI/CD
+
+# on:
+#   push:
+#     branches:
+#       - Release
+#   pull_request:
+#     types: [opened, synchronize, reopened, closed]
+#     branches:
+#       - Release
+
+# jobs:
+#     build:
+#         runs-on: ubuntu-latest
+#         name: Build and zip apps from /dist
+#         steps:
+#             - uses: actions/checkout@v4
+
+#             - name: Set up Node.js version
+#               uses: actions/setup-node@v4
+#               with:
+#                   node-version: '18.x'
+
+#             - name: npm install, build, and test
+#               run: |
+#                   npm install
+#                   npm run build --if-present
+#                   # npm run test --if-present
+
+#             - name: Zip artifacts for deployment
+#               run: |
+#                   echo ${GITHUB_WORKSPACE}
+#                   cd ${GITHUB_WORKSPACE}/dist/apps/rcmnd-api/ && zip ${GITHUB_WORKSPACE}/rcmnd-api-release.zip ./* -r
+                  
+#             - name: Upload rcmnd-api artifact for deployment job
+#               uses: actions/upload-artifact@v4
+#               with:
+#                   name: rcmnd-api
+#                   path: rcmnd-api-release.zip
+
+#     deploy-rcmnd-api:
+#         runs-on: ubuntu-latest
+#         name: Deploy NestJs rcmnd-api backend
+#         needs: build
+#         environment:
+#             name: 'Production'
+#             url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+#         steps:
+#             - name: Download artifact from build job
+#               uses: actions/download-artifact@v4
+#               with:
+#                   name: rcmnd-api
+
+#             - name: Unzip artifact for deployment
+#               run: unzip rcmnd-api-release.zip
+
+#             - name: Install dependencies
+#               run: npm install
+
+#             - name: 'Deploy to Azure Web App'
+#               id: deploy-to-webapp
+#               uses: azure/webapps-deploy@v3
+#               with:
+#                   app-name: 'golfing-api-neo4j'
+#                   slot-name: 'Production'
+#                   publish-profile: ${{ secrets.AZURE_WEB_APPS_API_TOKEN_GOLFING_API_NEO4J }}
+#                   package: .

@@ -39,6 +39,25 @@
                 </tr>
             </tbody>
         </table>
+        <div class="text-success">
+            <h6 class="font-weight-bold">Wedstrijden</h6>
+        </div>
+        <table class="table table-bordered table-striped table-sm">
+            <thead>
+                <tr>
+                    <th class="text-center text-success">Naam</th>
+                    <th class="text-center text-success">Locatie</th>
+                    <th class="text-center text-success">Datum</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let game of team?.games">
+                    <td class="text-center">{{ game.name }}</td>
+                    <td class="text-center">{{ game.location }}</td>
+                    <td class="text-center">{{ game.date }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     
     @if(this.isCaptain){

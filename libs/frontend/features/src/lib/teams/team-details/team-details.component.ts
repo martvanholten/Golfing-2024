@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@avans-nx-workshop/frontend/features';
@@ -16,6 +17,10 @@ export class TeamDetailsComponent implements OnDestroy{
     team?: TeamInterface;
     sub$?: Subscription;
     authSub$?: Subscription;
+    token$?: Subscription;
+    currentUser?: UserInterface;
+    httpOptions?: any;
+    token?: string;
   
     constructor(
       private route: ActivatedRoute,
@@ -38,6 +43,11 @@ export class TeamDetailsComponent implements OnDestroy{
                   }
                 }
               });
+              this.token$ = this.authService.getTokenFromLocalStorage().subscribe((t) => {
+                if(t){
+                  this.token = t
+                }
+              });
             }else if(r.message === 'not found'){
               //show alert
               this.router.navigate(['']);
@@ -54,8 +64,19 @@ export class TeamDetailsComponent implements OnDestroy{
     delete(): void{
       if(this.isCaptain && this.team){
         if(this.team.games.length < 1){
-          this.teamService.deleteOne(this.team._id);
-          this.router.navigate(['']);
+          if(this.currentUser){
+            this.httpOptions = {
+              headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + this.token,
+                userRole: this.currentUser.role
+              })
+            }
+            this.teamService.deleteOne(this.team._id, this.httpOptions);
+            this.router.navigate(['']);
+          }else{
+            //message not loged in
+          }
         }else{
           // message games to play
         }
@@ -67,5 +88,6 @@ export class TeamDetailsComponent implements OnDestroy{
     ngOnDestroy(): void {
         this.sub$?.unsubscribe();
         this.authSub$?.unsubscribe()
+        this.token$?.unsubscribe();
     }
 }

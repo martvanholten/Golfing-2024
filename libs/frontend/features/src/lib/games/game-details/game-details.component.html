@@ -28,6 +28,23 @@
                 <div class="col">{{game?.holes}}</div>
                 <div class="col">{{game?.location}}</div>
         </div>
+        <div class="text-success">
+            <h6 class="font-weight-bold">Teams</h6>
+        </div>
+        <table class="table table-bordered table-striped table-sm">
+            <thead>
+                <tr>
+                    <th class="text-center text-success">Naam</th>
+                    <th class="text-center text-success">Rank</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let team of game?.teams">
+                    <td class="text-center">{{ team.name }}</td>
+                    <td class="text-center">{{ team.rank }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     @if (currentUser?.role === 'team captain') {
         <div class="col" align="center"><a class="btn btn-success mt-3" routerLink="edit" routerLinkActive="actieve-link">Wijzig</a></div>

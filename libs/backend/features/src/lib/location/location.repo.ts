@@ -3,6 +3,7 @@ import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { Location as LocationModel, LocationDocument } from './location.schema';
 import { GameInterface, LocationInterface } from '@avans-nx-workshop/shared/interfaces';
+import { GameDto } from '@avans-nx-workshop/backend/dto';
 
 @Injectable()
 export class LocationRepo {
@@ -22,6 +23,10 @@ export class LocationRepo {
 
     async findOne(_id: string): Promise<LocationInterface | null> {
         return await this.locationModel.findOne({ _id }).exec();
+    }
+
+    async findOneByName(name: string): Promise<LocationInterface | null> {
+        return await this.locationModel.findOne({ name }).exec();
     }
 
     async findAllGames(): Promise<GameInterface[]> {
@@ -53,13 +58,21 @@ export class LocationRepo {
         return this.game
     }
 
-    async updateOneGame(location: LocationInterface, updateGame: GameInterface): Promise<void> {
+    async updateOneGame(location: LocationInterface, updateGame: GameDto): Promise<GameInterface | undefined> {
         location.games.forEach(game => {
             if(game.name === updateGame.name){
                 game = updateGame
             } 
         })
         var _id = location._id
-        this.locationModel.updateOne({ _id }, location)
+        this.location = await this.locationModel.findByIdAndUpdate({ _id }, location)
+        return this.findOneGame(location.name, updateGame.name)
+    }
+
+    async createOneGame(location: LocationInterface, createGame: GameDto): Promise<GameInterface | undefined> {
+        location.games.push(createGame)
+        var _id = location._id
+        this.location = await this.locationModel.findByIdAndUpdate({ _id }, location)
+        return this.findOneGame(location.name, createGame.name)
     }
 }

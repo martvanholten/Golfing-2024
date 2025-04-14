@@ -20,7 +20,9 @@ import { Roles } from '../auth/guard/role-decorator';
 @Controller('team')
 export class TeamController {
     private readonly logger: Logger = new Logger(TeamController.name);
-    constructor(private readonly teamService: TeamService) {}
+    constructor(
+        private readonly teamService: TeamService,
+    ) {}
 
     @Get()
     findAll(): Observable<ApiResponse<TeamInterface[]>> {

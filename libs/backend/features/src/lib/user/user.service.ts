@@ -51,22 +51,50 @@ export class UserService {
         }
     }
 
+    async findOneByEmail(email:string): Promise<ApiResponseInterface<UserInterface>>{
+        try {
+            this.user = await this.userRepo.findOneByEmail(email);
+            if(this.user !== null){
+                this.response = new ApiResponse<UserInterface>('succes', this.user);
+                return this.response as ApiResponse<UserInterface>;
+            }else{
+                this.response = new ApiResponse<UserInterface>('user not found');
+                return this.response as ApiResponse<UserInterface>;
+            }
+        } catch (error) {
+            this.response = new ApiResponse<UserInterface>('error');
+            return this.response as ApiResponse<UserInterface>;
+        }
+    }
+
     async create(user: UserDto): Promise<ApiResponseInterface<UserInterface>> {
         try {
-            if(await this.userRepo.findOneByEmail(user.email) === null){
-                user.password = await this.hashPassword(user.password);
-                this.user = await this.userRepo.create(user);
-                if(this.user !== null){
-                    this.response = new ApiResponse<UserInterface>('succes', this.user);
-                    return this.response as ApiResponse<UserInterface>;
-                }else{
-                    this.response = new ApiResponse<UserInterface>('error');
-                    return this.response as ApiResponse<UserInterface>;
-                } 
-            }else{
+            var exists = false
+            this.userList = await this.userRepo.findAll()
+            this.userList.forEach(u =>{
+                if(u.email === user.email){
+                    exists = true
+                }
+            });
+            if(exists){
                 this.response = new ApiResponse<UserInterface>('user already exists');
                 return this.response as ApiResponse<UserInterface>;
-            }         
+            }else{
+                if(await this.userRepo.findOneByEmail(user.email) === null){
+                    user.password = await this.hashPassword(user.password);
+                    this.user = await this.userRepo.create(user);
+                    if(this.user !== null){
+                        this.response = new ApiResponse<UserInterface>('succes', this.user);
+                        return this.response as ApiResponse<UserInterface>;
+                    }else{
+                        this.response = new ApiResponse<UserInterface>('error');
+                        return this.response as ApiResponse<UserInterface>;
+                    } 
+                }else{
+                    this.response = new ApiResponse<UserInterface>('user already exists');
+                    return this.response as ApiResponse<UserInterface>;
+                }       
+            }  
         } catch (error) {
             this.response = new ApiResponse<UserInterface>('error');
             return this.response as ApiResponse<UserInterface>;
@@ -111,7 +139,7 @@ export class UserService {
 
     async login(loginData: LoginDataInterface): Promise<ApiResponseInterface<UserInterface>>{
         try {
-            this.fullUser = await this.userRepo.findOneWithPasswordByEmail(loginData.email);
+            this.fullUser = await this.userRepo.findOneByEmail(loginData.email);
             if(this.fullUser !== null){
                 if(await compare(loginData.password, this.fullUser.password)){
                     this.response = new ApiResponse<UserInterface>

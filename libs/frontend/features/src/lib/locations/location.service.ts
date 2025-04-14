@@ -45,6 +45,20 @@ export class LocationService {
             );
     }
 
+    public getOneByName(name: string, options?: any): Observable<ApiResponseInterface<LocationInterface>> {
+        console.log(`read ${this.endpoint}`);
+        return this.http
+            .get<ApiResponseInterface<LocationInterface>>(this.endpoint + "/name/" + name, {
+                ...options,
+                ...httpOptionsLocation,
+            })
+            .pipe(
+                tap(console.log),
+                map((response: any) => response as ApiResponseInterface<LocationInterface>),
+                catchError(this.handleError)
+            );
+    }
+
     public handleError(error: HttpErrorResponse): Observable<any> {
         console.log('handleError in MealService', error);
 

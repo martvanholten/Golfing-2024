@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@avans-nx-workshop/frontend/features';
@@ -16,6 +17,9 @@ export class UserDetailsComponent implements OnDestroy{
     user?: UserInterface;
     sub$?: Subscription;
     authSub$?: Subscription;
+    token$?: Subscription;
+    httpOptions?: any;
+    token?: string;
   
     constructor(
       private route: ActivatedRoute,
@@ -29,9 +33,14 @@ export class UserDetailsComponent implements OnDestroy{
         this.userId = params.get('id');
         try {
           this.authSub$ = this.authService.getUserFromLocalStorage().subscribe((u) =>{
-            if(u != null && u._id == params.get('id')){
+            if(u && u._id === params.get('id')){
               this.currentUser = true;
               this.user = u;
+              this.token$ = this.authService.getTokenFromLocalStorage().subscribe((t) => {
+                if(t){
+                  this.token = t
+                }
+              });
             }
           });
           if(!this.currentUser){
@@ -44,7 +53,7 @@ export class UserDetailsComponent implements OnDestroy{
                 this.user = r.results as UserInterface;
               }
             });
-          }
+          }          
         } catch (error) {
           this.router.navigate(['error']);
         }
@@ -52,11 +61,25 @@ export class UserDetailsComponent implements OnDestroy{
     }
 
     delete(): void{
-
+      if(this.currentUser){
+        if(this.user){
+          this.httpOptions = {
+            headers: new HttpHeaders({
+              'Content-Type': 'application/json',
+              Authorization: 'Bearer ' + this.token,
+            })
+          }
+          this.userService.deleteOne(this.user);
+          this.router.navigate(['']);
+        }
+      }else{
+        // message not the current user
+      }
     }
 
     ngOnDestroy(): void {
         this.sub$?.unsubscribe();
         this.authSub$?.unsubscribe();
+        this.token$?.unsubscribe();
     }
 }

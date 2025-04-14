@@ -42,64 +42,52 @@
         "hash": "18315524891129148814"
       },
       {
-        "file": "jest.config.ts",
-        "hash": "12333515226966617182"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "5513422724093604539"
-      },
-      {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
-        "file": "jest.preset.js",
-        "hash": "9430166341120122740"
-      },
-      {
-        "file": ".github/workflows/deployment-rcmnd-api.yml",
-        "hash": "17254683941035124013"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "8491837053101957257"
-      },
-      {
         "file": "package.json",
         "hash": "8850056696451452867"
-      },
-      {
-        "file": "README.md",
-        "hash": "1955868086715526908"
-      },
-      {
-        "file": "nx.json",
-        "hash": "13543554231657983656"
-      },
-      {
-        "file": ".github/workflows/azure-static-web-apps-happy-pond-0613f1a03.yml",
-        "hash": "1985272814684873236"
-      },
-      {
-        "file": "Nx-workshop.postman_collection.json",
-        "hash": "13796819436055774183"
       },
       {
         "file": "tsconfig.base.json",
         "hash": "10108623148106491341"
       },
       {
-        "file": ".github/workflows/deployment-data-api.yml",
-        "hash": "12831517980691678147"
-      },
-      {
-        "file": ".eslintignore",
-        "hash": "7663861978715868291"
-      },
-      {
         "file": "migrations.json",
         "hash": "10764924908146528248"
+      },
+      {
+        "file": "README.md",
+        "hash": "1955868086715526908"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "8491837053101957257"
+      },
+      {
+        "file": ".github/workflows/deployment-rcmnd-api.yml",
+        "hash": "1482425692442590103"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "5513422724093604539"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "9430166341120122740"
+      },
+      {
+        "file": "Nx-workshop.postman_collection.json",
+        "hash": "13796819436055774183"
+      },
+      {
+        "file": "nx.json",
+        "hash": "13543554231657983656"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": ".github/workflows/azure-static-web-apps-happy-pond-0613f1a03.yml",
+        "hash": "1985272814684873236"
       },
       {
         "file": ".prettierrc",
@@ -108,6 +96,18 @@
       {
         "file": ".prettierignore",
         "hash": "3395189204293871444"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "12333515226966617182"
+      },
+      {
+        "file": ".github/workflows/deployment-data-api.yml",
+        "hash": "12831517980691678147"
+      },
+      {
+        "file": ".eslintignore",
+        "hash": "7663861978715868291"
       }
     ],
     "projectFileMap": {
@@ -243,11 +243,11 @@
         },
         {
           "file": "libs/backend/dto/src/index.ts",
-          "hash": "17544676741499438047"
+          "hash": "5214744155585295520"
         },
         {
           "file": "libs/backend/dto/src/lib/dto.module.ts",
-          "hash": "16356478402001878394",
+          "hash": "2810486993413331049",
           "deps": [
             "npm:@nestjs/common"
           ]
@@ -437,7 +437,7 @@
         },
         {
           "file": "libs/frontend/features/src/lib/games/game-details/game-details.component.html",
-          "hash": "15649737560823681408"
+          "hash": "427983165579606501"
         },
         {
           "file": "libs/frontend/features/src/lib/games/game-details/game-details.component.spec.ts",
@@ -487,7 +487,7 @@
         },
         {
           "file": "libs/frontend/features/src/lib/games/game-update/game-update.component.html",
-          "hash": "17088627810734487813"
+          "hash": "16256709964817766901"
         },
         {
           "file": "libs/frontend/features/src/lib/games/game-update/game-update.component.spec.ts",
@@ -498,7 +498,7 @@
         },
         {
           "file": "libs/frontend/features/src/lib/games/game-update/game-update.component.ts",
-          "hash": "17226513703958120814",
+          "hash": "11793911648295216305",
           "deps": [
             "npm:@angular/common",
             "npm:@angular/core",
@@ -509,7 +509,7 @@
         },
         {
           "file": "libs/frontend/features/src/lib/games/game.service.ts",
-          "hash": "401741970379677353",
+          "hash": "6387237226078539141",
           "deps": [
             "npm:@angular/core",
             "npm:rxjs",
@@ -578,7 +578,7 @@
         },
         {
           "file": "libs/frontend/features/src/lib/locations/location-details/location-details.component.html",
-          "hash": "11498231828703388151"
+          "hash": "15223254587333396079"
         },
         {
           "file": "libs/frontend/features/src/lib/locations/location-details/location-details.component.spec.ts",
@@ -624,7 +624,7 @@
         },
         {
           "file": "libs/frontend/features/src/lib/locations/location.service.ts",
-          "hash": "13344187276158853744",
+          "hash": "18313886340215068430",
           "deps": [
             "npm:@angular/core",
             "npm:rxjs",
@@ -695,7 +695,7 @@
         },
         {
           "file": "libs/frontend/features/src/lib/teams/team-details/team-details.component.html",
-          "hash": "8459903873441234249"
+          "hash": "11231419032253804642"
         },
         {
           "file": "libs/frontend/features/src/lib/teams/team-details/team-details.component.spec.ts",
@@ -706,8 +706,9 @@
         },
         {
           "file": "libs/frontend/features/src/lib/teams/team-details/team-details.component.ts",
-          "hash": "10844769982421360864",
+          "hash": "3512197930006240807",
           "deps": [
+            "npm:@angular/common",
             "npm:@angular/core",
             "npm:@angular/router",
             "shared-interfaces",
@@ -756,7 +757,7 @@
         },
         {
           "file": "libs/frontend/features/src/lib/teams/team-update/team-update.component.ts",
-          "hash": "12587163923154015667",
+          "hash": "17824581787999996182",
           "deps": [
             "npm:@angular/common",
             "npm:@angular/core",
@@ -767,7 +768,7 @@
         },
         {
           "file": "libs/frontend/features/src/lib/teams/team.service.ts",
-          "hash": "403087674470625495",
+          "hash": "14935543645201910229",
           "deps": [
             "npm:@angular/core",
             "npm:rxjs",
@@ -836,7 +837,7 @@
         },
         {
           "file": "libs/frontend/features/src/lib/users/user-details/user-details.component.html",
-          "hash": "15700194114993523836"
+          "hash": "16326388651218232736"
         },
         {
           "file": "libs/frontend/features/src/lib/users/user-details/user-details.component.spec.ts",
@@ -847,8 +848,9 @@
         },
         {
           "file": "libs/frontend/features/src/lib/users/user-details/user-details.component.ts",
-          "hash": "14229256061831428673",
+          "hash": "14122821523139046405",
           "deps": [
+            "npm:@angular/common",
             "npm:@angular/core",
             "npm:@angular/router",
             "shared-interfaces",
@@ -897,7 +899,7 @@
         },
         {
           "file": "libs/frontend/features/src/lib/users/user-update/user-update.component.ts",
-          "hash": "18222972067447894642",
+          "hash": "16135921042647524324",
           "deps": [
             "npm:@angular/common",
             "npm:@angular/core",
@@ -1834,21 +1836,23 @@
         },
         {
           "file": "libs/backend/features/src/lib/location/location.controller.ts",
-          "hash": "7797303576573797552",
+          "hash": "14885819090683166941",
           "deps": [
             "npm:@nestjs/common",
             "shared-interfaces",
-            "npm:rxjs"
+            "npm:rxjs",
+            "dto"
           ]
         },
         {
           "file": "libs/backend/features/src/lib/location/location.repo.ts",
-          "hash": "16519769224569114514",
+          "hash": "2127161216065683912",
           "deps": [
             "npm:@nestjs/common",
             "npm:mongoose",
             "npm:@nestjs/mongoose",
-            "shared-interfaces"
+            "shared-interfaces",
+            "dto"
           ]
         },
         {
@@ -1871,10 +1875,11 @@
         },
         {
           "file": "libs/backend/features/src/lib/location/location.service.ts",
-          "hash": "3365111140505979295",
+          "hash": "5005347434594012263",
           "deps": [
             "npm:@nestjs/common",
-            "shared-interfaces"
+            "shared-interfaces",
+            "dto"
           ]
         },
         {
@@ -1883,7 +1888,7 @@
         },
         {
           "file": "libs/backend/features/src/lib/team/team.controller.ts",
-          "hash": "8656288080859581585",
+          "hash": "16282085924234341698",
           "deps": [
             "npm:@nestjs/common",
             "shared-interfaces",
@@ -1893,7 +1898,7 @@
         },
         {
           "file": "libs/backend/features/src/lib/team/team.repo.ts",
-          "hash": "6461461073816590718",
+          "hash": "8704619162768964833",
           "deps": [
             "npm:@nestjs/common",
             "npm:mongoose",
@@ -1922,7 +1927,7 @@
         },
         {
           "file": "libs/backend/features/src/lib/team/team.service.ts",
-          "hash": "10037099976922119528",
+          "hash": "7073758610489613037",
           "deps": [
             "npm:@nestjs/common",
             "shared-interfaces",
@@ -1946,7 +1951,7 @@
         },
         {
           "file": "libs/backend/features/src/lib/user/user.controller.ts",
-          "hash": "5762457813502383103",
+          "hash": "16445994815917693765",
           "deps": [
             "npm:@nestjs/common",
             "shared-interfaces",
@@ -1956,7 +1961,7 @@
         },
         {
           "file": "libs/backend/features/src/lib/user/user.repo.ts",
-          "hash": "8323480926234756362",
+          "hash": "7381290179640264814",
           "deps": [
             "npm:@nestjs/common",
             "npm:mongoose",
@@ -1985,7 +1990,7 @@
         },
         {
           "file": "libs/backend/features/src/lib/user/user.service.ts",
-          "hash": "672218807571485245",
+          "hash": "17946130501407691011",
           "deps": [
             "npm:@nestjs/common",
             "shared-interfaces",

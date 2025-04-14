@@ -43,13 +43,13 @@ export class TeamUpdateComponent implements OnDestroy{
         }
 
         this.authSub$ = this.authService.getUserFromLocalStorage().subscribe((u) =>{
-          if(u != null){
+          if(u){
             this.currentUser = u;
           }
         });
 
         this.token$ = this.authService.getTokenFromLocalStorage().subscribe((t) => {
-          if(t !== null && t !== undefined){
+          if(t){
             this.token = t
           }
         });
@@ -94,12 +94,22 @@ export class TeamUpdateComponent implements OnDestroy{
 
   addTeamMember(email?: string): void{
     try {
-      if(email !== null && email !== undefined){
+      if(email){
         if(this.currentUser && this.team instanceof Team){
+          this.httpOptions = {
+            headers: new HttpHeaders({
+              'Content-Type': 'application/json',
+              Authorization: 'Bearer ' + this.token,
+              userRole: this.currentUser.role
+            })
+          }
           this.sub$ = this.userService.getOneByEmail(email).subscribe(r => {
             if(r.results){
-              this.team.golfers.push(r.results as UserInterface)
-              this.teamService.updateOne(this.currentUser!._id, this.team as TeamInterface)
+              var user = r.results as UserInterface;
+              user.teams.push(this.team as TeamInterface)
+              this.userService.updateOne(user, this.httpOptions)
+              this.team.golfers.push(user)
+              this.teamService.updateOne(this.currentUser!._id, this.team as TeamInterface, this.httpOptions)
             }
           });
         }else{

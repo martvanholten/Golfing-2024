@@ -18016,12 +18016,12 @@
       },
       {
         "source": "BackendFeatures",
-        "target": "dto",
+        "target": "npm:class-validator",
         "type": "static"
       },
       {
         "source": "BackendFeatures",
-        "target": "npm:class-validator",
+        "target": "dto",
         "type": "static"
       },
       {

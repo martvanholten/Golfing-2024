@@ -47,6 +47,22 @@ export class TeamService {
         }
     }
 
+    async findOneByName(name: string): Promise<ApiResponseInterface<TeamInterface>> {
+        try {
+            this.team = await this.teamRepo.findOneByName(name);
+            if(this.team !== null){
+                this.response = new ApiResponse<TeamInterface>('succes', this.team)
+                return this.response as ApiResponseInterface<TeamInterface>;
+            }else{
+                this.response = new ApiResponse<TeamInterface>('not found')
+                return this.response as ApiResponseInterface<TeamInterface>;
+            }
+        } catch (error) {
+            this.response = new ApiResponse<TeamInterface>('error')
+            return this.response as ApiResponseInterface<TeamInterface>;
+        }
+    }
+
     async findTopFive(): Promise<ApiResponseInterface<TeamInterface[]>> {
         try {
             this.teamList.length = 0;
@@ -65,14 +81,26 @@ export class TeamService {
 
     async create(team: TeamDto): Promise<ApiResponseInterface<TeamInterface>> {
         try {
-            const createdteam = await this.teamRepo.create(team);
-            if(createdteam !== null){
-                this.response = new ApiResponse<TeamInterface>('succes')
+            this.teamList = await this.teamRepo.findAll()
+            var exists = false
+            this.teamList.forEach(t =>{
+                if(t.name === team.name){
+                    exists = true;
+                }
+            });
+            if(exists){
+                this.response = new ApiResponse<TeamInterface>('already exists')
                 return this.response as ApiResponseInterface<TeamInterface>;
             }else{
-                this.response = new ApiResponse<TeamInterface>('error')
-                return this.response as ApiResponseInterface<TeamInterface>;
-            }            
+                const createdteam = await this.teamRepo.create(team);
+                if(createdteam !== null){
+                    this.response = new ApiResponse<TeamInterface>('succes')
+                    return this.response as ApiResponseInterface<TeamInterface>;
+                }else{
+                    this.response = new ApiResponse<TeamInterface>('error')
+                    return this.response as ApiResponseInterface<TeamInterface>;
+                }     
+            }       
         } catch (error) {
             this.response = new ApiResponse<TeamInterface>('error')
             return this.response as ApiResponseInterface<TeamInterface>;

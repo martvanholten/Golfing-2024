@@ -21,6 +21,11 @@ export class TeamRepo {
         return await this.teamModel.findOne({ _id }).exec();
     }
 
+    async findOneByName(name: string): Promise<TeamInterface | null> {
+        return await this.teamModel.findOne({ name }).exec();
+    }
+
+
     async create(team: TeamDto): Promise<TeamInterface | null> {
         return await this.teamModel.create(team);
     }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, of, tap, throwError } from 'rxjs';
-import { ApiResponseInterface, GameInterface } from '@avans-nx-workshop/shared/interfaces';
+import { ApiResponseInterface, CreateGameInterface, GameInterface } from '@avans-nx-workshop/shared/interfaces';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '@avans-nx-workshop/shared/util-env';
 
@@ -49,6 +49,34 @@ export class GameService {
         console.log(`read ${this.endpoint}`);
         return this.http
             .get<ApiResponseInterface<GameInterface>>(this.endpoint + "/" + location + "/game/" + name, {
+                ...options,
+                ...httpOptionsGame,
+            })
+            .pipe(
+                tap(console.log),
+                map((response: any) => response as ApiResponseInterface<GameInterface>),
+                catchError(this.handleError)
+            );
+    }
+
+    public createOne(locationId: string, game: CreateGameInterface, options?: any): Observable<ApiResponseInterface<GameInterface>> {
+        console.log(`read ${this.endpoint}`);
+        return this.http
+            .put<ApiResponseInterface<GameInterface>>(this.endpoint + "/" + locationId, game, {
+                ...options,
+                ...httpOptionsGame,
+            })
+            .pipe(
+                tap(console.log),
+                map((response: any) => response as ApiResponseInterface<GameInterface>),
+                catchError(this.handleError)
+            );
+    }
+
+    public updateOne(locationId: string, game: GameInterface, options?: any): Observable<ApiResponseInterface<GameInterface>> {
+        console.log(`read ${this.endpoint}`);
+        return this.http
+            .put<ApiResponseInterface<GameInterface>>(this.endpoint + "/" + locationId + "/" + game.name, game, {
                 ...options,
                 ...httpOptionsGame,
             })

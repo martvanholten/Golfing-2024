@@ -1,4 +1,4 @@
-<!-- <div class="text-center p-2">
+<div class="text-center p-2">
     <div class="col-xs-1 border" align="center">
         <form
             #gameEditForm = "ngForm"
@@ -7,10 +7,10 @@
             novalidate
         >
             <div class="bg-success text-white text-center m-2 p-2 font-weight-bold">
-                <h5>Team</h5>
+                <h5>Wedstrijd</h5>
             </div>
             <div class="text-success">
-                <h6 class="font-weight-bold">Team informatie</h6>
+                <h6 class="font-weight-bold">Wedstrijd informatie</h6>
             </div>
             <div class="row font-weight-bold">
                 <div class="col text-success">
@@ -19,8 +19,8 @@
                     </label>
                 </div>
                 <div class="col text-success">
-                    <label for="largeGames">
-                        Doet 18 holes:
+                    <label for="date">
+                        Datum:
                     </label>
                 </div>
             </div>
@@ -45,32 +45,79 @@
                     <div>Naam moet gevuld zijn.</div>
                 </div>
                 <div class="col">
-                    <select
+                    <input
+                        type="date"
                         class="form-control"
-                        [(ngModel)]="team.largeGames"
-                        name="largeGames"
-                        #largeGames="ngModel"
+                        [(ngModel)]="game.date"
+                        name="date"
+                        #date="ngModel"
                         [ngClass]="{
-                            'is-invalid': largeGames.invalid
+                            'is-invalid': date.invalid
                         }"
                         required
-                    >
-                        <option value=true>9</option>
-                        <option value=false>18</option>
-                    </select>
+                    />
                 </div>   
                 <div
-                    *ngIf="largeGames.invalid && largeGames.touched"
+                    *ngIf="date.invalid && date.touched"
                     class="invalid-feedback"
                 >
-                    <div>Moet aangegeven of ze 18 holes spelen.</div>
+                    <div>Er moet een datum zijn.</div>
                 </div>            
             </div>
+            <hr>
+            <div class="text-success">
+                <h6 class="font-weight-bold">Locatie informatie</h6>
+            </div>
+            <div class="row font-weight-bold">
+                <div class="col text-success"><label for="location">Locatie naam:</label></div>
+                <div class="col text-success"><label for="holes">Holes:</label></div>
+            </div>
+            <div class="row text-success">
+                <div class="col">
+                    <input
+                        type="text"
+                        class="form-control"
+                        [(ngModel)]="game.location"
+                        name="location"
+                        #location="ngModel"
+                        [ngClass]="{
+                            'is-invalid': location.invalid
+                        }"
+                        required
+                    />
+                </div>   
+                <div
+                    *ngIf="location.invalid && location.touched"
+                    class="invalid-feedback"
+                >
+                    <div>Er moet een locatie zijn.</div>
+                </div>      
+                <div class="col">
+                    <input
+                        type="number"
+                        class="form-control"
+                        [(ngModel)]="game.holes"
+                        name="holes"
+                        #holes="ngModel"
+                        [ngClass]="{
+                            'is-invalid': holes.invalid
+                        }"
+                        required
+                    />
+                </div>   
+                <div
+                    *ngIf="holes.invalid && holes.touched"
+                    class="invalid-feedback"
+                >
+                    <div>Er moeten holes zijn.</div>
+                </div> 
+            </div>
+            <hr>
             <div class="row font-weight-bold">
                 <button
                     type = "submit"
                     class="btn btn-success mt-3"
-                    [disabled]="!teamEditForm.valid"
+                    [disabled]="!gameEditForm.valid"
                 >
                     Save
                 </button>
@@ -86,36 +133,34 @@
         <table class="table table-bordered table-striped table-sm">
             <thead>
                 <tr>
-                    <th class="text-center text-success">Voornaam</th>
-                    <th class="text-center text-success">Achternaam</th>
-                    <th class="text-center text-success">Email</th>
+                    <th class="text-center text-success">Naam</th>
+                    <th class="text-center text-success">Rank</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let user of team?.golfers">
-                    <td class="text-center">{{ user.firstName }}</td>
-                    <td class="text-center">{{ user.lastName }}</td>
-                    <td class="text-center">{{ user.email }}</td>
+                <tr *ngFor="let team of game?.teams">
+                    <td class="text-center">{{ team.name }}</td>
+                    <td class="text-center">{{ team.rank }}</td>
                 </tr>
             </tbody>
         </table>
-        @if(team.teamCaptain === currentUser?._id) {
+        @if(currentUser?.role === 'team captain') {
             <div class="text-success">
-                <h6 class="font-weight-bold">Voeg team lid toe</h6>
+                <h6 class="font-weight-bold">Voeg team toe</h6>
             </div>
             <div class="col text-success">
-                <label for="email">
-                    Email:
+                <label for="name">
+                    Naam:
                 </label>
             </div>
             <div class="col">
                 <input
-                    type="email"
-                    [(ngModel)]="addUserEmail"
-                    name="addUserEmail"
+                    type="text"
+                    [(ngModel)]="addTeamName"
+                    name="addTeamName"
                 />
             </div>
-            <div class="col" align="center"><button class="btn btn-success mt-3" (click)="addTeamMember(addUserEmail)" routerLinkActive="actieve-link">Voeg toe</button></div>
+            <div class="col" align="center"><button class="btn btn-success mt-3" (click)="addGameTeam(addTeamName)" routerLinkActive="actieve-link">Voeg toe</button></div>
         }
     </div>
-</div> -->
+</div>

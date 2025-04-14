@@ -31,6 +31,11 @@ export class UserController {
         return defer(() => this.userService.findOne(id));
     }
 
+    @Get('email/:email')
+    findOneByEmail(@Param('email') email: string): Observable<ApiResponseInterface<UserInterface>> {
+        return defer(() => this.userService.findOneByEmail(email));
+    }
+
     @Post('')
     create(@Body() user: UserDto): Observable<ApiResponseInterface<UserInterface>> {
         return defer(() => this.userService.create(user));

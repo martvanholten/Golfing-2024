@@ -33,18 +33,18 @@ export class UserUpdateComponent implements OnDestroy{
     this.route.paramMap.subscribe((params) => {
       try {
         this.user$ = this.authService.getUserFromLocalStorage().subscribe((u) => {
-          if(u !== null && u !== undefined){
+          if(u){
             this.currentUser = u;
           }
         });
 
         this.token$ = this.authService.getTokenFromLocalStorage().subscribe((t) => {
-          if(t !== null && t !== undefined){
+          if(t){
             this.token = t
           }
         });
 
-        if(this.currentUser != null){
+        if(this.currentUser){
           this.user = new User(
             this.currentUser._id,
             this.currentUser.firstName,
