@@ -13,7 +13,9 @@ import { TeamService } from './team.service';
 import { ApiResponse, ApiResponseInterface, TeamInterface } from '@avans-nx-workshop/shared/interfaces';
 import { defer, Observable, of } from 'rxjs';
 import { AccessTokenGuard } from '../auth/guard/access-token.guard';
-import { TeamDto } from '@avans-nx-workshop/backend/dto';
+import { TeamDto, UpdateTeamDto } from '@avans-nx-workshop/backend/dto';
+import { UserRoleGuard } from '../auth/guard/user-role.guard';
+import { Roles } from '../auth/guard/role-decorator';
 
 @Controller('team')
 export class TeamController {
@@ -27,7 +29,6 @@ export class TeamController {
 
     @Get('top')
     topFiveTeams(): Observable<ApiResponseInterface<TeamInterface[]>> {
-        this.logger.log('reached controller top five')
         return defer(() => this.teamService.findTopFive());
     }
 
@@ -38,15 +39,19 @@ export class TeamController {
 
     @Post('')
     @UseGuards(AccessTokenGuard)
+    @UseGuards(UserRoleGuard)
+    @Roles('team captain')
     create(@Body() team: TeamDto): Observable<ApiResponseInterface<TeamInterface>> {
         return defer(() => this.teamService.create(team));
     }
 
     @Put(':userId')
     @UseGuards(AccessTokenGuard)
+    @UseGuards(UserRoleGuard)
+    @Roles('team captain')
     update(
         @Param('userId') userId: string,
-        @Body() team: TeamInterface
+        @Body() team: UpdateTeamDto
     ): Observable<ApiResponseInterface<TeamInterface>> {
         return defer(() => this.teamService.update(userId, team));
     }
@@ -54,6 +59,8 @@ export class TeamController {
     //Might be easier to use teamInterface instead of id
     @Delete(':id/:userId')
     @UseGuards(AccessTokenGuard)
+    @UseGuards(UserRoleGuard)
+    @Roles('team captain')
     delete(@Param('id') id: string, @Param('userId') userId: string): Observable<ApiResponseInterface<TeamInterface>> {
         return defer(() => this.teamService.delete(id, userId));
     }

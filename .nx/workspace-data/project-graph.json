@@ -17986,6 +17986,21 @@
       },
       {
         "source": "BackendFeatures",
+        "target": "npm:mongoose",
+        "type": "static"
+      },
+      {
+        "source": "BackendFeatures",
+        "target": "npm:rxjs",
+        "type": "static"
+      },
+      {
+        "source": "BackendFeatures",
+        "target": "npm:@nestjs/core",
+        "type": "static"
+      },
+      {
+        "source": "BackendFeatures",
         "target": "npm:passport-jwt",
         "type": "static"
       },
@@ -17997,16 +18012,6 @@
       {
         "source": "BackendFeatures",
         "target": "shared-interfaces",
-        "type": "static"
-      },
-      {
-        "source": "BackendFeatures",
-        "target": "npm:rxjs",
-        "type": "static"
-      },
-      {
-        "source": "BackendFeatures",
-        "target": "npm:mongoose",
         "type": "static"
       },
       {
@@ -18242,6 +18247,11 @@
       {
         "source": "rcmnd-api",
         "target": "util-env",
+        "type": "static"
+      },
+      {
+        "source": "rcmnd-api",
+        "target": "npm:@nestjs/config",
         "type": "static"
       },
       {

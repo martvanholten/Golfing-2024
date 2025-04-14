@@ -3,7 +3,6 @@ import {
     Controller,
     Delete,
     Get,
-    HttpCode,
     Logger,
     Param,
     Post,
@@ -11,8 +10,7 @@ import {
     UseGuards,
 } from '@nestjs/common';
 import { UserService } from './user.service';
-import { ApiResponse, ApiResponseInterface, CreateUserInterface, LoginDataInterface, UserInterface } from '@avans-nx-workshop/shared/interfaces';
-import { UserExistGuard } from './user-exists.guard';
+import { ApiResponse, ApiResponseInterface, LoginDataInterface, UserInterface } from '@avans-nx-workshop/shared/interfaces';
 import { defer, Observable, of } from 'rxjs';
 import { UpdateUserDto, UserDto } from '@avans-nx-workshop/backend/dto'
 import { AccessTokenGuard } from '../auth/guard/access-token.guard';

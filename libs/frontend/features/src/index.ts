@@ -12,6 +12,7 @@ export * from './lib/games/game-columns/game-columns.component';
 export * from './lib/games/game-details/game-details.component';
 export * from './lib/games/game-details-small/game-details-small.component';
 export * from './lib/games/game-list/game-list.component';
+export * from './lib/games/game-update/game-update.component';
 export * from './lib/locations/location-columns/location-columns.component';
 export * from './lib/locations/location-details/location-details.component';
 export * from './lib/locations/location-details-small/location-details-small.component';

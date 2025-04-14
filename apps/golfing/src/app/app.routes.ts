@@ -13,6 +13,7 @@ import { LocationColumnsComponent } from "@avans-nx-workshop/frontend/features";
 import { GameColumnsComponent } from "@avans-nx-workshop/frontend/features";
 import { GameDetailsComponent } from "@avans-nx-workshop/frontend/features";
 import { GameDetailsSmallComponent } from "@avans-nx-workshop/frontend/features";
+import { GameUpdateComponent } from "@avans-nx-workshop/frontend/features";
 import { TeamColumnsComponent } from "@avans-nx-workshop/frontend/features";
 import { TeamDetailsComponent } from "@avans-nx-workshop/frontend/features";
 import { TeamDetailsSmallComponent } from "@avans-nx-workshop/frontend/features";
@@ -36,6 +37,7 @@ export const appRoutes: Routes = [
     },
     { path: "teams/:id/detail", pathMatch: "full", component: TeamDetailsComponent },
     { path: "teams/:id/detail/edit", pathMatch: "full", component: TeamUpdateComponent },
+    { path: "games/new", pathMatch: "full", component: GameUpdateComponent },
     { 
         path: "games", 
         component: GameColumnsComponent, 
@@ -44,6 +46,7 @@ export const appRoutes: Routes = [
         ],
     },
     { path: "games/:name/:location/detail", pathMatch: "full", component: GameDetailsComponent },
+    { path: "games/:name/:location/detail/edit", pathMatch: "full", component: GameUpdateComponent },
     { 
         path: "locations", 
         component: LocationColumnsComponent, 

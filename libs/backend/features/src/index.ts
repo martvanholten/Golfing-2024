@@ -13,4 +13,6 @@ export * from './lib/location/location.controller';
 export * from './lib/location/location.service';
 export * from './lib/location/location.repo';
 export * from './lib/auth/guard/access-token.guard';
+export * from './lib/auth/guard/user-role.guard';
+export * from './lib/auth/guard/role-decorator';
 export * from './lib/auth/password-stratagy/access-token.strategy';

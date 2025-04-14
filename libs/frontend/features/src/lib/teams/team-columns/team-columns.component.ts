@@ -1,5 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { AuthService } from '@avans-nx-workshop/frontend/features';
+import { UserInterface } from '@avans-nx-workshop/shared/interfaces';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -9,7 +10,7 @@ import { Subscription } from 'rxjs';
 })
 export class TeamColumnsComponent implements OnDestroy{
     authSub$?: Subscription;
-    currentUser = false;
+    currentUser?: UserInterface;
 
     constructor(
           private authService: AuthService,
@@ -17,8 +18,8 @@ export class TeamColumnsComponent implements OnDestroy{
 
     ngOnInit(): void {
         this.authSub$ = this.authService.getUserFromLocalStorage().subscribe((u) =>{
-            if(u != null){
-                this.currentUser = true;
+            if(u){
+                this.currentUser = u;
             }
           });
     };

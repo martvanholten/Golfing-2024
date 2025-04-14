@@ -1,9 +1,6 @@
 import {
     IsNotEmpty,
     IsString,
-    IsBoolean,
-    IsOptional,
-    IsDate,
     IsNumber,
     IsEmail
 } from 'class-validator';
@@ -67,5 +64,5 @@ export class UpdateUserDto implements UserInterface{
     @IsNumber()
     age!: number;
     @IsNotEmpty()
-    teams: TeamInterface[] = new Array<TeamInterface>;
+    teams!: TeamInterface[];
 }

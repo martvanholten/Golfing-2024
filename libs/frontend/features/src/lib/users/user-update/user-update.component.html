@@ -71,7 +71,7 @@
             <div class="row text-success">
                 <div class="col">
                     <input
-                        type="text"
+                        type="number"
                         class="form-control"
                         [(ngModel)]="user.handicap"
                         name="handicap"
@@ -90,7 +90,7 @@
                 </div>
                 <div class="col">
                     <input
-                        ttype="text"
+                        type="number"
                         class="form-control"
                         [(ngModel)]="user.age"
                         name="age"
@@ -171,7 +171,7 @@
                     *ngIf="password.invalid && password.touched"
                     class="invalid-feedback"
                 >
-                    <div>Wachtwoord moet een cijfer hebben.</div>
+                    <div>Wachtwoord moet ingevult zijn.</div>
                 </div>
             </div>
             <div class="row font-weight-bold">

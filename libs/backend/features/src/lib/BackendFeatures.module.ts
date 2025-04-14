@@ -15,6 +15,7 @@ import { TeamRepo } from './team/team.repo';
 import { LocationRepo } from './location/location.repo';
 import { ConfigService } from '@nestjs/config';
 import { AccessTokenStrategy } from './auth/password-stratagy/access-token.strategy';
+import { UserRoleGuard } from './auth/guard/user-role.guard'
 
 @Module({
     imports: [
@@ -31,6 +32,7 @@ import { AccessTokenStrategy } from './auth/password-stratagy/access-token.strat
         TeamController
     ],
     providers: [
+        UserRoleGuard,
         UserService, 
         LocationService, 
         TeamService,

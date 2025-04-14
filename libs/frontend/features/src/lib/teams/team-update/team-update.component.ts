@@ -58,14 +58,15 @@ export class TeamUpdateComponent implements OnDestroy{
 
     onSubmit(): void{
       try {
-        this.httpOptions = {
-          headers: new HttpHeaders({
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + this.token,
-          })
-        }
-        if(this.team instanceof CreateTeam){
-          if(this.currentUser !== null && this.currentUser !== undefined){
+        if(this.currentUser){
+          this.httpOptions = {
+            headers: new HttpHeaders({
+              'Content-Type': 'application/json',
+              Authorization: 'Bearer ' + this.token,
+              userRole: this.currentUser.role
+            })
+          }
+          if(this.team instanceof CreateTeam){
             this.team.teamCaptain = this.currentUser._id;
             this.team.golfers = new Array<UserInterface>();
             this.team.golfers.push(this.currentUser);
@@ -78,21 +79,34 @@ export class TeamUpdateComponent implements OnDestroy{
                 this.router.navigate(['teams']);
               }
             });
+          }else{
+            if(this.team instanceof Team){
+              this.teamService.updateOne(this.currentUser._id, this.team)
+            }
           }
         }else{
-          if(this.currentUser && this.team instanceof Team){
-            this.teamService.updateOne(this.currentUser._id, this.team)
-          }
+          // message not loged in
         }
-    } catch (error) {
-      this.router.navigate(['error']);
+      } catch (error) {
+        this.router.navigate(['error']);
+      }
     }
-  }
 
   addTeamMember(email?: string): void{
     try {
-      if(this.currentUser && this.team instanceof Team){
-        this.teamService.updateOne(this.currentUser._id, this.team)
+      if(email !== null && email !== undefined){
+        if(this.currentUser && this.team instanceof Team){
+          this.sub$ = this.userService.getOneByEmail(email).subscribe(r => {
+            if(r.results){
+              this.team.golfers.push(r.results as UserInterface)
+              this.teamService.updateOne(this.currentUser!._id, this.team as TeamInterface)
+            }
+          });
+        }else{
+          this.router.navigate(['error']);
+        }
+      }else{
+        // return message
       }
     } catch (error) {
       this.router.navigate(['error']);

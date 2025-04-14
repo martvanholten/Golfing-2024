@@ -2,6 +2,7 @@ import { Neo4jBackendModule } from '@avans-nx-workshop/backend/neo4j';
 import { Module } from '@nestjs/common';
 import { Neo4jModule } from 'nest-neo4j/dist';
 import { environment } from '@avans-nx-workshop/shared/util-env';
+import { ConfigService } from '@nestjs/config';
 
 @Module({
     imports: [
@@ -17,4 +18,6 @@ import { environment } from '@avans-nx-workshop/shared/util-env';
     controllers: [],
     providers: []
 })
-export class AppModule {}
+export class AppModule {
+    confServ: ConfigService = undefined
+}

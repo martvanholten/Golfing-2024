@@ -2,7 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@avans-nx-workshop/frontend/features';
 import { TeamService } from '@avans-nx-workshop/frontend/features';
-import { TeamInterface } from '@avans-nx-workshop/shared/interfaces';
+import { TeamInterface, UserInterface } from '@avans-nx-workshop/shared/interfaces';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -33,7 +33,7 @@ export class TeamDetailsComponent implements OnDestroy{
               this.team = r.results! as TeamInterface;
               this.authSub$ = this.authService.getUserFromLocalStorage().subscribe((u) =>{
                 if(u != null){
-                  if(u._id == this.team?.teamCaptain){
+                  if(u._id === this.team?.teamCaptain){
                     this.isCaptain = true;
                   }
                 }
@@ -53,8 +53,14 @@ export class TeamDetailsComponent implements OnDestroy{
 
     delete(): void{
       if(this.isCaptain && this.team){
-        this.teamService.deleteOne(this.team._id);
-        this.router.navigate(['']);
+        if(this.team.games.length < 1){
+          this.teamService.deleteOne(this.team._id);
+          this.router.navigate(['']);
+        }else{
+          // message games to play
+        }
+      }else{
+        // message not the captain
       }
     }
 

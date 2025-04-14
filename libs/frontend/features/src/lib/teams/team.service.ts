@@ -60,6 +60,8 @@ export class TeamService {
     }
 
     public updateOne(userId: string, team: TeamInterface, options?: any): Observable<ApiResponseInterface<TeamInterface>> {
+        console.log('UPDATED TEAM');
+        console.log(team);
         console.log(`read ${this.endpoint}`);
         return this.http
             .put<ApiResponseInterface<TeamInterface>>(this.endpoint + "/" + userId, team, {
@@ -74,6 +76,8 @@ export class TeamService {
     }
 
     public createOne(team: CreateTeamInterface, options?: any): Observable<ApiResponseInterface<TeamInterface>> {
+        console.log('NEW TEAM');
+        console.log(team);
         console.log(`read ${this.endpoint}`);
         return this.http
             .post<ApiResponseInterface<TeamInterface>>(this.endpoint, team, {

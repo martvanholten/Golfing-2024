@@ -51,6 +51,10 @@ export class UserDetailsComponent implements OnDestroy{
       });
     }
 
+    delete(): void{
+
+    }
+
     ngOnDestroy(): void {
         this.sub$?.unsubscribe();
         this.authSub$?.unsubscribe();

@@ -5,6 +5,7 @@ import { UserUpdateComponent } from './users/user-update/user-update.component';
 import { GameListComponent } from './games/game-list/game-list.component';
 import { RouterModule } from '@angular/router';
 import { GameColumnsComponent } from './games/game-columns/game-columns.component';
+import { GameUpdateComponent } from './games/game-update/game-update.component';
 import { TeamListComponent } from './teams/team-list/team-list.component';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
 import { UserDetailsSmallComponent } from './users/user-details-small/user-details-small.component';
@@ -52,11 +53,15 @@ import { AuthService } from './auth/auth.service';
         LocationDetailsSmallComponent,
         LoginComponent,
         LogoutComponent,
+        GameUpdateComponent,
     ],
-    imports: [CommonModule, RouterModule, FormsModule,],
+    imports: [
+        CommonModule, 
+        RouterModule, 
+        FormsModule,
+    ],
     exports: 
     [
-        FormsModule,
         UserUpdateComponent, 
         UserDetailsComponent,
         UserDetailsSmallComponent,
@@ -77,6 +82,7 @@ import { AuthService } from './auth/auth.service';
         LocationDetailsSmallComponent,
         LoginComponent,
         LogoutComponent,
+        GameUpdateComponent,
     ],
     providers: 
     [
@@ -87,6 +93,7 @@ import { AuthService } from './auth/auth.service';
         LocationService,
         TeamService,
         AuthService,
+        FormsModule,
     ],
 })
 export class FeaturesModule {}

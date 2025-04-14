@@ -47,6 +47,20 @@ export class UserService {
             );
     }
 
+    public getOneByEmail(email: string, options?: any): Observable<ApiResponseInterface<UserInterface>> {
+        console.log(`read ${this.endpoint}`);
+        return this.http
+            .get<ApiResponseInterface<UserInterface>>(this.endpoint + "/email/" + email, {
+                ...options,
+                ...httpOptionsUser,
+            })
+            .pipe(
+                tap(console.log),
+                map((response: any) => response as ApiResponseInterface<UserInterface>),
+                catchError(this.handleError)
+            );
+    }
+
     public updateOne(user: UserInterface, options?: any): Observable<ApiResponseInterface<UserInterface>> {
         console.log(`read ${this.endpoint}`);
         return this.http
