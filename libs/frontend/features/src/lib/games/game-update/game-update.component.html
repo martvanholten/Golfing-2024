@@ -144,23 +144,5 @@
                 </tr>
             </tbody>
         </table>
-        @if(currentUser?.role === 'team captain') {
-            <div class="text-success">
-                <h6 class="font-weight-bold">Voeg team toe</h6>
-            </div>
-            <div class="col text-success">
-                <label for="name">
-                    Naam:
-                </label>
-            </div>
-            <div class="col">
-                <input
-                    type="text"
-                    [(ngModel)]="addTeamName"
-                    name="addTeamName"
-                />
-            </div>
-            <div class="col" align="center"><button class="btn btn-success mt-3" (click)="addGameTeam(addTeamName)" routerLinkActive="actieve-link">Voeg toe</button></div>
-        }
     </div>
 </div>

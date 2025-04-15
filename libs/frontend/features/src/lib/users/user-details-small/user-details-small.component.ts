@@ -26,7 +26,7 @@ export class UserDetailsSmallComponent implements OnDestroy{
         try {
           this.sub$ = this.userService.getOne(this.userId!).subscribe((r) =>{
             if(r.message === "not found"){
-              //show alert
+              this.router.navigate(['/error']);
             }else if(r.message === "error"){
               this.router.navigate(['/error']);
             }else if(r.message === "succes"){

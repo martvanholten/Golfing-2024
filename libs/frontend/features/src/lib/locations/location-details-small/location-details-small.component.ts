@@ -26,7 +26,7 @@ export class LocationDetailsSmallComponent implements OnDestroy{
         try {
           this.sub$ = this.locationService.getOne(this.locationId!).subscribe((r) =>{
             if(r.message === "not found"){
-              //show alert
+              this.router.navigate(['/error']);
             }else if(r.message === "error"){
               this.router.navigate(['/error']);
             }else if(r.message === "succes"){

@@ -21,7 +21,6 @@ export class TeamListComponent implements OnDestroy{
 
     ngOnInit(): void {
         this.route.paramMap.subscribe((params) => {
-            //Does not work, does not get when there is home in the search
             if(!params.get('home')){
                 this.sub$ = this.teamService.getAll().subscribe((r) => {
                     console.log(r)

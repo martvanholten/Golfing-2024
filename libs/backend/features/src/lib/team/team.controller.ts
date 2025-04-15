@@ -39,6 +39,11 @@ export class TeamController {
         return defer(() => this.teamService.findOne(id));
     }
 
+    @Get('name/:name')
+    findOneByName(@Param('name') name: string): Observable<ApiResponseInterface<TeamInterface>> {
+        return defer(() => this.teamService.findOneByName(name));
+    }
+
     @Post('')
     @UseGuards(AccessTokenGuard)
     @UseGuards(UserRoleGuard)

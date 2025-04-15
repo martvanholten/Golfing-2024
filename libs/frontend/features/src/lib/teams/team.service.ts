@@ -74,6 +74,7 @@ export class TeamService {
     }
 
     public updateOne(userId: string, team: TeamInterface, options?: any): Observable<ApiResponseInterface<TeamInterface>> {
+        console.log('REACHED TEAM UPDATE')
         console.log(`read ${this.endpoint}`);
         return this.http
             .put<ApiResponseInterface<TeamInterface>>(this.endpoint + "/" + userId, team, {
@@ -101,10 +102,10 @@ export class TeamService {
             );
     }
 
-    public deleteOne(_id: string, options?: any): Observable<ApiResponseInterface<TeamInterface>> {
-        console.log(`delete ${this.endpoint}/${_id}`);
+    public deleteOne(_id: string, userId: string, options?: any): Observable<ApiResponseInterface<TeamInterface>> {
+        console.log(`delete ${this.endpoint}`);
         return this.http
-            .delete<ApiResponseInterface<TeamInterface>>(this.endpoint + `/${_id}`, {
+            .delete<ApiResponseInterface<TeamInterface>>(this.endpoint + `/${_id}/${userId}`, {
                 ...options,
                 ...httpOptionsTeam,
             })

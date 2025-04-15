@@ -15,12 +15,11 @@ export class TeamDto implements CreateTeamInterface{
     @IsString()
     name!: string;
     @IsNotEmpty()
-    @IsBoolean()
     largeGames!: boolean;
     @IsNotEmpty()
-    games: GameInterface[] = new Array<GameInterface>;
+    games!: GameInterface[];
     @IsNotEmpty()
-    golfers!: UserInterface[]
+    golfers!: UserInterface[];
     @IsNotEmpty()
     @IsString()
     teamCaptain!: string;
@@ -40,9 +39,9 @@ export class UpdateTeamDto implements TeamInterface{
     @IsBoolean()
     largeGames!: boolean;
     @IsNotEmpty()
-    games: GameInterface[] = new Array<GameInterface>;
+    games!: GameInterface[];
     @IsNotEmpty()
-    golfers!: UserInterface[]
+    golfers!: UserInterface[];
     @IsNotEmpty()
     @IsString()
     teamCaptain!: string;

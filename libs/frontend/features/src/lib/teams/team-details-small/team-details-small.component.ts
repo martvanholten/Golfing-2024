@@ -29,7 +29,7 @@ export class TeamDetailsSmallComponent implements OnDestroy{
             if(r.message === 'succes'){
               this.team = r.results! as TeamInterface;
             }else if(r.message === 'not found'){
-              //show alert
+              this.router.navigate(['/error']);
             }else if(r.message === 'succes'){
               this.router.navigate(['error']);
             }

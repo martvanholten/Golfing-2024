@@ -119,13 +119,13 @@ export class LocationService {
         }
     }
 
-    async updateGame(game: GameDto, locationId: string): Promise<ApiResponseInterface<GameInterface>> {
+    async updateGame(oldGameName: string, game: GameDto, locationId: string): Promise<ApiResponseInterface<GameInterface>> {
         try {
             this.location = await this.locationRepo.findOne(locationId)
             if(this.location){
-                this.game = await this.locationRepo.findOneGame(this.location.name, game.name)
+                this.game = await this.locationRepo.findOneGame(this.location.name, oldGameName)
                 if(this.game){
-                    this. game = await this.locationRepo.updateOneGame(this.location, game)
+                    this. game = await this.locationRepo.updateOneGame(this.location, game, oldGameName)
                     this.response = new ApiResponse<GameInterface>('succes', this.game)
                     return this.response as ApiResponseInterface<GameInterface>;
                 }else{
@@ -157,7 +157,7 @@ export class LocationService {
             }else{
                 this.location = await this.locationRepo.findOne(locationId)
                 if(this.location){
-                    this. game = await this.locationRepo.updateOneGame(this.location, game)
+                    this. game = await this.locationRepo.createOneGame(this.location, game)
                     this.response = new ApiResponse<GameInterface>('succes', this.game)
                     return this.response as ApiResponseInterface<GameInterface>;
                 }else{

@@ -103,13 +103,6 @@ export class UserService {
 
     async delete(user: UserInterface): Promise<ApiResponseInterface<UserInterface>> {
         try {
-            var teamList = (await this.teamService.findAll()).results as TeamInterface[];
-            teamList?.forEach(team => {
-                if(team.golfers.includes(user)){
-                    team.golfers.slice(team.golfers.indexOf(user), 1)
-                    this.teamService.update(team.teamCaptain, team)
-                }
-            });
             this.userRepo.delteOne(user)
             this.response = new ApiResponse<UserInterface>('succes');  
             return this.response as ApiResponse<UserInterface>;
@@ -122,6 +115,7 @@ export class UserService {
     async update(_id: string, user: UpdateUserDto): 
         Promise<ApiResponseInterface<UserInterface>> {
         try {
+            console.log(user)
             user.password = await this.hashPassword(user.password!);
             this.fullUser = await this.userRepo.update(_id, user);
             if(this.fullUser !== null){

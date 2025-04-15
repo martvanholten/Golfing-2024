@@ -62,6 +62,8 @@ export class UserService {
     }
 
     public updateOne(user: UserInterface, options?: any): Observable<ApiResponseInterface<UserInterface>> {
+        console.log('REACHED UPDATE USER')
+        console.log(user)
         console.log(`read ${this.endpoint}`);
         return this.http
             .put<ApiResponseInterface<UserInterface>>(this.endpoint + "/" + user._id, user, {

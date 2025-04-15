@@ -22,7 +22,6 @@ export class GameUpdateComponent implements OnDestroy{
     token?: string;
     team?: TeamInterface;
     locationId?: string;
-    addTeamName?: string;
   
     constructor(
       private route: ActivatedRoute,
@@ -44,14 +43,14 @@ export class GameUpdateComponent implements OnDestroy{
             if(location){
               this.locationId = location._id
             }
+            if(this.locationId){
+              this.sub$ = this.gameService.getOne(this.gameName!, this.locationId).subscribe((g) =>{
+                if(g){
+                  this.game = g.results as GameInterface
+                }
+              })
+            }
           })
-          if(this.locationId){
-            this.sub$ = this.gameService.getOne(this.gameName, this.locationId).subscribe((g) =>{
-              if(g){
-                this.game = g.results as GameInterface
-              }
-            })
-          }
         }
 
         this.authSub$ = this.authService.getUserFromLocalStorage().subscribe((u) =>{
@@ -71,77 +70,48 @@ export class GameUpdateComponent implements OnDestroy{
     onSubmit(): void{
       try {
         if(this.currentUser){
+          this.httpOptions = {
+            headers: new HttpHeaders({
+              'Content-Type': 'application/json',
+              Authorization: 'Bearer ' + this.token,
+              userRole: this.currentUser.role
+            })
+          }
           if(this.game instanceof CreateGame){
             if(this.game.location){
               this.locationService.getOneByName(this.game.location).subscribe(l =>{
                 var location = l.results as LocationInterface;
                 this.locationId = location._id;
-              }); 
-              if(this.locationId){
-                this.httpOptions = {
-                  headers: new HttpHeaders({
-                    'Content-Type': 'application/json',
-                    Authorization: 'Bearer ' + this.token,
-                    userRole: this.currentUser.role,
-                  })
+                if(this.locationId){
+                  this.game.teams = new Array<TeamInterface>();
+                  this.game.winner = '';
+                  this.gameService.createOne(this.locationId, this.game as CreateGameInterface, this.httpOptions).subscribe((r) => {
+                    if(r.message === "error"){
+                      this.router.navigate(['error']);
+                    }else if(r.message = "succes"){
+                      this.router.navigate(['games']);
+                    }else{
+                      this.router.navigate(['/error']);
+                    }
+                  });  
+                }else{
+                  this.router.navigate(['/error']);
                 }
-                this.game.teams = new Array<TeamInterface>();
-                this.game.winner = '';
-                this.gameService.createOne(this.locationId, this.game as CreateGameInterface).subscribe((r) => {
-                  if(r.message === "error"){
-                    this.router.navigate(['error']);
-                  }else if(r.message = "succes"){
-                    this.router.navigate(['games']);
-                  }
-                });  
-              }else{
-                //message no location
-              }
+              });
             }else{
-              //message no location
+              this.router.navigate(['/error']);
             }          
           }else{
             if(this.locationId){
-              this.gameService.updateOne(this.locationId, this.game as GameInterface)
+              this.gameService.updateOne(this.locationId, this.gameName!, this.game as GameInterface, this.httpOptions).subscribe()
+              this.router.navigate(['games']);
             }else{
-              //message no location
+              this.router.navigate(['/error']);
             }
           }
         }else{
-          //message not loged in
+          this.router.navigate(['/error']);
         }
-    } catch (error) {
-      this.router.navigate(['error']);
-    }
-  }
-
-  addGameTeam(name?: string): void{
-    try {
-      if(name){
-        if(this.currentUser && this.game instanceof Game){
-          this.teamService.getOneByName(name).subscribe(t=>{
-            this.team = t.results as TeamInterface
-          });
-          if(this.team){
-            if(!this.team.largeGames && this.game.holes > 9){
-              this.game.teams.push(this.team);
-              this.team.games.push(this.game);
-              this.teamService.updateOne(this.currentUser._id, this.team);
-              if(this.locationId){
-                this.gameService.updateOne(this.locationId, this.game)
-              }else{
-                //message no location
-              }
-            }else{
-              //message team does not play large games
-            }
-          }else{
-            //message team does not exist
-          }
-        }
-      }else{
-        // return message
-      }
     } catch (error) {
       this.router.navigate(['error']);
     }

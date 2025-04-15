@@ -35,7 +35,6 @@ export class UserDetailsComponent implements OnDestroy{
           this.authSub$ = this.authService.getUserFromLocalStorage().subscribe((u) =>{
             if(u && u._id === params.get('id')){
               this.currentUser = true;
-              this.user = u;
               this.token$ = this.authService.getTokenFromLocalStorage().subscribe((t) => {
                 if(t){
                   this.token = t
@@ -43,17 +42,15 @@ export class UserDetailsComponent implements OnDestroy{
               });
             }
           });
-          if(!this.currentUser){
-            this.sub$ = this.userService.getOne(this.userId!).subscribe((r) =>{
-              if(r.message === "not found"){
-                //show alert
-              }else if(r.message === "error"){
-                this.router.navigate(['error']);
-              }else if(r.message === "succes"){
-                this.user = r.results as UserInterface;
-              }
-            });
-          }          
+          this.sub$ = this.userService.getOne(this.userId!).subscribe((r) =>{
+            if(r.message === "not found"){
+              this.router.navigate(['/error']);
+            }else if(r.message === "error"){
+              this.router.navigate(['error']);
+            }else if(r.message === "succes"){
+              this.user = r.results as UserInterface;
+            }
+          });          
         } catch (error) {
           this.router.navigate(['error']);
         }
@@ -69,11 +66,16 @@ export class UserDetailsComponent implements OnDestroy{
               Authorization: 'Bearer ' + this.token,
             })
           }
-          this.userService.deleteOne(this.user);
-          this.router.navigate(['']);
+          if(this.user.teams.length < 1){
+            this.userService.deleteOne(this.user, this.httpOptions).subscribe();
+            this.authService.logout();
+            this.router.navigate(['']);
+          }else{
+            this.router.navigate(['/error']);
+          }
         }
       }else{
-        // message not the current user
+        this.router.navigate(['/error']);
       }
     }
 

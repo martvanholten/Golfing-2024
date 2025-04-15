@@ -14,7 +14,6 @@ export class GameDto implements GameInterface{
     @IsString()
     winner?: string | undefined;
     @IsNotEmpty()
-    @IsDate()
     date!: Date;
     @IsNotEmpty()
     @IsNumber()

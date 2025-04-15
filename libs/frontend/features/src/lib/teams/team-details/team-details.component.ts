@@ -37,7 +37,8 @@ export class TeamDetailsComponent implements OnDestroy{
             if(r.message === 'succes'){
               this.team = r.results! as TeamInterface;
               this.authSub$ = this.authService.getUserFromLocalStorage().subscribe((u) =>{
-                if(u != null){
+                if(u){
+                  this.currentUser = u
                   if(u._id === this.team?.teamCaptain){
                     this.isCaptain = true;
                   }
@@ -49,8 +50,7 @@ export class TeamDetailsComponent implements OnDestroy{
                 }
               });
             }else if(r.message === 'not found'){
-              //show alert
-              this.router.navigate(['']);
+              this.router.navigate(['/error']);
             }else if(r.message === 'error'){
               this.router.navigate(['error']);
             }
@@ -62,8 +62,11 @@ export class TeamDetailsComponent implements OnDestroy{
     }
 
     delete(): void{
+      console.log('REACHED DELETE')
       if(this.isCaptain && this.team){
+        console.log('REACHED DELETE2')
         if(this.team.games.length < 1){
+          console.log('REACHED DELETE3')
           if(this.currentUser){
             this.httpOptions = {
               headers: new HttpHeaders({
@@ -72,16 +75,17 @@ export class TeamDetailsComponent implements OnDestroy{
                 userRole: this.currentUser.role
               })
             }
-            this.teamService.deleteOne(this.team._id, this.httpOptions);
+            console.log('REACHED DELETE4')
+            this.teamService.deleteOne(this.team._id, this.currentUser._id, this.httpOptions).subscribe()
             this.router.navigate(['']);
           }else{
-            //message not loged in
+            this.router.navigate(['/error']);
           }
         }else{
-          // message games to play
+          this.router.navigate(['/error']);
         }
       }else{
-        // message not the captain
+        this.router.navigate(['/error']);
       }
     }
 

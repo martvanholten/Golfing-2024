@@ -11,7 +11,7 @@ import {
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { ApiResponse, ApiResponseInterface, LoginDataInterface, UserInterface } from '@avans-nx-workshop/shared/interfaces';
-import { defer, Observable, of } from 'rxjs';
+import { defer, Observable } from 'rxjs';
 import { UpdateUserDto, UserDto } from '@avans-nx-workshop/backend/dto'
 import { AccessTokenGuard } from '../auth/guard/access-token.guard';
 
@@ -22,7 +22,6 @@ export class UserController {
 
     @Get()
     findAll(): Observable<ApiResponse<UserInterface[]>> {
-        this.logger.log('get users reached')
         return defer(() => this.userService.findAll());
     }
 

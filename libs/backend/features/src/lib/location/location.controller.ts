@@ -4,6 +4,7 @@ import {
     Get,
     Logger,
     Param,
+    Post,
     Put,
     UseGuards
 } from '@nestjs/common';
@@ -51,7 +52,7 @@ export class LocationController {
     }
 
     //game create
-    @Put(':id/game')
+    @Post(':id/game')
     @UseGuards(AccessTokenGuard)
     @UseGuards(UserRoleGuard)
     @Roles('team captain')
@@ -61,14 +62,15 @@ export class LocationController {
 
     //game update
     @Put(':id/game/:gameName')
-    @UseGuards(AccessTokenGuard)
-    @UseGuards(UserRoleGuard)
-    @Roles('team captain')
+    // @UseGuards(AccessTokenGuard)
+    // @UseGuards(UserRoleGuard)
+    // @Roles('team captain')
     updateGame(
         @Param('id') locationId: string,
+        @Param('gameName') oldGameName: string,
         @Body() game: GameDto
     ): Observable<ApiResponseInterface<GameInterface[] | GameInterface>> {
-        return defer(() => this.locationService.updateGame(game, locationId));
+        return defer(() => this.locationService.updateGame( oldGameName, game, locationId));
     }
 
     //location get one

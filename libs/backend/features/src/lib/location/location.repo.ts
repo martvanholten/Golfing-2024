@@ -58,12 +58,18 @@ export class LocationRepo {
         return this.game
     }
 
-    async updateOneGame(location: LocationInterface, updateGame: GameDto): Promise<GameInterface | undefined> {
-        location.games.forEach(game => {
-            if(game.name === updateGame.name){
-                game = updateGame
-            } 
-        })
+    async updateOneGame(location: LocationInterface, updateGame: GameDto, oldGameName: string): Promise<GameInterface | undefined> {
+        var games = new Array<GameInterface>
+        location.games.forEach(g => {
+            if(g.name !== oldGameName){
+                games.push(g)
+            }else{
+                console.log('REACHED GAME')
+                games.push(updateGame)
+            }
+        });
+        location.games = games;
+        console.log(location)
         var _id = location._id
         this.location = await this.locationModel.findByIdAndUpdate({ _id }, location)
         return this.findOneGame(location.name, updateGame.name)
@@ -71,8 +77,10 @@ export class LocationRepo {
 
     async createOneGame(location: LocationInterface, createGame: GameDto): Promise<GameInterface | undefined> {
         location.games.push(createGame)
+        console.log(location)
         var _id = location._id
         this.location = await this.locationModel.findByIdAndUpdate({ _id }, location)
+        console.log(this.location)
         return this.findOneGame(location.name, createGame.name)
     }
 }

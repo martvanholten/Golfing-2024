@@ -20,7 +20,6 @@ export class UserUpdateComponent implements OnDestroy{
   token$?: Subscription;
   token?: string;
   httpOptions?: any;
-  loginData?: LoginData;
 
   constructor(
     private route: ActivatedRoute,
@@ -70,7 +69,7 @@ export class UserUpdateComponent implements OnDestroy{
           if(r.message === "error"){
             this.router.navigate(['error']);
           }else if(r.message === "already exists"){
-            //pop up
+            this.router.navigate(['/error']);
           }else{
             this.router.navigate(['users']);
           }
@@ -78,11 +77,12 @@ export class UserUpdateComponent implements OnDestroy{
       }else{
         if(this.user instanceof User){
           this.httpOptions = {
-              headers: new HttpHeaders({
-                'Content-Type': 'application/json',
-                Authorization: 'Bearer ' + this.token,
-              })
-            }
+            headers: new HttpHeaders({
+              'Content-Type': 'application/json',
+              Authorization: 'Bearer ' + this.token,
+              userRole: this.user.role
+            })
+          }
           this.userService.updateOne(this.user, this.httpOptions).subscribe((r) => {
             if(r.message === "error"){
               this.router.navigate(['error']);

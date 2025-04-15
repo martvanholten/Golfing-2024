@@ -21,7 +21,6 @@ export class GameListComponent implements OnDestroy{
 
     ngOnInit(): void {
         this.route.paramMap.subscribe((params) => {
-            //Does not work, does not get when there is home in the search and does not get the date right all the time, it can jump
             if(!params.get('home')){
                 try {
                     this.sub$ = this.gameService.getAll().subscribe((r) => {

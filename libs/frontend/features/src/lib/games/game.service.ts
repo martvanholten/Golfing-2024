@@ -60,9 +60,10 @@ export class GameService {
     }
 
     public createOne(locationId: string, game: CreateGameInterface, options?: any): Observable<ApiResponseInterface<GameInterface>> {
+        console.log(`TEST`);
         console.log(`read ${this.endpoint}`);
         return this.http
-            .put<ApiResponseInterface<GameInterface>>(this.endpoint + "/" + locationId, game, {
+            .post<ApiResponseInterface<GameInterface>>(this.endpoint + "/" + locationId + '/game', game, {
                 ...options,
                 ...httpOptionsGame,
             })
@@ -73,10 +74,10 @@ export class GameService {
             );
     }
 
-    public updateOne(locationId: string, game: GameInterface, options?: any): Observable<ApiResponseInterface<GameInterface>> {
+    public updateOne(locationId: string, gameName: string, game: GameInterface, options?: any): Observable<ApiResponseInterface<GameInterface>> {
         console.log(`read ${this.endpoint}`);
         return this.http
-            .put<ApiResponseInterface<GameInterface>>(this.endpoint + "/" + locationId + "/" + game.name, game, {
+            .put<ApiResponseInterface<GameInterface>>(this.endpoint + "/" + locationId + "/game/" + gameName, game, {
                 ...options,
                 ...httpOptionsGame,
             })

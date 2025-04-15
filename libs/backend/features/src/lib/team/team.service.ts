@@ -109,6 +109,7 @@ export class TeamService {
 
     async update(userId: string, team: TeamInterface): Promise<ApiResponseInterface<TeamInterface>> {
         try {
+            console.log(team)
             this.team = await this.teamRepo.findOne(team._id)
             if(this.team !== null){
                 if(this.team.teamCaptain === userId){
