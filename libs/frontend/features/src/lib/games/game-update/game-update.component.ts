@@ -22,6 +22,7 @@ export class GameUpdateComponent implements OnDestroy{
     token?: string;
     team?: TeamInterface;
     locationId?: string;
+    hasTeam?: boolean;
   
     constructor(
       private route: ActivatedRoute,
@@ -33,6 +34,7 @@ export class GameUpdateComponent implements OnDestroy{
     ) {}
   
     ngOnInit(): void {
+      this.hasTeam = false
       this.route.paramMap.subscribe((params) => {
         this.gameName = params.get('name');
         this.locationName = params.get('location')
@@ -85,20 +87,32 @@ export class GameUpdateComponent implements OnDestroy{
                 if(this.locationId){
                   this.game.gameManager = new Manager(this.currentUser!._id, this.currentUser!.firstName, this.currentUser!.lastName)
                   this.game.teams = new Array<TeamInterface>();
-                  this.game.winner = '';
-                  this.gameService.createOne(this.locationId, this.game as CreateGameInterface, this.httpOptions).subscribe((r) => {
-                    if(r.message === "error"){
-                      this.router.navigate(['error']);
-                    }else if(r.message === "succes"){
-                      this.router.navigate(['games']);
-                    }else if(r.message === 'game already exists'){
-                      this.errorService.errorMessage = "Game bestaat al"
-                      this.router.navigate(['/error']);
-                    }else if(r.message === 'location not found'){
-                      this.errorService.errorMessage = "Locatie niet gevonden"
-                      this.router.navigate(['/error']);
+                  if(this.game.winner === ''){
+                    this.hasTeam = true
+                  }
+                  this.game.teams.forEach(t =>{
+                    if(t.name === this.game.winner){
+                      this.hasTeam = true
                     }
-                  });  
+                  })
+                  if(!this.hasTeam){
+                    this.errorService.errorMessage = "Vul een mee spelend team in of vul no in voor geen winnaar"
+                    this.router.navigate(['/error']);
+                  }else{
+                    this.gameService.createOne(this.locationId, this.game as CreateGameInterface, this.httpOptions).subscribe((r) => {
+                      if(r.message === "error"){
+                        this.router.navigate(['error']);
+                      }else if(r.message === "succes"){
+                        this.router.navigate(['games']);
+                      }else if(r.message === 'game already exists'){
+                        this.errorService.errorMessage = "Game bestaat al"
+                        this.router.navigate(['/error']);
+                      }else if(r.message === 'location not found'){
+                        this.errorService.errorMessage = "Locatie niet gevonden"
+                        this.router.navigate(['/error']);
+                      }
+                    });  
+                  }
                 }else{
                   this.router.navigate(['/error']);
                 }
@@ -109,17 +123,30 @@ export class GameUpdateComponent implements OnDestroy{
           }else{
             if(this.locationId){
               if(this.currentUser._id === this.game.gameManager?._id){
-                this.gameService.updateOne(this.locationId, this.gameName!, this.game as GameInterface, this.httpOptions).subscribe(r =>{
-                  if(r.message === 'succes'){
-                    this.router.navigate(['games']);
-                  }else if(r.message === 'game not found'){
-                    this.errorService.errorMessage = "Game niet gevonden"
-                    this.router.navigate(['/error']);
-                  }else if(r.message === 'location not found'){
-                    this.errorService.errorMessage = "Locatie niet gevonden"
-                    this.router.navigate(['/error']);
+                if(this.game.winner === ''){
+                  this.hasTeam = true
+                }
+                this.game.teams.forEach(t =>{
+                  if(t.name === this.game.winner){
+                    this.hasTeam = true
                   }
                 })
+                if(!this.hasTeam){
+                  this.errorService.errorMessage = "Gekozen winnaar doet niet mee met de wedsrtijd"
+                  this.router.navigate(['/error']);
+                }else{
+                  this.gameService.updateOne(this.locationId, this.gameName!, this.game as GameInterface, this.httpOptions).subscribe(r =>{
+                    if(r.message === 'succes'){
+                      this.router.navigate(['games']);
+                    }else if(r.message === 'game not found'){
+                      this.errorService.errorMessage = "Game niet gevonden"
+                      this.router.navigate(['/error']);
+                    }else if(r.message === 'location not found'){
+                      this.errorService.errorMessage = "Locatie niet gevonden"
+                      this.router.navigate(['/error']);
+                    }
+                  })
+                }
               }else{
                 this.errorService.errorMessage = "Niet de game manager"
                 this.router.navigate(['/error']);

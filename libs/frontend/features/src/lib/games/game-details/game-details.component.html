@@ -11,7 +11,7 @@
         </div>
         <div class="row">
             <div class="col">{{ game?.date }}</div>
-            @if(game?.winner === "no"){
+            @if(game?.winner === ""){
                 <div class="col">Nog niet gespeeld</div>
             }@else{
                 <div class="col">{{game?.winner}}</div>

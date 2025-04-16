@@ -58284,3 +58284,263 @@ If you get this error again, check for any errors in the daemon process logs fou
 [NX Daemon Server] - 2025-04-16T20:43:58.625Z - [WATCHER]: Processing file changes in outputs
 [NX Daemon Server] - 2025-04-16T21:10:39.369Z - Closed a connection. Number of open connections: 3
 [NX Daemon Server] - 2025-04-16T21:10:39.390Z - Closed a connection. Number of open connections: 2
+[NX Daemon Server] - 2025-04-16T21:30:27.740Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-04-16T21:30:27.748Z - [WATCHER]: libs/shared/util-env/src/lib/environment.production.ts was modified
+[NX Daemon Server] - 2025-04-16T21:30:27.865Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2025-04-16T21:30:27.865Z - [REQUEST]: libs/shared/util-env/src/lib/environment.production.ts
+[NX Daemon Server] - 2025-04-16T21:30:27.865Z - [REQUEST]: 
+[NX Daemon Server] - 2025-04-16T21:30:27.881Z - Time taken for 'hash changed files from watcher' 1.0779999997466803ms
+[NX Daemon Server] - 2025-04-16T21:30:27.897Z - [REQUEST]: Responding to the client. handleGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.897Z - Done responding to the client handleGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.898Z - Handled GLOB. Handling time: 3. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:27.903Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.904Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.904Z - Handled HASH_GLOB. Handling time: 1. Response time: 1.
+[NX Daemon Server] - 2025-04-16T21:30:27.937Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.937Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.937Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:27.947Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.947Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.947Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:27.952Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.952Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.952Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:27.957Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.957Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.957Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:27.963Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.963Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.963Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:27.967Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.967Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.967Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:27.972Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.972Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.972Z - Handled HASH_GLOB. Handling time: 0. Response time: 1.
+[NX Daemon Server] - 2025-04-16T21:30:27.975Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.976Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.976Z - Handled HASH_GLOB. Handling time: 0. Response time: 1.
+[NX Daemon Server] - 2025-04-16T21:30:27.979Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.979Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.979Z - Handled HASH_GLOB. Handling time: 0. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:27.983Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.983Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.983Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:27.987Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.988Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.988Z - Handled HASH_GLOB. Handling time: 0. Response time: 1.
+[NX Daemon Server] - 2025-04-16T21:30:27.992Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.994Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.994Z - Handled HASH_GLOB. Handling time: 1. Response time: 2.
+[NX Daemon Server] - 2025-04-16T21:30:27.998Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.998Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:27.998Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:28.004Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:28.004Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:28.004Z - Handled HASH_GLOB. Handling time: 2. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:28.008Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:28.008Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:28.008Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:28.011Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:28.012Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:28.012Z - Handled HASH_GLOB. Handling time: 0. Response time: 1.
+[NX Daemon Server] - 2025-04-16T21:30:28.057Z - Time taken for 'build-project-configs' 180.07469999976456ms
+[NX Daemon Server] - 2025-04-16T21:30:28.191Z - [SYNC]: collect registered sync generators
+[NX Daemon Server] - 2025-04-16T21:30:28.192Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX Daemon Server] - 2025-04-16T21:30:28.193Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX Daemon Server] - 2025-04-16T21:30:28.193Z - Time taken for 'total execution time for createProjectGraph()' 112.8711000001058ms
+[NX Daemon Server] - 2025-04-16T21:30:34.444Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-04-16T21:30:34.449Z - [WATCHER]: libs/shared/util-env/src/lib/environment.production.ts was modified
+[NX Daemon Server] - 2025-04-16T21:30:34.667Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2025-04-16T21:30:34.667Z - [REQUEST]: libs/shared/util-env/src/lib/environment.production.ts
+[NX Daemon Server] - 2025-04-16T21:30:34.667Z - [REQUEST]: 
+[NX Daemon Server] - 2025-04-16T21:30:34.694Z - Time taken for 'hash changed files from watcher' 1.4239999996498227ms
+[NX Daemon Server] - 2025-04-16T21:30:34.702Z - [REQUEST]: Responding to the client. handleGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.703Z - Done responding to the client handleGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.703Z - Handled GLOB. Handling time: 2. Response time: 1.
+[NX Daemon Server] - 2025-04-16T21:30:34.709Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.709Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.709Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:34.713Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.718Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.718Z - Handled HASH_GLOB. Handling time: 0. Response time: 5.
+[NX Daemon Server] - 2025-04-16T21:30:34.721Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.721Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.721Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:34.725Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.725Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.725Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:34.729Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.729Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.729Z - Handled HASH_GLOB. Handling time: 0. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:34.733Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.733Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.733Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:34.737Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.737Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.737Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:34.740Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.741Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.741Z - Handled HASH_GLOB. Handling time: 0. Response time: 1.
+[NX Daemon Server] - 2025-04-16T21:30:34.745Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.746Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.746Z - Handled HASH_GLOB. Handling time: 0. Response time: 1.
+[NX Daemon Server] - 2025-04-16T21:30:34.750Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.750Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.750Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:34.755Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.756Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.757Z - Handled HASH_GLOB. Handling time: 1. Response time: 2.
+[NX Daemon Server] - 2025-04-16T21:30:34.760Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.760Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.760Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:34.765Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.765Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.765Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:34.769Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.769Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.769Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:34.774Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.774Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.774Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:34.780Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.780Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.780Z - Handled HASH_GLOB. Handling time: 2. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:34.784Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.784Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:34.784Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:34.805Z - Time taken for 'build-project-configs' 126.15160000044852ms
+[NX Daemon Server] - 2025-04-16T21:30:34.925Z - [SYNC]: collect registered sync generators
+[NX Daemon Server] - 2025-04-16T21:30:34.927Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX Daemon Server] - 2025-04-16T21:30:34.927Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX Daemon Server] - 2025-04-16T21:30:34.928Z - Time taken for 'total execution time for createProjectGraph()' 106.15969999972731ms
+[NX Daemon Server] - 2025-04-16T21:30:38.154Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-04-16T21:30:38.157Z - [WATCHER]: libs/shared/util-env/src/lib/environment.production.ts was modified
+[NX Daemon Server] - 2025-04-16T21:30:38.573Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2025-04-16T21:30:38.573Z - [REQUEST]: libs/shared/util-env/src/lib/environment.production.ts
+[NX Daemon Server] - 2025-04-16T21:30:38.573Z - [REQUEST]: 
+[NX Daemon Server] - 2025-04-16T21:30:38.596Z - Time taken for 'hash changed files from watcher' 1.3866999996826053ms
+[NX Daemon Server] - 2025-04-16T21:30:38.607Z - [REQUEST]: Responding to the client. handleGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.607Z - Done responding to the client handleGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.607Z - Handled GLOB. Handling time: 3. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:38.613Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.613Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.613Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:38.637Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.637Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.637Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:38.641Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.641Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.641Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:38.645Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.645Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.646Z - Handled HASH_GLOB. Handling time: 0. Response time: 1.
+[NX Daemon Server] - 2025-04-16T21:30:38.650Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.650Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.650Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:38.654Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.654Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.654Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:38.658Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.658Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.658Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:38.662Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.662Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.662Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:38.666Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.666Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.666Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:38.670Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.670Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.670Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:38.674Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.675Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.675Z - Handled HASH_GLOB. Handling time: 0. Response time: 1.
+[NX Daemon Server] - 2025-04-16T21:30:38.679Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.679Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.679Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:38.683Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.683Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.683Z - Handled HASH_GLOB. Handling time: 0. Response time: 1.
+[NX Daemon Server] - 2025-04-16T21:30:38.687Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.687Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.687Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:38.691Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.691Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.691Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:38.695Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.695Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.695Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:38.699Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.700Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:38.700Z - Handled HASH_GLOB. Handling time: 1. Response time: 1.
+[NX Daemon Server] - 2025-04-16T21:30:38.758Z - Time taken for 'build-project-configs' 167.31070000026375ms
+[NX Daemon Server] - 2025-04-16T21:30:38.868Z - [SYNC]: collect registered sync generators
+[NX Daemon Server] - 2025-04-16T21:30:38.869Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX Daemon Server] - 2025-04-16T21:30:38.870Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX Daemon Server] - 2025-04-16T21:30:38.870Z - Time taken for 'total execution time for createProjectGraph()' 97.18680000025779ms
+[NX Daemon Server] - 2025-04-16T21:30:55.706Z - [WATCHER]: libs/shared/util-env/src/lib/environment.production.ts was modified
+[NX Daemon Server] - 2025-04-16T21:30:55.706Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-04-16T21:30:56.514Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2025-04-16T21:30:56.514Z - [REQUEST]: libs/shared/util-env/src/lib/environment.production.ts
+[NX Daemon Server] - 2025-04-16T21:30:56.514Z - [REQUEST]: 
+[NX Daemon Server] - 2025-04-16T21:30:56.540Z - Time taken for 'hash changed files from watcher' 1.9844999993219972ms
+[NX Daemon Server] - 2025-04-16T21:30:56.551Z - [REQUEST]: Responding to the client. handleGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.552Z - Done responding to the client handleGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.552Z - Handled GLOB. Handling time: 2. Response time: 1.
+[NX Daemon Server] - 2025-04-16T21:30:56.569Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.569Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.569Z - Handled HASH_GLOB. Handling time: 2. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:56.617Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.617Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.617Z - Handled HASH_GLOB. Handling time: 5. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:56.641Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.641Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.641Z - Handled HASH_GLOB. Handling time: 19. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:56.651Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.651Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.652Z - Handled HASH_GLOB. Handling time: 4. Response time: 1.
+[NX Daemon Server] - 2025-04-16T21:30:56.658Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.658Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.658Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:56.665Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.665Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.665Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:56.672Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.673Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.673Z - Handled HASH_GLOB. Handling time: 1. Response time: 1.
+[NX Daemon Server] - 2025-04-16T21:30:56.683Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.683Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.684Z - Handled HASH_GLOB. Handling time: 7. Response time: 1.
+[NX Daemon Server] - 2025-04-16T21:30:56.692Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.692Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.692Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:56.699Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.699Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.699Z - Handled HASH_GLOB. Handling time: 0. Response time: 1.
+[NX Daemon Server] - 2025-04-16T21:30:56.702Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.702Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.702Z - Handled HASH_GLOB. Handling time: 0. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:56.706Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.706Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.706Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:56.710Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.710Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.710Z - Handled HASH_GLOB. Handling time: 0. Response time: 1.
+[NX Daemon Server] - 2025-04-16T21:30:56.715Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.715Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.716Z - Handled HASH_GLOB. Handling time: 1. Response time: 1.
+[NX Daemon Server] - 2025-04-16T21:30:56.719Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.719Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.719Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:56.723Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.723Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.723Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2025-04-16T21:30:56.728Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.729Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2025-04-16T21:30:56.729Z - Handled HASH_GLOB. Handling time: 2. Response time: 1.
+[NX Daemon Server] - 2025-04-16T21:30:56.798Z - Time taken for 'build-project-configs' 265.67599999997765ms
+[NX Daemon Server] - 2025-04-16T21:30:56.926Z - [SYNC]: collect registered sync generators
+[NX Daemon Server] - 2025-04-16T21:30:56.929Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX Daemon Server] - 2025-04-16T21:30:56.930Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX Daemon Server] - 2025-04-16T21:30:56.930Z - Time taken for 'total execution time for createProjectGraph()' 110.67469999939203ms

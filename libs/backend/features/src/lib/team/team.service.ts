@@ -1,8 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { ApiResponse, ApiResponseInterface, TeamInterface, UserTeamInterface } from '@avans-nx-workshop/shared/interfaces';
 import { TeamRepo } from './team.repo';
-import { TeamDto, UpdateUserDto } from '@avans-nx-workshop/backend/dto';
-import { UserRepo } from '../user/user.repo';
+import { TeamDto } from '@avans-nx-workshop/backend/dto';
 import { ConfigType} from '@nestjs/config'
 
 @Injectable()
@@ -15,7 +14,6 @@ export class TeamService {
 
     constructor(
         private readonly teamRepo: TeamRepo,
-        private readonly userRepo: UserRepo
     ) {}
 
     async findAll(): Promise<ApiResponseInterface<TeamInterface[]>> {

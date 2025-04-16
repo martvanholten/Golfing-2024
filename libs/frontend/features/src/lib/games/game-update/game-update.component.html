@@ -69,7 +69,8 @@
                     <div>Er moet een datum zijn.</div>
                 </div>
                 <div class="col">
-                    <select
+                    <input
+                        type="text"
                         class="form-control"
                         [(ngModel)]="game.winner"
                         name="winner"
@@ -77,14 +78,8 @@
                         [ngClass]="{
                             'is-invalid': winner.invalid
                         }"
-                        required
-                    > 
-                        <option value="no">Nog niet gespeeld</option>
-                        <tr *ngFor="let t of game?.teams">
-                            <option value={{ t.name }}>{{ t.name }}</option>
-                        </tr>
-                    </select>
-                </div>            
+                    />
+                </div>        
             </div>
             <hr>
             <div class="text-success">
