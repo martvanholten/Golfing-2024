@@ -21,30 +21,16 @@ export class GameListComponent implements OnDestroy{
 
     ngOnInit(): void {
         this.route.paramMap.subscribe((params) => {
-            if(!params.get('home')){
-                try {
-                    this.sub$ = this.gameService.getAll().subscribe((r) => {
-                        if(r.message === "error"){
-                            this.router.navigate(['/error']);
-                        }else{
-                            this.games = r.results as GameInterface[];
-                        }
-                    });
-                } catch (error) {
-                    this.router.navigate(['/error']);
-                }
-            }else{
-                try {
-                    this.sub$ = this.gameService.getThisWeek().subscribe((r) => {
-                        if(r.message === "error"){
-                            this.router.navigate(['/error']);
-                        }else{
-                            this.games = r.results as GameInterface[];
-                        }
-                    });
-                } catch (error) {
-                    this.router.navigate(['/error']);
-                }
+            try {
+                this.sub$ = this.gameService.getAll().subscribe((r) => {
+                    if(r.message === "error"){
+                        this.router.navigate(['/error']);
+                    }else{
+                        this.games = r.results as GameInterface[];
+                    }
+                });
+            } catch (error) {
+                this.router.navigate(['/error']);
             }
         });
     }

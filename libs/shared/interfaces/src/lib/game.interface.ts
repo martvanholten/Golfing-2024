@@ -1,4 +1,5 @@
 import { TeamInterface } from "./team.interface";
+import { ManagerInterface } from "./user.interface";
 
 export interface GameInterface{
     winner?: string;
@@ -7,6 +8,7 @@ export interface GameInterface{
     name:string;
     location:string;
     teams: TeamInterface[]
+    gameManager: ManagerInterface
 }
 
 export interface CreateGameInterface{
@@ -16,4 +18,5 @@ export interface CreateGameInterface{
     name?:string;
     location?:string;
     teams: TeamInterface[]
+    gameManager?: ManagerInterface
 }

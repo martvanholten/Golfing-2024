@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TeamService } from '@avans-nx-workshop/frontend/features';
+import { ErrorService, TeamService } from '@avans-nx-workshop/frontend/features';
 import { TeamInterface } from '@avans-nx-workshop/shared/interfaces';
 import { Subscription } from 'rxjs';
 
@@ -17,7 +17,8 @@ export class TeamDetailsSmallComponent implements OnDestroy{
     constructor(
       private route: ActivatedRoute,
       private teamService: TeamService,
-      private router: Router
+      private router: Router,
+      private errorService: ErrorService,
     ) {}
   
     ngOnInit(): void {
@@ -25,10 +26,10 @@ export class TeamDetailsSmallComponent implements OnDestroy{
         try {
           this.teamId = params.get('id');
           this.sub$ = this.teamService.getOne(this.teamId!).subscribe((r) => {
-            console.log(r)
             if(r.message === 'succes'){
               this.team = r.results! as TeamInterface;
             }else if(r.message === 'not found'){
+              this.errorService.errorMessage = "Team niet gevonden"
               this.router.navigate(['/error']);
             }else if(r.message === 'succes'){
               this.router.navigate(['error']);

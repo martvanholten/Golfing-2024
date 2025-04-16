@@ -18,6 +18,7 @@
         </div>
         <div class="row font-weight-bold text-success">
             <div class="col">Baan groote:</div>
+            <div class="col">Baan manager:</div>
         </div>
         <div class="row">
             @if(location?.large){
@@ -25,6 +26,7 @@
             }@else {
                 <div class="col">Heeft 18 holes</div>
             }
+            <div class="col">{{ location?.locationManager?.name }}</div>
         </div>
         <div class="text-success">
             <h6 class="font-weight-bold">Wedstrijden</h6>
@@ -46,4 +48,8 @@
             </tbody>
         </table>
     </div>
+    @if (currentUser?._id === location?.locationManager?._id) {
+        <div class="col" align="center"><a class="btn btn-success mt-3" routerLink="edit" routerLinkActive="actieve-link">Wijzig</a></div>
+        <div class="col" align="center"><button class="btn btn-success mt-3" (click)="delete()" routerLinkActive="actieve-link">Verwijder</button></div>
+    }
 </div>

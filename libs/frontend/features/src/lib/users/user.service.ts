@@ -62,8 +62,6 @@ export class UserService {
     }
 
     public updateOne(user: UserInterface, options?: any): Observable<ApiResponseInterface<UserInterface>> {
-        console.log('REACHED UPDATE USER')
-        console.log(user)
         console.log(`read ${this.endpoint}`);
         return this.http
             .put<ApiResponseInterface<UserInterface>>(this.endpoint + "/" + user._id, user, {
@@ -91,7 +89,6 @@ export class UserService {
             );
     }
 
-    //Could make it with id in the header and could check if adding body to httpOptionsUser works
     public deleteOne(user: UserInterface, options?: any): Observable<ApiResponseInterface<UserInterface>> {
         console.log(`read ${this.endpoint}`);
         return this.http
@@ -108,7 +105,7 @@ export class UserService {
     }
 
     private handleError(error: HttpErrorResponse): Observable<any> {
-        console.log('handleError in MealService', error);
+        console.log('handleError in UserService', error);
 
         return throwError(() => new Error(error.message));
     }

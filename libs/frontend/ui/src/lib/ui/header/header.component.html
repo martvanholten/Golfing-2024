@@ -25,19 +25,12 @@
                     <li class="nav-item">
                         <a class="nav-link text-success" routerLink="about" routerLinkActive="actieve-link">About</a>
                     </li>
-                    @if(currentUser === undefined || currentUser === null) 
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link text-success" routerLink="users/login" routerLinkActive="actieve-link">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-success" routerLink="users/register" routerLinkActive="actieve-link">Register</a>
-                        </li>
-                    }@else{
-                        <li class="nav-item">
-                            <a class="nav-link text-success" routerLink="own" routerLinkActive="actieve-link">{{ currentUser.firstName }} {{ currentUser.lastName }}</a>
-                        </li>
-                    }
+                    <li class="nav-item">
+                        <a class="nav-link text-success" routerLink="users/login" routerLinkActive="actieve-link">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-success" routerLink="users/register" routerLinkActive="actieve-link">Register</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link text-success" routerLink="users/logout" routerLinkActive="actieve-link">Log uit</a>
                     </li>

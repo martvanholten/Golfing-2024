@@ -21,25 +21,13 @@ export class TeamListComponent implements OnDestroy{
 
     ngOnInit(): void {
         this.route.paramMap.subscribe((params) => {
-            if(!params.get('home')){
-                this.sub$ = this.teamService.getAll().subscribe((r) => {
-                    console.log(r)
-                    if(r.message === "error"){
-                        this.router.navigate(['/error']);
-                    }else{
-                        this.teams = r.results as TeamInterface[];
-                    }
-                });
-            }else{
-                this.sub$ = this.teamService.getTopFive().subscribe((r) => {
-                    console.log(r)
-                    if(r.message === "error"){
-                        this.router.navigate(['/error']);
-                    }else{
-                        this.teams = r.results as TeamInterface[];
-                    }
-                });
-            }
+            this.sub$ = this.teamService.getAll().subscribe((r) => {
+                if(r.message === "error"){
+                    this.router.navigate(['/error']);
+                }else{
+                    this.teams = r.results as TeamInterface[];
+                }
+            });
         });
     }
 

@@ -6,6 +6,7 @@
         </div>
         <div class="row font-weight-bold text-success">
             <div class="text-center col">Rank:</div>
+            <div class="text-center col">Team kapitein:</div>
             <div class="text-center col">Baan groote:</div>
         </div>
         <div class="row">
@@ -14,6 +15,7 @@
             }@else {
                 <div class="col">{{team?.rank}}</div>
             }
+            <div class="col">{{teamCaptain?.firstName}} {{teamCaptain?.lastName}}</div>
             @if(!team?.largeGames){
                 <div class="col">Doet aan 9 holes</div>
             }@else {
@@ -59,7 +61,6 @@
             </tbody>
         </table>
     </div>
-    
     @if(this.isCaptain){
         <div class="col" align="center"><a class="btn btn-success mt-3" routerLink="edit" routerLinkActive="actieve-link">Wijzig</a></div>
         <div class="col" align="center"><button class="btn btn-success mt-3" (click)="delete()" routerLinkActive="actieve-link">Verwijder</button></div>

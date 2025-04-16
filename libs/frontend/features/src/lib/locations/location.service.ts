@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, tap, throwError } from 'rxjs';
-import { ApiResponseInterface, LocationInterface } from '@avans-nx-workshop/shared/interfaces';
+import { ApiResponseInterface, CreateLocationInterface, LocationInterface } from '@avans-nx-workshop/shared/interfaces';
 import { environment } from '@avans-nx-workshop/shared/util-env';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
@@ -59,8 +59,50 @@ export class LocationService {
             );
     }
 
+    public createOne(location: CreateLocationInterface, options?: any): Observable<ApiResponseInterface<LocationInterface>> {
+        console.log(`read ${this.endpoint}`);
+        return this.http
+            .post<ApiResponseInterface<LocationInterface>>(this.endpoint, location, {
+                ...options,
+                ...httpOptionsLocation,
+            })
+            .pipe(
+                tap(console.log),
+                map((response: any) => response as ApiResponseInterface<LocationInterface>),
+                catchError(this.handleError)
+            );
+    }
+
+    public updateOne(location: LocationInterface, options?: any): Observable<ApiResponseInterface<LocationInterface>> {
+        console.log(`read ${this.endpoint}`);
+        return this.http
+            .put<ApiResponseInterface<LocationInterface>>(this.endpoint + '/' + location._id, location, {
+                ...options,
+                ...httpOptionsLocation,
+            })
+            .pipe(
+                tap(console.log),
+                map((response: any) => response as ApiResponseInterface<LocationInterface>),
+                catchError(this.handleError)
+            );
+    }
+
+    public deleteOne(_id: string, options?: any): Observable<ApiResponseInterface<LocationInterface>> {
+        console.log(`read ${this.endpoint}`);
+        return this.http
+            .delete<ApiResponseInterface<LocationInterface>>(this.endpoint + '/' + _id + '/delete', {
+                ...options,
+                ...httpOptionsLocation,
+            })
+            .pipe(
+                tap(console.log),
+                map((response: any) => response as ApiResponseInterface<LocationInterface>),
+                catchError(this.handleError)
+            );
+    }
+
     public handleError(error: HttpErrorResponse): Observable<any> {
-        console.log('handleError in MealService', error);
+        console.log('handleError in LocationService', error);
 
         return throwError(() => new Error(error.message));
     }

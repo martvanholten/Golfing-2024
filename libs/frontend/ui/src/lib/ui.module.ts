@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './ui/footer/footer.component';
 import { HeaderComponent } from './ui/header/header.component';
 import { ErrorComponent } from './ui/error/error.component';
+import { FeaturesModule } from '@avans-nx-workshop/frontend/features';
 
 @NgModule({
     imports: [
@@ -14,6 +15,7 @@ import { ErrorComponent } from './ui/error/error.component';
         FooterComponent,
         HeaderComponent,
         ErrorComponent,
+        FeaturesModule
     ],
 
     exports: [

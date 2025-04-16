@@ -23,6 +23,11 @@
                         Datum:
                     </label>
                 </div>
+                <div class="col text-success">
+                    <label for="winner">
+                        Winnaar:
+                    </label>
+                </div>
             </div>
             <div class="row text-success">
                 <div class="col">
@@ -62,6 +67,23 @@
                     class="invalid-feedback"
                 >
                     <div>Er moet een datum zijn.</div>
+                </div>
+                <div class="col">
+                    <select
+                        class="form-control"
+                        [(ngModel)]="game.winner"
+                        name="winner"
+                        #winner="ngModel"
+                        [ngClass]="{
+                            'is-invalid': winner.invalid
+                        }"
+                        required
+                    > 
+                        <option value="no">Nog niet gespeeld</option>
+                        <tr *ngFor="let t of game?.teams">
+                            <option value={{ t.name }}>{{ t.name }}</option>
+                        </tr>
+                    </select>
                 </div>            
             </div>
             <hr>
@@ -95,6 +117,8 @@
                 <div class="col">
                     <input
                         type="number"
+                        min="1"
+                        max="18"
                         class="form-control"
                         [(ngModel)]="game.holes"
                         name="holes"

@@ -7,14 +7,16 @@
         <div class="row font-weight-bold text-success">
             <div class="col">Datum:</div>
             <div class="col">Winnaar:</div>
+            <div class="col">Game manager:</div>
         </div>
         <div class="row">
-            <div class="col">{{ game?.date | date }}</div>
-            @if(game?.winner === ""){
+            <div class="col">{{ game?.date }}</div>
+            @if(game?.winner === "no"){
                 <div class="col">Nog niet gespeeld</div>
             }@else{
                 <div class="col">{{game?.winner}}</div>
             }
+            <div class="col">{{game?.gameManager?.name}}</div>
         </div>
         <hr>
         <div class="text-success">
@@ -46,7 +48,8 @@
             </tbody>
         </table>
     </div>
-    @if (currentUser?.role === 'team captain') {
+    @if (currentUser?._id === game?.gameManager?._id) {
         <div class="col" align="center"><a class="btn btn-success mt-3" routerLink="edit" routerLinkActive="actieve-link">Wijzig</a></div>
+        <div class="col" align="center"><button class="btn btn-success mt-3" (click)="delete()" routerLinkActive="actieve-link">Verwijder</button></div>
     }
 </div>

@@ -1,13 +1,11 @@
 import {
     IsNotEmpty,
-    IsBoolean,
     IsNumber,
     IsString,
     IsOptional,
-    IsDate
 } from 'class-validator';
 
-import { GameInterface, TeamInterface } from '@avans-nx-workshop/shared/interfaces';
+import { GameInterface, ManagerInterface, TeamInterface } from '@avans-nx-workshop/shared/interfaces';
 
 export class GameDto implements GameInterface{
     @IsOptional()
@@ -26,4 +24,6 @@ export class GameDto implements GameInterface{
     location!: string;
     @IsNotEmpty()
     teams!: TeamInterface[];
+    @IsNotEmpty()
+    gameManager!: ManagerInterface;
 }

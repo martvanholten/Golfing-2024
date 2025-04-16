@@ -1,4 +1,4 @@
-import { HttpException, Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { User } from './user.schema';
 import { ApiResponse, ApiResponseInterface, LoginDataInterface, TeamInterface, UserInterface } from '@avans-nx-workshop/shared/interfaces';
 import { UserRepo } from './user.repo';
@@ -7,7 +7,6 @@ import { hash, compare } from 'bcrypt'
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { environment } from '@avans-nx-workshop/shared/util-env';
-import { TeamService } from '../team/team.service';
 
 @Injectable()
 export class UserService {
@@ -19,7 +18,6 @@ export class UserService {
 
     constructor(
         private readonly userRepo: UserRepo,
-        private readonly teamService: TeamService,
         private jwtService: JwtService,
         private configService: ConfigService
     ) {}
@@ -69,32 +67,20 @@ export class UserService {
 
     async create(user: UserDto): Promise<ApiResponseInterface<UserInterface>> {
         try {
-            var exists = false
-            this.userList = await this.userRepo.findAll()
-            this.userList.forEach(u =>{
-                if(u.email === user.email){
-                    exists = true
-                }
-            });
-            if(exists){
+            if(await this.userRepo.findOneByEmail(user.email) === null){
+                user.password = await this.hashPassword(user.password);
+                this.user = await this.userRepo.create(user);
+                if(this.user !== null){
+                    this.response = new ApiResponse<UserInterface>('succes', this.user);
+                    return this.response as ApiResponse<UserInterface>;
+                }else{
+                    this.response = new ApiResponse<UserInterface>('error');
+                    return this.response as ApiResponse<UserInterface>;
+                } 
+            }else{
                 this.response = new ApiResponse<UserInterface>('user already exists');
                 return this.response as ApiResponse<UserInterface>;
-            }else{
-                if(await this.userRepo.findOneByEmail(user.email) === null){
-                    user.password = await this.hashPassword(user.password);
-                    this.user = await this.userRepo.create(user);
-                    if(this.user !== null){
-                        this.response = new ApiResponse<UserInterface>('succes', this.user);
-                        return this.response as ApiResponse<UserInterface>;
-                    }else{
-                        this.response = new ApiResponse<UserInterface>('error');
-                        return this.response as ApiResponse<UserInterface>;
-                    } 
-                }else{
-                    this.response = new ApiResponse<UserInterface>('user already exists');
-                    return this.response as ApiResponse<UserInterface>;
-                }       
-            }  
+            }       
         } catch (error) {
             this.response = new ApiResponse<UserInterface>('error');
             return this.response as ApiResponse<UserInterface>;
@@ -103,9 +89,15 @@ export class UserService {
 
     async delete(user: UserInterface): Promise<ApiResponseInterface<UserInterface>> {
         try {
-            this.userRepo.delteOne(user)
-            this.response = new ApiResponse<UserInterface>('succes');  
-            return this.response as ApiResponse<UserInterface>;
+            this.user = await this.userRepo.findOne(user._id)
+            if(this.user){
+                this.userRepo.delteOne(user)
+                this.response = new ApiResponse<UserInterface>('succes');  
+                return this.response as ApiResponse<UserInterface>;
+            }else{
+                this.response = new ApiResponse<UserInterface>('user not found');  
+                return this.response as ApiResponse<UserInterface>;
+            }
         } catch (error) {
             this.response = new ApiResponse<UserInterface>('error');
             return this.response as ApiResponse<UserInterface>;
@@ -115,7 +107,6 @@ export class UserService {
     async update(_id: string, user: UpdateUserDto): 
         Promise<ApiResponseInterface<UserInterface>> {
         try {
-            console.log(user)
             user.password = await this.hashPassword(user.password!);
             this.fullUser = await this.userRepo.update(_id, user);
             if(this.fullUser !== null){

@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
-import { GameInterface, LocationInterface, TeamInterface, UserInterface, } from '@avans-nx-workshop/shared/interfaces';
+import { GameInterface, LocationInterface, ManagerInterface, TeamInterface, UserInterface, } from '@avans-nx-workshop/shared/interfaces';
 import { IsMongoId } from 'class-validator';
 
 export type LocationDocument = Location & Document;
@@ -21,6 +21,8 @@ export class Location implements LocationInterface {
     large!: boolean;
     @Prop()
     games: GameInterface[] = new Array<GameInterface>;
+    @Prop({ type: Object})
+    locationManager!: ManagerInterface;
 }
 
 export const LocationSchema = SchemaFactory.createForClass(Location);

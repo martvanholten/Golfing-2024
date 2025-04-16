@@ -8,7 +8,11 @@
         </thead>
         <tbody>
             <tr *ngFor="let team of teams">
-                <td class="text-success">{{ team.rank }}</td>
+                @if(team?.rank === 0){
+                    <td class="text-success">Geen rank</td>
+                }@else {
+                    <td class="text-success">{{ team.rank }}</td>
+                }
                 <td class="text-success">
                     <a class="text-success" routerLink="{{ team._id }}">
                         {{ team.name }}

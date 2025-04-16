@@ -1,8 +1,8 @@
 import { HttpException, Injectable, Logger } from '@nestjs/common';
-import { ApiResponse, ApiResponseInterface, GameInterface, LocationInterface, TeamInterface } from '@avans-nx-workshop/shared/interfaces';
+import { ApiResponse, ApiResponseInterface, GameInterface, LocationInterface, TeamInterface, CreateLocationInterface } from '@avans-nx-workshop/shared/interfaces';
 import { LocationRepo } from './location.repo';
 import { TeamService } from '../team/team.service';
-import { GameDto } from '@avans-nx-workshop/backend/dto';
+import { GameDto, LocationDto } from '@avans-nx-workshop/backend/dto';
 
 @Injectable()
 export class LocationService {
@@ -36,6 +36,72 @@ export class LocationService {
             if(this.location !== null){
                 this.response = new ApiResponse<LocationInterface>('succes', this.location)
                 return this.response as ApiResponseInterface<LocationInterface>;
+            }else{
+                this.response = new ApiResponse<LocationInterface>('location not found')
+                return this.response as ApiResponseInterface<LocationInterface>;
+            }
+        } catch (error) {
+            this.response = new ApiResponse<LocationInterface>('error')
+            return this.response as ApiResponseInterface<LocationInterface>;
+        }
+    }
+
+    async create(location: LocationDto): Promise<ApiResponseInterface<LocationInterface>> {
+        try {
+            this.location = await this.locationRepo.findOneByName(location.name)
+            if(this.location !== null || this.location !== undefined){
+                this.response = new ApiResponse<LocationInterface>('location already exists')
+                return this.response as ApiResponseInterface<LocationInterface>;
+            }else{
+                this.location = await this.locationRepo.create(location)
+                if(this.location){
+                    this.response = new ApiResponse<LocationInterface>('succes', this.location)
+                    return this.response as ApiResponseInterface<LocationInterface>;
+                }else{
+                    this.response = new ApiResponse<LocationInterface>('error')
+                    return this.response as ApiResponseInterface<LocationInterface>;
+                }
+            }
+        } catch (error) {
+            this.response = new ApiResponse<LocationInterface>('error')
+            return this.response as ApiResponseInterface<LocationInterface>;
+        }
+    }
+    
+    async update(location: LocationInterface): Promise<ApiResponseInterface<LocationInterface>> {
+        try {
+            this.location = await this.locationRepo.findOne(location._id)
+            if(this.location){
+                this.location = await this.locationRepo.update(location._id, location)
+                if(this.location){
+                    this.response = new ApiResponse<LocationInterface>('succes', this.location)
+                    return this.response as ApiResponseInterface<LocationInterface>;
+                }else{
+                    this.response = new ApiResponse<LocationInterface>('error')
+                    return this.response as ApiResponseInterface<LocationInterface>;
+                }
+            }else{
+                this.response = new ApiResponse<LocationInterface>('location not found')
+                return this.response as ApiResponseInterface<LocationInterface>;
+            }
+        } catch (error) {
+            this.response = new ApiResponse<LocationInterface>('error')
+            return this.response as ApiResponseInterface<LocationInterface>;
+        }
+    }
+    
+    async delete(_id: string): Promise<ApiResponseInterface<LocationInterface>> {
+        try {
+            this.location = await this.locationRepo.findOne(_id)
+            if(this.location){
+                if(this.location.games.length < 1){
+                    await this.locationRepo.delete(_id)
+                    this.response = new ApiResponse<LocationInterface>('succes')
+                    return this.response as ApiResponseInterface<LocationInterface>;
+                }else{
+                    this.response = new ApiResponse<LocationInterface>('location has games')
+                    return this.response as ApiResponseInterface<LocationInterface>;
+                }
             }else{
                 this.response = new ApiResponse<LocationInterface>('location not found')
                 return this.response as ApiResponseInterface<LocationInterface>;
@@ -87,7 +153,7 @@ export class LocationService {
     async findOneGame(name: string, gameName: string): Promise<ApiResponseInterface<GameInterface>> {
         try {
             this.game = await this.locationRepo.findOneGame(name, gameName);
-            if(this.game !== null && this.game !== undefined){
+            if(this.game){
                 this.response = new ApiResponse<GameInterface>('succes', this.game)
                 return this.response as ApiResponseInterface<GameInterface>;
             }else{
@@ -142,28 +208,50 @@ export class LocationService {
         }
     }
 
+    async deleteGame(gameName: string, locationId: string): Promise<ApiResponseInterface<GameInterface>> {
+        try {
+            this.location = await this.locationRepo.findOne(locationId)
+            if(this.location){
+                this.game = await this.locationRepo.findOneGame(this.location.name, gameName)
+                if(this.game){
+                    if(this.game?.teams.length && this.game.teams.length > 0){
+                        this.response = new ApiResponse<GameInterface>('game has teams')
+                        return this.response as ApiResponseInterface<GameInterface>;
+                    }else{
+                        await this.locationRepo.deleteOneGame(this.location, gameName)
+                        this.response = new ApiResponse<GameInterface>('succes')
+                        return this.response as ApiResponseInterface<GameInterface>;
+                    }
+                }else{
+                    this.response = new ApiResponse<GameInterface>('game not found')
+                    return this.response as ApiResponseInterface<GameInterface>;
+                }
+            }else{
+                this.response = new ApiResponse<GameInterface>('location not found')
+                return this.response as ApiResponseInterface<GameInterface>;
+            }
+        } catch (error) {
+            this.response = new ApiResponse<GameInterface>('error')
+            return this.response as ApiResponseInterface<GameInterface>;
+        }
+    }
+
     async createGame(game: GameDto, locationId: string): Promise<ApiResponseInterface<GameInterface>> {
         try {
-            var exists = false
-            this.gameList = await this.locationRepo.findAllGames();
-            this.gameList.forEach(g=>{
-                if(g.name === game.name){
-                    exists = true
-                }
-            });
-            if(exists){
-                this.response = new ApiResponse<GameInterface>('game already exists')
-                return this.response as ApiResponseInterface<GameInterface>;
-            }else{
-                this.location = await this.locationRepo.findOne(locationId)
-                if(this.location){
+            this.location = await this.locationRepo.findOne(locationId)
+            if(this.location){
+                this.game = await this.locationRepo.findOneGame(this.location.name, game.name)
+                if(this.game?.name === game.name){
+                    this.response = new ApiResponse<GameInterface>('game already exists')
+                    return this.response as ApiResponseInterface<GameInterface>;
+                }else{
                     this. game = await this.locationRepo.createOneGame(this.location, game)
                     this.response = new ApiResponse<GameInterface>('succes', this.game)
                     return this.response as ApiResponseInterface<GameInterface>;
-                }else{
-                    this.response = new ApiResponse<GameInterface>('location not found')
-                    return this.response as ApiResponseInterface<GameInterface>;
                 }
+            }else{
+                this.response = new ApiResponse<GameInterface>('location not found')
+                return this.response as ApiResponseInterface<GameInterface>;
             }
         } catch (error) {
             this.response = new ApiResponse<GameInterface>('error')

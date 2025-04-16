@@ -1,7 +1,7 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TeamService, UserService, AuthService, CreateTeam, Team } from '@avans-nx-workshop/frontend/features';
+import { TeamService, UserService, AuthService, CreateTeam, Team, ErrorService } from '@avans-nx-workshop/frontend/features';
 import { CreateTeamInterface, GameInterface, TeamInterface, UserInterface } from '@avans-nx-workshop/shared/interfaces';
 import { Subscription } from 'rxjs';
 
@@ -30,7 +30,8 @@ export class TeamUpdateComponent implements OnDestroy{
     private teamService: TeamService,
     private userService: UserService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private errorService: ErrorService,
   ) {}
 
   ngOnInit(): void {
@@ -66,9 +67,9 @@ export class TeamUpdateComponent implements OnDestroy{
             })
           }
         }else{
+          this.errorService.errorMessage = "Niet ingelogd"
           this.router.navigate(['/error']);
         }
-
       } catch (error) {
         this.router.navigate(['error']);
       }
@@ -84,18 +85,33 @@ export class TeamUpdateComponent implements OnDestroy{
           this.team.rank = 0;
           this.team.games = new Array<GameInterface>();
           this.teamService.createOne(this.team as CreateTeamInterface, this.httpOptions).subscribe((r) => {
-            if(r.message === "error"){
-              this.router.navigate(['error']);
-            }else if(r.message = "succes"){
+            if(r.message === 'error'){
+              this.router.navigate(['/error']);
+            }else if(r.message === 'team already exists'){
+              this.errorService.errorMessage = "Team bestaat al"
+              this.router.navigate(['/error']);
+            }else if(r.message === 'succes'){
               this.team = r.results as TeamInterface            
-              this.router.navigate(['']);
+              this.router.navigate(['teams']);
             }
           });
         }else{
-          this.teamService.updateOne(this.currentUser._id, this.team as TeamInterface, this.httpOptions).subscribe();
-          this.router.navigate(['']);
+          this.teamService.updateOne(this.currentUser._id, this.team as TeamInterface, this.httpOptions).subscribe(r => {
+            if(r.message === 'succes'){
+              this.router.navigate(['teams']);
+            }else if(r.message === 'team not found'){
+              this.errorService.errorMessage = "Team niet gevonden"
+              this.router.navigate(['/error']);
+            }else if(r.message === 'not the team captain'){
+              this.errorService.errorMessage = "Niet de team kapitein"
+              this.router.navigate(['/error']);
+            }else{
+              this.router.navigate(['/error']);
+            }
+          });
         }
       }else{
+        this.errorService.errorMessage = "Niet ingelogd"
         this.router.navigate(['/error']);
       }
     } catch (error) {
@@ -112,6 +128,7 @@ export class TeamUpdateComponent implements OnDestroy{
           }
         })
         if(this.inTeam){
+          this.errorService.errorMessage = "Gebruiker is al in het team"
           this.router.navigate(['/error']);
         }else{
           this.sub$ = this.userService.getOneByEmail(email).subscribe(r =>{
@@ -127,7 +144,7 @@ export class TeamUpdateComponent implements OnDestroy{
                     this.team.golfers.push(this.addUser!)
                     this.teamService.updateOne(this.addUser!._id, this.team as TeamInterface, this.httpOptions).subscribe()
                     this.user!.teams.push(this.addTeam)
-                    this.userService.updateOne(this.addUser!, this.httpOptions).subscribe()
+                    this.userService.updateOne(this.user!, this.httpOptions).subscribe()
                   }else{
                     this.router.navigate(['/error']);
                   }
@@ -136,11 +153,13 @@ export class TeamUpdateComponent implements OnDestroy{
                 this.router.navigate(['/error']);
               }
             }else{
+              this.errorService.errorMessage = "Gebruiker bestaat niet"
               this.router.navigate(['/error']);
             }
           })
         }
       }else{
+        this.errorService.errorMessage = "Niet ingelogd of geen email ingevoerd"
         this.router.navigate(['/error']);
       }
     } catch (error) {

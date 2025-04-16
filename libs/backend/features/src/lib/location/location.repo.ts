@@ -2,7 +2,7 @@ import { HttpException, Injectable, Logger } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { Location as LocationModel, LocationDocument } from './location.schema';
-import { GameInterface, LocationInterface } from '@avans-nx-workshop/shared/interfaces';
+import { GameInterface, LocationInterface, CreateLocationInterface } from '@avans-nx-workshop/shared/interfaces';
 import { GameDto } from '@avans-nx-workshop/backend/dto';
 
 @Injectable()
@@ -27,6 +27,18 @@ export class LocationRepo {
 
     async findOneByName(name: string): Promise<LocationInterface | null> {
         return await this.locationModel.findOne({ name }).exec();
+    }
+
+    async create(location: CreateLocationInterface): Promise<LocationInterface | null> {
+            return await this.locationModel.create(location);
+        }
+    
+    async update(_id: string, location: LocationInterface): Promise<LocationInterface | null> {
+        return await this.locationModel.findByIdAndUpdate({ _id }, location);
+    }
+    
+    async delete(_id: string){
+        await this.locationModel.deleteOne({ _id });
     }
 
     async findAllGames(): Promise<GameInterface[]> {
@@ -64,20 +76,29 @@ export class LocationRepo {
             if(g.name !== oldGameName){
                 games.push(g)
             }else{
-                console.log('REACHED GAME')
                 games.push(updateGame)
             }
         });
         location.games = games;
-        console.log(location)
         var _id = location._id
         this.location = await this.locationModel.findByIdAndUpdate({ _id }, location)
         return this.findOneGame(location.name, updateGame.name)
     }
 
+    async deleteOneGame(location: LocationInterface, gameName: string): Promise<void> {
+        var games = new Array<GameInterface>
+        location.games.forEach(g => {
+            if(g.name !== gameName){
+                games.push(g)
+            }
+        });
+        location.games = games;
+        var _id = location._id
+        this.location = await this.locationModel.findByIdAndUpdate({ _id }, location)
+    }
+
     async createOneGame(location: LocationInterface, createGame: GameDto): Promise<GameInterface | undefined> {
         location.games.push(createGame)
-        console.log(location)
         var _id = location._id
         this.location = await this.locationModel.findByIdAndUpdate({ _id }, location)
         console.log(this.location)

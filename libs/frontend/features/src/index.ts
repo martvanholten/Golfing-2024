@@ -29,3 +29,5 @@ export * from './lib/users/user-list/user-list.component';
 export * from './lib/users/user-update/user-update.component';
 export * from './lib/auth/login/login.component';
 export * from './lib/auth/logout/logout.component';
+export * from './lib/locations/location-update/location-update.component'
+export * from './lib/util/error.service'

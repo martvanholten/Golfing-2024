@@ -1,7 +1,7 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService, CreateUser, LoginData, User } from '@avans-nx-workshop/frontend/features';
+import { AuthService, CreateUser, ErrorService, User } from '@avans-nx-workshop/frontend/features';
 import { UserService } from '@avans-nx-workshop/frontend/features';
 import { CreateUserInterface, UserInterface } from '@avans-nx-workshop/shared/interfaces';
 import { Subscription } from 'rxjs';
@@ -26,6 +26,7 @@ export class UserUpdateComponent implements OnDestroy{
     private router: Router,
     private userService: UserService,
     private authService: AuthService,
+    private errorService: ErrorService,
   ) {}
 
   ngOnInit(): void {
@@ -44,18 +45,13 @@ export class UserUpdateComponent implements OnDestroy{
         });
 
         if(this.currentUser){
-          this.user = new User(
-            this.currentUser._id,
-            this.currentUser.firstName,
-            this.currentUser.lastName,
-            this.currentUser.email,
-            "",
-            this.currentUser.role,
-            this.currentUser.handicap,
-            this.currentUser.age
-          )
+          this.sub$ = this.userService.getOne(this.currentUser._id).subscribe(r =>{
+            if(r.message === 'succes'){
+              this.user = r.results as User
+              this.user.password = this.currentUser!.password
+            }
+          })
         }
-        
       } catch (error) {
         this.router.navigate(['error']);
       }
@@ -66,12 +62,13 @@ export class UserUpdateComponent implements OnDestroy{
     try {
       if(this.user instanceof CreateUser){
         this.user$ = this.userService.createOne(this.user).subscribe((r) => {
-          if(r.message === "error"){
+          if(r.message === 'error'){
             this.router.navigate(['error']);
-          }else if(r.message === "already exists"){
+          }else if(r.message === 'user already exists'){
+            this.errorService.errorMessage = "Gebruiker bestaat al"
             this.router.navigate(['/error']);
           }else{
-            this.router.navigate(['users']);
+            this.router.navigate(['users/login']);
           }
         });
       }else{
@@ -86,8 +83,11 @@ export class UserUpdateComponent implements OnDestroy{
           this.userService.updateOne(this.user, this.httpOptions).subscribe((r) => {
             if(r.message === "error"){
               this.router.navigate(['error']);
-            }else if(r.message = "succes"){
-              if(this.token != null){
+            }else if(r.message === 'user not found'){
+              this.errorService.errorMessage = "Gebruiker niet gevonden"
+              this.router.navigate(['/error']);
+            }else if(r.message === "succes"){
+              if(this.token){
                 this.authService.saveUserToLocalStorage(this.user as UserInterface, this.token)
               }
             }

@@ -1,7 +1,7 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from '@avans-nx-workshop/frontend/features';
+import { AuthService, ErrorService, UserService } from '@avans-nx-workshop/frontend/features';
 import { TeamService } from '@avans-nx-workshop/frontend/features';
 import { TeamInterface, UserInterface } from '@avans-nx-workshop/shared/interfaces';
 import { Subscription } from 'rxjs';
@@ -13,6 +13,7 @@ import { Subscription } from 'rxjs';
 })
 export class TeamDetailsComponent implements OnDestroy{
     isCaptain = false;
+    teamCaptain?: UserInterface;
     teamId: string | null = null;
     team?: TeamInterface;
     sub$?: Subscription;
@@ -26,7 +27,9 @@ export class TeamDetailsComponent implements OnDestroy{
       private route: ActivatedRoute,
       private teamService: TeamService,
       private authService: AuthService,
-      private router: Router
+      private userService: UserService,
+      private router: Router,
+      private errorService: ErrorService,
     ) {}
   
     ngOnInit(): void {
@@ -36,6 +39,17 @@ export class TeamDetailsComponent implements OnDestroy{
           this.sub$ = this.teamService.getOne(this.teamId!).subscribe((r) => {
             if(r.message === 'succes'){
               this.team = r.results! as TeamInterface;
+              this.userService.getOne(this.team.teamCaptain).subscribe(r =>{
+                if(r && r.message === "succes"){
+                  this.teamCaptain = r.results as UserInterface
+                }else if(r.message === 'team not found'){
+                  this.errorService.errorMessage = "Team niet gevonden"
+                  this.router.navigate(['/error']);
+                }else{
+                  this.errorService.errorMessage = "Team niet gevonden"
+                  this.router.navigate(['/error']);
+                }
+              })
               this.authSub$ = this.authService.getUserFromLocalStorage().subscribe((u) =>{
                 if(u){
                   this.currentUser = u
@@ -50,23 +64,21 @@ export class TeamDetailsComponent implements OnDestroy{
                 }
               });
             }else if(r.message === 'not found'){
+              this.errorService.errorMessage = "Team niet gevonden"
               this.router.navigate(['/error']);
             }else if(r.message === 'error'){
-              this.router.navigate(['error']);
+              this.router.navigate(['/error']);
             }
           });  
         } catch (error) {
-          this.router.navigate(['error']);
+          this.router.navigate(['/error']);
         }
       });
     }
 
     delete(): void{
-      console.log('REACHED DELETE')
       if(this.isCaptain && this.team){
-        console.log('REACHED DELETE2')
         if(this.team.games.length < 1){
-          console.log('REACHED DELETE3')
           if(this.currentUser){
             this.httpOptions = {
               headers: new HttpHeaders({
@@ -75,16 +87,29 @@ export class TeamDetailsComponent implements OnDestroy{
                 userRole: this.currentUser.role
               })
             }
-            console.log('REACHED DELETE4')
-            this.teamService.deleteOne(this.team._id, this.currentUser._id, this.httpOptions).subscribe()
-            this.router.navigate(['']);
+            this.teamService.deleteOne(this.team._id, this.currentUser._id, this.httpOptions).subscribe(r =>{
+              if(r.message === 'succes'){
+                this.router.navigate(['teams']);
+              }else if(r.message === 'not the team captain'){
+                this.errorService.errorMessage = "Niet de team kapitein"
+                this.router.navigate(['/error']);
+              }else if(r.message === 'team not found'){
+                this.errorService.errorMessage = "Team niet gevonden"
+                this.router.navigate(['/error']);
+              }else{
+                this.router.navigate(['/error']);
+              }
+            })
           }else{
+            this.errorService.errorMessage = "Niet ingelogd"
             this.router.navigate(['/error']);
           }
         }else{
+          this.errorService.errorMessage = "Team heeft games"
           this.router.navigate(['/error']);
         }
       }else{
+        this.errorService.errorMessage = "Team niet gevonden of niet de team kapitein"
         this.router.navigate(['/error']);
       }
     }

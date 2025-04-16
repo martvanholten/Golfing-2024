@@ -27,3 +27,8 @@ export interface LoginDataInterface{
     email: string;
     password: string;
 }
+
+export interface ManagerInterface{
+    _id: string
+    name: string
+}

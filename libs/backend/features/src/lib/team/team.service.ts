@@ -20,9 +20,7 @@ export class TeamService {
 
     async findAll(): Promise<ApiResponseInterface<TeamInterface[]>> {
         try {
-            this.logger.log(this.teamList)
             this.teamList = await this.teamRepo.findAll();
-            this.logger.log(this.teamList)
             this.response = new ApiResponse<TeamInterface[]>('succes', this.teamList)
             return this.response as ApiResponseInterface<TeamInterface[]>;
         } catch (error) {
@@ -38,7 +36,7 @@ export class TeamService {
                 this.response = new ApiResponse<TeamInterface>('succes', this.team)
                 return this.response as ApiResponseInterface<TeamInterface>;
             }else{
-                this.response = new ApiResponse<TeamInterface>('not found')
+                this.response = new ApiResponse<TeamInterface>('team not found')
                 return this.response as ApiResponseInterface<TeamInterface>;
             }
         } catch (error) {
@@ -54,7 +52,7 @@ export class TeamService {
                 this.response = new ApiResponse<TeamInterface>('succes', this.team)
                 return this.response as ApiResponseInterface<TeamInterface>;
             }else{
-                this.response = new ApiResponse<TeamInterface>('not found')
+                this.response = new ApiResponse<TeamInterface>('team not found')
                 return this.response as ApiResponseInterface<TeamInterface>;
             }
         } catch (error) {
@@ -81,15 +79,9 @@ export class TeamService {
 
     async create(team: TeamDto): Promise<ApiResponseInterface<TeamInterface>> {
         try {
-            this.teamList = await this.teamRepo.findAll()
-            var exists = false
-            this.teamList.forEach(t =>{
-                if(t.name === team.name){
-                    exists = true;
-                }
-            });
-            if(exists){
-                this.response = new ApiResponse<TeamInterface>('already exists')
+            this.team = await this.teamRepo.findOneByName(team.name)
+            if(this.team?.name === team.name){
+                this.response = new ApiResponse<TeamInterface>('team already exists')
                 return this.response as ApiResponseInterface<TeamInterface>;
             }else{
                 const createdteam = await this.teamRepo.create(team);
@@ -109,19 +101,23 @@ export class TeamService {
 
     async update(userId: string, team: TeamInterface): Promise<ApiResponseInterface<TeamInterface>> {
         try {
-            console.log(team)
             this.team = await this.teamRepo.findOne(team._id)
             if(this.team !== null){
                 if(this.team.teamCaptain === userId){
-                    await this.teamRepo.update(team._id, team);
-                    this.response = new ApiResponse<TeamInterface>('succes', this.team)
-                    return this.response as ApiResponseInterface<TeamInterface>;
+                    this.team = await this.teamRepo.update(team._id, team);
+                    if(this.team){
+                        this.response = new ApiResponse<TeamInterface>('succes', this.team)
+                        return this.response as ApiResponseInterface<TeamInterface>;
+                    }else{
+                        this.response = new ApiResponse<TeamInterface>('error')
+                        return this.response as ApiResponseInterface<TeamInterface>;
+                    }
                 }else{
                     this.response = new ApiResponse<TeamInterface>('not the team captain')
                     return this.response as ApiResponseInterface<TeamInterface>;
                 }                
             }else{
-                this.response = new ApiResponse<TeamInterface>('not found')
+                this.response = new ApiResponse<TeamInterface>('team not found')
                 return this.response as ApiResponseInterface<TeamInterface>;
             }
         } catch (error) {
@@ -132,13 +128,12 @@ export class TeamService {
 
     async delete(_id: string, userId: string): Promise<ApiResponseInterface<TeamInterface>> {
         try {
-            const users = this.userRepo.findAll();
-            const userTeams = new Array<TeamInterface>
-            
+            var users = await this.userRepo.findAll();
+            var userTeams = new Array<TeamInterface>
             this.team = await this.teamRepo.findOne(_id)
             if(this.team !== null){
                 if(this.team.teamCaptain === userId){
-                    (await users).forEach(u =>{
+                    users.forEach(u =>{
                         u.teams.forEach(t =>{
                             if(t._id !== _id){
                                 userTeams.push(t)
@@ -155,7 +150,7 @@ export class TeamService {
                     return this.response as ApiResponseInterface<TeamInterface>;
                 }                
             }else{
-                this.response = new ApiResponse<TeamInterface>('not found')
+                this.response = new ApiResponse<TeamInterface>('team not found')
                 return this.response as ApiResponseInterface<TeamInterface>;
             }
         } catch (error) {

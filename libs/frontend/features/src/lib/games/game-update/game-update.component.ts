@@ -1,7 +1,7 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService, CreateGame, CreateTeam, Game, GameService, LocationService, Team, TeamService } from '@avans-nx-workshop/frontend/features';
+import { AuthService, CreateGame, CreateTeam, ErrorService, Game, GameService, LocationService, Manager, Team, TeamService } from '@avans-nx-workshop/frontend/features';
 import { CreateGameInterface, GameInterface, LocationInterface, TeamInterface, UserInterface } from '@avans-nx-workshop/shared/interfaces';
 import { Subscription } from 'rxjs';
 
@@ -28,7 +28,7 @@ export class GameUpdateComponent implements OnDestroy{
       private gameService: GameService,
       private locationService: LocationService,
       private authService: AuthService,
-      private teamService: TeamService,
+      private errorService: ErrorService,
       private router: Router
     ) {}
   
@@ -83,14 +83,19 @@ export class GameUpdateComponent implements OnDestroy{
                 var location = l.results as LocationInterface;
                 this.locationId = location._id;
                 if(this.locationId){
+                  this.game.gameManager = new Manager(this.currentUser!._id, this.currentUser!.firstName, this.currentUser!.lastName)
                   this.game.teams = new Array<TeamInterface>();
                   this.game.winner = '';
                   this.gameService.createOne(this.locationId, this.game as CreateGameInterface, this.httpOptions).subscribe((r) => {
                     if(r.message === "error"){
                       this.router.navigate(['error']);
-                    }else if(r.message = "succes"){
+                    }else if(r.message === "succes"){
                       this.router.navigate(['games']);
-                    }else{
+                    }else if(r.message === 'game already exists'){
+                      this.errorService.errorMessage = "Game bestaat al"
+                      this.router.navigate(['/error']);
+                    }else if(r.message === 'location not found'){
+                      this.errorService.errorMessage = "Locatie niet gevonden"
                       this.router.navigate(['/error']);
                     }
                   });  
@@ -103,13 +108,28 @@ export class GameUpdateComponent implements OnDestroy{
             }          
           }else{
             if(this.locationId){
-              this.gameService.updateOne(this.locationId, this.gameName!, this.game as GameInterface, this.httpOptions).subscribe()
-              this.router.navigate(['games']);
+              if(this.currentUser._id === this.game.gameManager?._id){
+                this.gameService.updateOne(this.locationId, this.gameName!, this.game as GameInterface, this.httpOptions).subscribe(r =>{
+                  if(r.message === 'succes'){
+                    this.router.navigate(['games']);
+                  }else if(r.message === 'game not found'){
+                    this.errorService.errorMessage = "Game niet gevonden"
+                    this.router.navigate(['/error']);
+                  }else if(r.message === 'location not found'){
+                    this.errorService.errorMessage = "Locatie niet gevonden"
+                    this.router.navigate(['/error']);
+                  }
+                })
+              }else{
+                this.errorService.errorMessage = "Niet de game manager"
+                this.router.navigate(['/error']);
+              }
             }else{
               this.router.navigate(['/error']);
             }
           }
         }else{
+          this.errorService.errorMessage = "Niet ingelogd"
           this.router.navigate(['/error']);
         }
     } catch (error) {

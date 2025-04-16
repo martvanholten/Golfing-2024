@@ -28,7 +28,7 @@ export class LogoutComponent implements OnDestroy{
         }
       });
     } catch (error) {
-      this.router.navigate(['error']);
+      this.router.navigate(['/error']);
     }
   }
 
@@ -37,9 +37,9 @@ export class LogoutComponent implements OnDestroy{
   logout(): void{
     try {
       this.authService.logout()
-      this.router.navigate(['home']);
+      this.router.navigate(['/home']);
     } catch (error) {
-      this.router.navigate(['error']);
+      this.router.navigate(['/error']);
     }
   }
 }

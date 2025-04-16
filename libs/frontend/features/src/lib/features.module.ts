@@ -21,6 +21,7 @@ import { LocationColumnsComponent } from './locations/location-columns/location-
 import { LocationListComponent } from './locations/location-list/location-list.component';
 import { LocationDetailsComponent } from './locations/location-details/location-details.component';
 import { LocationDetailsSmallComponent } from './locations/location-details-small/location-details-small.component';
+import { LocationUpdateComponent } from './locations/location-update/location-update.component';
 import { UserService } from './users/user.service';
 import { GameService } from './games/game.service';
 import { LocationService } from './locations/location.service';
@@ -29,10 +30,11 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './auth/login/login.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { AuthService } from './auth/auth.service';
+import { ErrorService } from './util/error.service';
 
 @NgModule({
     declarations: 
-    [
+    [   
         UserUpdateComponent, 
         UserDetailsComponent,
         UserDetailsSmallComponent,
@@ -51,6 +53,7 @@ import { AuthService } from './auth/auth.service';
         LocationListComponent,
         LocationDetailsComponent,
         LocationDetailsSmallComponent,
+        LocationUpdateComponent,
         LoginComponent,
         LogoutComponent,
         GameUpdateComponent,
@@ -80,6 +83,7 @@ import { AuthService } from './auth/auth.service';
         LocationListComponent,
         LocationDetailsComponent,
         LocationDetailsSmallComponent,
+        LocationUpdateComponent,
         LoginComponent,
         LogoutComponent,
         GameUpdateComponent,
@@ -94,6 +98,7 @@ import { AuthService } from './auth/auth.service';
         TeamService,
         AuthService,
         FormsModule,
+        ErrorService,
     ],
 })
 export class FeaturesModule {}

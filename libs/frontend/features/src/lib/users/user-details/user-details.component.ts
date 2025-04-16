@@ -1,7 +1,7 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from '@avans-nx-workshop/frontend/features';
+import { AuthService, ErrorService } from '@avans-nx-workshop/frontend/features';
 import { UserService } from '@avans-nx-workshop/frontend/features';
 import { UserInterface } from '@avans-nx-workshop/shared/interfaces';
 import { Subscription } from 'rxjs';
@@ -26,6 +26,7 @@ export class UserDetailsComponent implements OnDestroy{
       private userService: UserService,
       private router: Router,
       private authService: AuthService,
+      private errorService: ErrorService,
     ) {}
   
     ngOnInit(): void {
@@ -44,15 +45,16 @@ export class UserDetailsComponent implements OnDestroy{
           });
           this.sub$ = this.userService.getOne(this.userId!).subscribe((r) =>{
             if(r.message === "not found"){
+              this.errorService.errorMessage = "Gebruiker niet gevonden"
               this.router.navigate(['/error']);
             }else if(r.message === "error"){
-              this.router.navigate(['error']);
+              this.router.navigate(['/error']);
             }else if(r.message === "succes"){
               this.user = r.results as UserInterface;
             }
           });          
         } catch (error) {
-          this.router.navigate(['error']);
+          this.router.navigate(['/error']);
         }
       });
     }
@@ -67,14 +69,23 @@ export class UserDetailsComponent implements OnDestroy{
             })
           }
           if(this.user.teams.length < 1){
-            this.userService.deleteOne(this.user, this.httpOptions).subscribe();
-            this.authService.logout();
-            this.router.navigate(['']);
+            this.userService.deleteOne(this.user, this.httpOptions).subscribe(r =>{
+              if(r.message === 'succes'){
+                this.authService.logout();
+                this.router.navigate(['']);
+              }else if(r.message === 'user not found'){
+                this.errorService.errorMessage = "Gebruiker niet gevonden"
+                this.router.navigate(['/error']);
+              }else{
+                this.router.navigate(['/error']);
+              }
+            });
           }else{
             this.router.navigate(['/error']);
           }
         }
       }else{
+        this.errorService.errorMessage = "Niet ingelogd"
         this.router.navigate(['/error']);
       }
     }

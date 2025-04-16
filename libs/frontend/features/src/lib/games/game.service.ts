@@ -88,8 +88,22 @@ export class GameService {
             );
     }
 
+    public deleteOne(locationId: string, gameName: string, options?: any): Observable<ApiResponseInterface<GameInterface>> {
+        console.log(`read ${this.endpoint}`);
+        return this.http
+            .delete<ApiResponseInterface<GameInterface>>(this.endpoint + "/" + locationId + "/game/" + gameName + '/delete', {
+                ...options,
+                ...httpOptionsGame,
+            })
+            .pipe(
+                tap(console.log),
+                map((response: any) => response as ApiResponseInterface<GameInterface>),
+                catchError(this.handleError)
+            );
+    }
+
     public handleError(error: HttpErrorResponse): Observable<any> {
-        console.log('handleError in MealService', error);
+        console.log('handleError in GameService', error);
 
         return throwError(() => new Error(error.message));
     }
