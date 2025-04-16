@@ -8,7 +8,7 @@ export const environment: IEnvironment = {
     NEO4J_DOMAIN_URL: 'https://golfing-api-neo4j.azurewebsites.net',
 
 
-    MONGO_DB_CONNECTION_STRING: 'mongodb+srv://golfing:Password@golfing.4n543b4.mongodb.net/',
+    MONGO_DB_CONNECTION_STRING: 'mongodb+srv://golfing:Password@golfing.4n543b4.mongodb.net/golfing?retryWrites=true&w=majority',
 
     JWT_ACCESS_TOKEN_SECRET: 'golfing-secret',
     JWT_ACCESS_TOKEN_EXP_TIME: '1d',
