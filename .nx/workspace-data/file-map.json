@@ -38,76 +38,76 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "package.json",
-        "hash": "8850056696451452867"
-      },
-      {
-        "file": ".eslintrc.json",
-        "hash": "18315524891129148814"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "3395189204293871444"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "8491837053101957257"
-      },
-      {
-        "file": ".github/workflows/azure-static-web-apps-happy-pond-0613f1a03.yml",
-        "hash": "1985272814684873236"
+        "file": "nx.json",
+        "hash": "13543554231657983656"
       },
       {
         "file": ".github/workflows/deployment-rcmnd-api.yml",
         "hash": "1482425692442590103"
       },
       {
+        "file": "package.json",
+        "hash": "8850056696451452867"
+      },
+      {
         "file": "jest.preset.js",
         "hash": "9430166341120122740"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "8491837053101957257"
       },
       {
         "file": "migrations.json",
         "hash": "10764924908146528248"
       },
       {
-        "file": "package-lock.json",
-        "hash": "5513422724093604539"
-      },
-      {
-        "file": "README.md",
-        "hash": "1955868086715526908"
-      },
-      {
         "file": "tsconfig.base.json",
         "hash": "10108623148106491341"
-      },
-      {
-        "file": ".prettierrc",
-        "hash": "6192629144332209564"
-      },
-      {
-        "file": "nx.json",
-        "hash": "13543554231657983656"
-      },
-      {
-        "file": "jest.config.ts",
-        "hash": "12333515226966617182"
-      },
-      {
-        "file": "Nx-workshop.postman_collection.json",
-        "hash": "13796819436055774183"
       },
       {
         "file": ".editorconfig",
         "hash": "5443105041930014821"
       },
       {
+        "file": ".github/workflows/azure-static-web-apps-happy-pond-0613f1a03.yml",
+        "hash": "1985272814684873236"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "3395189204293871444"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "18315524891129148814"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "6192629144332209564"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "12333515226966617182"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "5513422724093604539"
+      },
+      {
         "file": ".github/workflows/deployment-data-api.yml",
         "hash": "12831517980691678147"
       },
       {
+        "file": "Nx-workshop.postman_collection.json",
+        "hash": "13796819436055774183"
+      },
+      {
         "file": ".eslintignore",
         "hash": "7663861978715868291"
+      },
+      {
+        "file": "README.md",
+        "hash": "1955868086715526908"
       }
     ],
     "projectFileMap": {
@@ -1925,7 +1925,7 @@
         },
         {
           "file": "libs/shared/util-env/src/lib/environment.production.ts",
-          "hash": "7746810567691879867"
+          "hash": "17059528458855479369"
         },
         {
           "file": "libs/shared/util-env/src/lib/environment.ts",

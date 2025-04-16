@@ -4,7 +4,7 @@ export const environment: IEnvironment = {
     production: true,
 
     ROOT_DOMAIN_URL: 'https://happy-pond-0613f1a03.5.azurestaticapps.net/',
-    dataApiUrl: 'https://golfing-data-api.azurewebsites.net/',
+    dataApiUrl: 'https://golfing-data-api.azurewebsites.net/api',
     NEO4J_DOMAIN_URL: 'https://golfing-api-neo4j.azurewebsites.net',
 
 
