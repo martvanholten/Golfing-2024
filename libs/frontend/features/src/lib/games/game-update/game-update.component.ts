@@ -136,7 +136,7 @@ export class GameUpdateComponent implements OnDestroy{
       this.router.navigate(['error']);
     }
   }
-  
+
   ngOnDestroy(): void {
     this.sub$?.unsubscribe();
     this.authSub$?.unsubscribe();

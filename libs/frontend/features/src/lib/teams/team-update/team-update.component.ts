@@ -21,8 +21,6 @@ export class TeamUpdateComponent implements OnDestroy{
   currentUser?: UserInterface;
   httpOptions?: any;
   token?: string;
-  addUser?: UserInterface;
-  addTeam?: TeamInterface;
   inTeam: boolean = false;
 
   constructor(
@@ -132,22 +130,21 @@ export class TeamUpdateComponent implements OnDestroy{
           this.router.navigate(['/error']);
         }else{
           this.sub$ = this.userService.getOneByEmail(email).subscribe(r =>{
-            this.addUser = r.results as UserInterface
-            this.user = this.addUser
-            if(this.addUser){
+            this.user = r.results as UserInterface
+            if(this.user){
               if(this.team._id){
                 this.teamService.getOne(this.team._id).subscribe(r =>{
-                  this.addTeam = r.results as TeamInterface
-                  if(this.addTeam){
-                    this.addTeam.golfers = new Array<UserInterface>
-                    this.addUser!.teams = new Array<TeamInterface>
-                    this.team.golfers.push(this.addUser!)
-                    this.teamService.updateOne(this.addUser!._id, this.team as TeamInterface, this.httpOptions).subscribe()
-                    this.user!.teams.push(this.addTeam)
-                    this.userService.updateOne(this.user!, this.httpOptions).subscribe()
-                  }else{
-                    this.router.navigate(['/error']);
-                  }
+                  this.team.golfers.push({
+                    firstName: this.user!.firstName,
+                    lastName: this.user!.lastName,
+                    email: this.user!.email,
+                  })
+                  this.teamService.updateOne(this.user!._id, this.team as TeamInterface, this.httpOptions).subscribe()
+                  this.user!.teams.push({
+                    rank: this.team!.rank!,
+                    name: this.team!.name!,
+                  })
+                  this.userService.updateOne(this.user!, this.httpOptions).subscribe()
                 })
               }else{
                 this.router.navigate(['/error']);

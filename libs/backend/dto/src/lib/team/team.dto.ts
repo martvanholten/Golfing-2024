@@ -5,7 +5,7 @@ import {
     IsString
 } from 'class-validator';
 
-import { CreateTeamInterface, TeamInterface, GameInterface, UserInterface } from '@avans-nx-workshop/shared/interfaces';
+import { CreateTeamInterface, TeamInterface, TeamGameInterface, TeamUserInterface } from '@avans-nx-workshop/shared/interfaces';
 
 export class TeamDto implements CreateTeamInterface{
     @IsNotEmpty()
@@ -17,9 +17,9 @@ export class TeamDto implements CreateTeamInterface{
     @IsNotEmpty()
     largeGames!: boolean;
     @IsNotEmpty()
-    games!: GameInterface[];
+    games!: TeamGameInterface[];
     @IsNotEmpty()
-    golfers!: UserInterface[];
+    golfers!: TeamUserInterface[];
     @IsNotEmpty()
     @IsString()
     teamCaptain!: string;
@@ -39,9 +39,9 @@ export class UpdateTeamDto implements TeamInterface{
     @IsBoolean()
     largeGames!: boolean;
     @IsNotEmpty()
-    games!: GameInterface[];
+    games!: TeamGameInterface[];
     @IsNotEmpty()
-    golfers!: UserInterface[];
+    golfers!: TeamUserInterface[];
     @IsNotEmpty()
     @IsString()
     teamCaptain!: string;

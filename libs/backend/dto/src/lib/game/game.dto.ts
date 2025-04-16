@@ -5,7 +5,7 @@ import {
     IsOptional,
 } from 'class-validator';
 
-import { GameInterface, ManagerInterface, TeamInterface } from '@avans-nx-workshop/shared/interfaces';
+import { GameInterface, ManagerInterface, GameTeamInterface } from '@avans-nx-workshop/shared/interfaces';
 
 export class GameDto implements GameInterface{
     @IsOptional()
@@ -23,7 +23,7 @@ export class GameDto implements GameInterface{
     @IsString()
     location!: string;
     @IsNotEmpty()
-    teams!: TeamInterface[];
+    teams!: GameTeamInterface[];
     @IsNotEmpty()
     gameManager!: ManagerInterface;
 }

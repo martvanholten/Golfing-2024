@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
-import { GameInterface, TeamInterface, UserInterface, } from '@avans-nx-workshop/shared/interfaces';
+import { TeamGameInterface, TeamInterface, TeamUserInterface } from '@avans-nx-workshop/shared/interfaces';
 import { IsMongoId } from 'class-validator';
 
 export type TeamDocument = Team & Document;
@@ -16,9 +16,9 @@ export class Team implements TeamInterface {
     @Prop()
     largeGames!: boolean;
     @Prop()
-    games: GameInterface[] = new Array<GameInterface>;
+    games: TeamGameInterface[] = new Array<TeamGameInterface>;
     @Prop()
-    golfers: UserInterface[] = new Array<UserInterface>;
+    golfers: TeamUserInterface[] = new Array<TeamUserInterface>;
     @Prop()
     teamCaptain!: string;    
 }

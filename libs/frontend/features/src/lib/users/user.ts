@@ -1,4 +1,4 @@
-import { CreateUserInterface, LoginDataInterface, ManagerInterface, TeamInterface, UserInterface } from '@avans-nx-workshop/shared/interfaces';
+import { CreateUserInterface, LoginDataInterface, ManagerInterface, TeamInterface, UserInterface, UserTeamInterface } from '@avans-nx-workshop/shared/interfaces';
 
 export class User implements UserInterface{
     _id!: string;
@@ -9,9 +9,9 @@ export class User implements UserInterface{
     role!: string;
     handicap!: number;
     age!: number;
-    teams!: TeamInterface[];
+    teams!: UserTeamInterface[];
     
-    constructor(_id: string, firstName: string, lastName: string, email: string, password: string, role:string, handicap: number, age: number, teams: Array<TeamInterface>){
+    constructor(_id: string, firstName: string, lastName: string, email: string, password: string, role:string, handicap: number, age: number, teams: Array<UserTeamInterface>){
         this._id = _id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -37,7 +37,7 @@ export class CreateUser implements CreateUserInterface{
     role?: string;
     handicap?: number;
     age?: number;
-    teams: TeamInterface[] = new Array<TeamInterface>;
+    teams: UserTeamInterface[] = new Array<UserTeamInterface>;
 }
 
 export class Manager implements ManagerInterface{

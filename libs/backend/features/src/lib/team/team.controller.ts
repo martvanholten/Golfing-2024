@@ -55,7 +55,7 @@ export class TeamController {
     @Put(':userId')
     @UseGuards(AccessTokenGuard)
     @UseGuards(UserRoleGuard)
-    @Roles('team captain')
+    @Roles('team captain', 'game manager')
     update(
         @Param('userId') userId: string,
         @Body() team: UpdateTeamDto

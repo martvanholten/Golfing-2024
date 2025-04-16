@@ -1,4 +1,4 @@
-import { TeamInterface } from "./team.interface";
+import { TeamInterface, UserTeamInterface } from "./team.interface";
 
 export interface UserInterface{
     _id: string;
@@ -9,7 +9,7 @@ export interface UserInterface{
     role: string;
     handicap: number;
     age: number;
-    teams: TeamInterface[];
+    teams: UserTeamInterface[];
 }
 
 export interface CreateUserInterface{
@@ -20,7 +20,7 @@ export interface CreateUserInterface{
     role?: string;
     handicap?: number;
     age?: number;
-    teams: TeamInterface[]
+    teams: UserTeamInterface[]
 }
 
 export interface LoginDataInterface{
@@ -31,4 +31,10 @@ export interface LoginDataInterface{
 export interface ManagerInterface{
     _id: string
     name: string
+}
+
+export interface TeamUserInterface{
+    lastName: string
+    firstName: string
+    email: string
 }

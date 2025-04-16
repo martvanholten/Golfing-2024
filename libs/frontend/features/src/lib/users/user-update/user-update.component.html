@@ -72,6 +72,8 @@
                 <div class="col">
                     <input
                         type="number"
+                        min="-15"
+                        max="50"
                         class="form-control"
                         [(ngModel)]="user.handicap"
                         name="handicap"
@@ -91,6 +93,8 @@
                 <div class="col">
                     <input
                         type="number"
+                        min="0"
+                        max="150"
                         class="form-control"
                         [(ngModel)]="user.age"
                         name="age"
@@ -100,7 +104,13 @@
                         }"
                         required
                     />
-                </div>               
+                </div>    
+                <div
+                    *ngIf="age.invalid && age.touched"
+                    class="invalid-feedback"
+                >
+                    <div>leeftijd naam moet gevuld zijn.</div>
+                </div>           
             </div>
             <hr>
             <div class="text-success">
@@ -142,7 +152,7 @@
                         required
                     > 
                         <option value="member">Team lid</option>
-                        <option value="team captain">Team capitein</option>
+                        <option value="team captain">Team kapitein</option>
                         <option value="game manager">Game manager</option>
                         <option value="location manager">Locatie manager</option>
                     </select>

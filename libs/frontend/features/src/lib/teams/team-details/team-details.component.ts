@@ -78,7 +78,7 @@ export class TeamDetailsComponent implements OnDestroy{
 
     delete(): void{
       if(this.isCaptain && this.team){
-        if(this.team.games.length < 1){
+        if(this.team.games.length < 1 || this.team.golfers.length < 1){
           if(this.currentUser){
             this.httpOptions = {
               headers: new HttpHeaders({
@@ -96,6 +96,9 @@ export class TeamDetailsComponent implements OnDestroy{
               }else if(r.message === 'team not found'){
                 this.errorService.errorMessage = "Team niet gevonden"
                 this.router.navigate(['/error']);
+              }else if(r.message === 'team has team members'){
+                this.errorService.errorMessage = "Team heeft nog team leden"
+                this.router.navigate(['/error']);
               }else{
                 this.router.navigate(['/error']);
               }
@@ -105,7 +108,7 @@ export class TeamDetailsComponent implements OnDestroy{
             this.router.navigate(['/error']);
           }
         }else{
-          this.errorService.errorMessage = "Team heeft games"
+          this.errorService.errorMessage = "Team heeft nog team leden"
           this.router.navigate(['/error']);
         }
       }else{

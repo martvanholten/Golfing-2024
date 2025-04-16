@@ -5,7 +5,7 @@ import {
     IsEmail
 } from 'class-validator';
 
-import { CreateUserInterface, LoginDataInterface, TeamInterface, UserInterface, } from '@avans-nx-workshop/shared/interfaces';
+import { CreateUserInterface, LoginDataInterface, UserInterface, UserTeamInterface, } from '@avans-nx-workshop/shared/interfaces';
 
 export class LoginData implements LoginDataInterface{
     email!: string;
@@ -35,7 +35,7 @@ export class UserDto implements CreateUserInterface{
     @IsNumber()
     age!: number;
     @IsNotEmpty()
-    teams: TeamInterface[] = new Array<TeamInterface>;
+    teams: UserTeamInterface[] = new Array<UserTeamInterface>;
 }
 
 export class UpdateUserDto implements UserInterface{
@@ -64,5 +64,5 @@ export class UpdateUserDto implements UserInterface{
     @IsNumber()
     age!: number;
     @IsNotEmpty()
-    teams!: TeamInterface[];
+    teams!: UserTeamInterface[];
 }

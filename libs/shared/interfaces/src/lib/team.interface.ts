@@ -1,13 +1,13 @@
-import { GameInterface } from "./game.interface";
-import { UserInterface } from "./user.interface";
+import { GameInterface, TeamGameInterface } from "./game.interface";
+import { TeamUserInterface } from "./user.interface";
 
 export interface TeamInterface{
     _id: string;
     rank: number;
     name: string;
     largeGames: boolean;
-    games: GameInterface[];
-    golfers: UserInterface[];
+    games: TeamGameInterface[];
+    golfers: TeamUserInterface[];
     teamCaptain: string
 }
 
@@ -16,7 +16,17 @@ export interface CreateTeamInterface{
     rank?: number;
     name?: string;
     largeGames?: boolean;
-    games: GameInterface[];
-    golfers: UserInterface[];
+    games: TeamGameInterface[];
+    golfers: TeamUserInterface[];
     teamCaptain?: string
+}
+
+export interface UserTeamInterface{
+    rank: number
+    name: string
+}
+
+export interface GameTeamInterface{
+    rank: number
+    name: string
 }

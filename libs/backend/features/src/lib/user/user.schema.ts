@@ -1,4 +1,4 @@
-import { TeamInterface, UserInterface } from "@avans-nx-workshop/shared/interfaces";
+import { TeamInterface, UserInterface, UserTeamInterface } from "@avans-nx-workshop/shared/interfaces";
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose"
 import { IsMongoId } from "class-validator";
 import { Document } from "mongoose"
@@ -24,7 +24,7 @@ export class User implements UserInterface{
     @Prop()
     age!: number;
     @Prop()
-    teams: TeamInterface[] = new Array<TeamInterface>;
+    teams: UserTeamInterface[] = new Array<UserTeamInterface>;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

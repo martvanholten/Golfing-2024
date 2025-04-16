@@ -37,7 +37,7 @@
             <tbody>
                 <tr *ngFor="let team of user?.teams">
                     <td class="text-center">{{ team.name }}</td>
-                    @if(team?.rank === 0){
+                    @if(team.rank === 0){
                         <div class="col"><p class="text-center">Geen rank</p></div>
                     }@else {
                         <div class="col">{{team?.rank}}</div>

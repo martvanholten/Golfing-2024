@@ -1,5 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { ApiResponse, ApiResponseInterface, TeamInterface } from '@avans-nx-workshop/shared/interfaces';
+import { ApiResponse, ApiResponseInterface, TeamInterface, UserTeamInterface } from '@avans-nx-workshop/shared/interfaces';
 import { TeamRepo } from './team.repo';
 import { TeamDto, UpdateUserDto } from '@avans-nx-workshop/backend/dto';
 import { UserRepo } from '../user/user.repo';
@@ -128,27 +128,22 @@ export class TeamService {
 
     async delete(_id: string, userId: string): Promise<ApiResponseInterface<TeamInterface>> {
         try {
-            var users = await this.userRepo.findAll();
-            var userTeams = new Array<TeamInterface>
             this.team = await this.teamRepo.findOne(_id)
+
             if(this.team !== null){
-                if(this.team.teamCaptain === userId){
-                    users.forEach(u =>{
-                        u.teams.forEach(t =>{
-                            if(t._id !== _id){
-                                userTeams.push(t)
-                            }
-                        })
-                        u.teams = userTeams                        
-                        this.userRepo.update(u._id, u as UpdateUserDto)
-                    })
-                    await this.teamRepo.delete(_id);
-                    this.response = new ApiResponse<TeamInterface>('succes')
-                    return this.response as ApiResponseInterface<TeamInterface>;
+                if(this.team.golfers.length < 1){
+                    if(this.team.teamCaptain === userId){
+                        await this.teamRepo.delete(_id);
+                        this.response = new ApiResponse<TeamInterface>('succes')
+                        return this.response as ApiResponseInterface<TeamInterface>;
+                    }else{
+                        this.response = new ApiResponse<TeamInterface>('not the team captain')
+                        return this.response as ApiResponseInterface<TeamInterface>;
+                    } 
                 }else{
-                    this.response = new ApiResponse<TeamInterface>('not the team captain')
+                    this.response = new ApiResponse<TeamInterface>('team has team members')
                     return this.response as ApiResponseInterface<TeamInterface>;
-                }                
+                }           
             }else{
                 this.response = new ApiResponse<TeamInterface>('team not found')
                 return this.response as ApiResponseInterface<TeamInterface>;
