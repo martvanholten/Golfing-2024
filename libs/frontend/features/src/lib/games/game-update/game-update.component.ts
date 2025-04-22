@@ -91,9 +91,10 @@ export class GameUpdateComponent implements OnDestroy{
           if(this.game instanceof CreateGame){
             if(this.game.location){
               this.locationService.getOneByName(this.game.location).subscribe(l =>{
-                var location = l.results as LocationInterface;
-                this.locationId = location._id;
-                if(this.locationId){
+                this.location = l.results as LocationInterface;
+                this.locationId = this.location._id;
+                this.locationService.getOneByName(this.game.location!).subscribe((l) =>{
+                  this.location = l.results as LocationInterface
                   this.game.gameManager = new Manager(this.currentUser!._id, this.currentUser!.firstName, this.currentUser!.lastName)
                   this.game.teams = new Array<TeamInterface>();
                   if(this.game.winner === 'Geen winnaar'){
@@ -109,11 +110,11 @@ export class GameUpdateComponent implements OnDestroy{
                     this.errorService.errorMessage = "Vul een mee spelend team in of vul Geen winnaar in voor geen winnaar"
                     this.router.navigate(['/error']);
                   }else{
-                    if(!this.location?.large && this.game.holes! > 9){
+                    if(this.location?.large && this.game.holes! > 9){
                       this.errorService.errorMessage = `Locatie ${this.location?.name} heeft maar negen holes en kan geen wedstrijd hebben met meer dan negen holes`
                       this.router.navigate(['/error']);
                     }else{
-                      this.gameService.createOne(this.locationId, this.game as CreateGameInterface, this.httpOptions).subscribe((r) => {
+                      this.gameService.createOne(this.locationId!, this.game as CreateGameInterface, this.httpOptions).subscribe((r) => {
                         if(r.message === "error"){
                           this.router.navigate(['error']);
                         }else if(r.message === "succes"){
@@ -128,52 +129,53 @@ export class GameUpdateComponent implements OnDestroy{
                       });
                     }  
                   }
-                }else{
-                  this.router.navigate(['/error']);
-                }
+                })
               });
             }else{
               this.router.navigate(['/error']);
             }          
           }else{
             if(this.locationId){
-              if(this.currentUser._id === this.game.gameManager?._id){
-                if(this.game.winner === 'Geen winnaar'){
-                  this.hasTeam = true
-                  this.game.winner = ''
-                }
-                this.game.teams.forEach(t =>{
-                  if(t.name === this.game.winner){
+              this.locationService.getOneByName(this.game.location!).subscribe((l) =>{
+                this.location = l.results as LocationInterface
+                if(this.currentUser!._id === this.game.gameManager?._id){
+                  if(this.game.winner === 'Geen winnaar'){
                     this.hasTeam = true
+                    this.game.winner = ''
                   }
-                })
-                if(!this.hasTeam){
-                  this.errorService.errorMessage = "Vul een mee spelend team in of vul Geen winnaar in voor geen winnaar"
-                  this.router.navigate(['/error']);
-                }else{
-                  if(!this.location?.large && this.game.holes! > 9){
-                    this.errorService.errorMessage = `Locatie ${this.location?.name} heeft maar negen holes en kan geen wedstrijd hebben met meer dan negen holes`
+                  this.game.teams.forEach(t =>{
+                    if(t.name === this.game.winner){
+                      this.hasTeam = true
+                    }
+                  })
+                  if(!this.hasTeam){
+                    this.errorService.errorMessage = "Vul een mee spelend team in of vul Geen winnaar in voor geen winnaar"
                     this.router.navigate(['/error']);
                   }else{
-                    this.gameService.updateOne(this.locationId, this.gameName!, this.game as GameInterface, this.httpOptions).subscribe(r =>{
-                      if(r.message === 'succes'){
-                        this.router.navigate(['games']);
-                      }else if(r.message === 'game not found'){
-                        this.errorService.errorMessage = "Game niet gevonden"
-                        this.router.navigate(['/error']);
-                      }else if(r.message === 'location not found'){
-                        this.errorService.errorMessage = "Locatie niet gevonden"
-                        this.router.navigate(['/error']);
-                      }else{
-                        this.router.navigate(['/error']);
-                      }
-                    })
+                    if(this.location?.large && this.game.holes! > 9){
+                      this.errorService.errorMessage = `Locatie ${this.location?.name} heeft maar negen holes en kan geen wedstrijd hebben met meer dan negen holes`
+                      this.router.navigate(['/error']);
+                    }else{
+                      this.gameService.updateOne(this.locationId!, this.gameName!, this.game as GameInterface, this.httpOptions).subscribe(r =>{
+                        if(r.message === 'succes'){
+                          this.router.navigate(['games']);
+                        }else if(r.message === 'game not found'){
+                          this.errorService.errorMessage = "Game niet gevonden"
+                          this.router.navigate(['/error']);
+                        }else if(r.message === 'location not found'){
+                          this.errorService.errorMessage = "Locatie niet gevonden"
+                          this.router.navigate(['/error']);
+                        }else{
+                          this.router.navigate(['/error']);
+                        }
+                      })
+                    }
                   }
+                }else{
+                  this.errorService.errorMessage = "Niet de game manager"
+                  this.router.navigate(['/error']);
                 }
-              }else{
-                this.errorService.errorMessage = "Niet de game manager"
-                this.router.navigate(['/error']);
-              }
+              })
             }else{
               this.router.navigate(['/error']);
             }

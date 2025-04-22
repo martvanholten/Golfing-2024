@@ -162,7 +162,11 @@
             <tbody>
                 <tr *ngFor="let team of game?.teams">
                     <td class="text-center">{{ team.name }}</td>
-                    <td class="text-center">{{ team.rank }}</td>
+                    @if(team?.rank === 0){
+                        <div class="text-center">Geen rank</div>
+                    }@else {
+                        <div class="text-center">{{team.rank}}</div>
+                    }
                     @if(game.gameManager?._id === currentUser?._id) {
                         <div class="col" align="center"><button class="btn btn-success mt-3" (click)="deleteTeam(team.name)" routerLinkActive="actieve-link">Delete</button></div>
                     }

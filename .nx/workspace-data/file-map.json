@@ -38,8 +38,64 @@
   "fileMap": {
     "nonProjectFiles": [
       {
+        "file": "tsconfig.base.json",
+        "hash": "10108623148106491341"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "8491837053101957257"
+      },
+      {
+        "file": ".github/workflows/deployment-rcmnd-api.yml",
+        "hash": "1482425692442590103"
+      },
+      {
         "file": "migrations.json",
         "hash": "10764924908146528248"
+      },
+      {
+        "file": ".github/workflows/deployment-data-api.yml",
+        "hash": "12831517980691678147"
+      },
+      {
+        "file": ".github/workflows/azure-static-web-apps-happy-pond-0613f1a03.yml",
+        "hash": "1985272814684873236"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "3395189204293871444"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "6192629144332209564"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": "README.md",
+        "hash": "1955868086715526908"
+      },
+      {
+        "file": ".eslintignore",
+        "hash": "7663861978715868291"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "12333515226966617182"
+      },
+      {
+        "file": "Nx-workshop.postman_collection.json",
+        "hash": "13796819436055774183"
+      },
+      {
+        "file": "package.json",
+        "hash": "8850056696451452867"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "18315524891129148814"
       },
       {
         "file": "jest.preset.js",
@@ -50,64 +106,8 @@
         "hash": "5513422724093604539"
       },
       {
-        "file": ".eslintrc.json",
-        "hash": "18315524891129148814"
-      },
-      {
-        "file": "package.json",
-        "hash": "8850056696451452867"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "10108623148106491341"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "8491837053101957257"
-      },
-      {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
-        "file": "jest.config.ts",
-        "hash": "12333515226966617182"
-      },
-      {
-        "file": ".github/workflows/deployment-rcmnd-api.yml",
-        "hash": "1482425692442590103"
-      },
-      {
-        "file": "README.md",
-        "hash": "1955868086715526908"
-      },
-      {
-        "file": "Nx-workshop.postman_collection.json",
-        "hash": "13796819436055774183"
-      },
-      {
         "file": "nx.json",
         "hash": "13543554231657983656"
-      },
-      {
-        "file": ".eslintignore",
-        "hash": "7663861978715868291"
-      },
-      {
-        "file": ".github/workflows/azure-static-web-apps-happy-pond-0613f1a03.yml",
-        "hash": "1985272814684873236"
-      },
-      {
-        "file": ".github/workflows/deployment-data-api.yml",
-        "hash": "12831517980691678147"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "3395189204293871444"
-      },
-      {
-        "file": ".prettierrc",
-        "hash": "6192629144332209564"
       }
     ],
     "projectFileMap": {
@@ -1203,7 +1203,7 @@
         },
         {
           "file": "libs/frontend/features/src/lib/games/game-update/game-update.component.html",
-          "hash": "13664819609314722062"
+          "hash": "887418677990850277"
         },
         {
           "file": "libs/frontend/features/src/lib/games/game-update/game-update.component.spec.ts",
@@ -1214,7 +1214,7 @@
         },
         {
           "file": "libs/frontend/features/src/lib/games/game-update/game-update.component.ts",
-          "hash": "14605805993417866642",
+          "hash": "4187424312501641887",
           "deps": [
             "npm:@angular/common",
             "npm:@angular/core",
