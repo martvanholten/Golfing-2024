@@ -38,24 +38,24 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "nx.json",
-        "hash": "13543554231657983656"
-      },
-      {
-        "file": ".eslintrc.json",
-        "hash": "18315524891129148814"
+        "file": "migrations.json",
+        "hash": "10764924908146528248"
       },
       {
         "file": "jest.preset.js",
         "hash": "9430166341120122740"
       },
       {
-        "file": "migrations.json",
-        "hash": "10764924908146528248"
+        "file": "package-lock.json",
+        "hash": "5513422724093604539"
       },
       {
-        "file": ".github/workflows/deployment-rcmnd-api.yml",
-        "hash": "1482425692442590103"
+        "file": ".eslintrc.json",
+        "hash": "18315524891129148814"
+      },
+      {
+        "file": "package.json",
+        "hash": "8850056696451452867"
       },
       {
         "file": "tsconfig.base.json",
@@ -66,48 +66,48 @@
         "hash": "8491837053101957257"
       },
       {
-        "file": ".eslintignore",
-        "hash": "7663861978715868291"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "5513422724093604539"
-      },
-      {
-        "file": "Nx-workshop.postman_collection.json",
-        "hash": "13796819436055774183"
-      },
-      {
-        "file": ".github/workflows/deployment-data-api.yml",
-        "hash": "12831517980691678147"
-      },
-      {
-        "file": ".prettierrc",
-        "hash": "6192629144332209564"
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
       },
       {
         "file": "jest.config.ts",
         "hash": "12333515226966617182"
       },
       {
+        "file": ".github/workflows/deployment-rcmnd-api.yml",
+        "hash": "1482425692442590103"
+      },
+      {
         "file": "README.md",
         "hash": "1955868086715526908"
       },
       {
-        "file": "package.json",
-        "hash": "8850056696451452867"
+        "file": "Nx-workshop.postman_collection.json",
+        "hash": "13796819436055774183"
       },
       {
-        "file": ".prettierignore",
-        "hash": "3395189204293871444"
+        "file": "nx.json",
+        "hash": "13543554231657983656"
+      },
+      {
+        "file": ".eslintignore",
+        "hash": "7663861978715868291"
       },
       {
         "file": ".github/workflows/azure-static-web-apps-happy-pond-0613f1a03.yml",
         "hash": "1985272814684873236"
       },
       {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
+        "file": ".github/workflows/deployment-data-api.yml",
+        "hash": "12831517980691678147"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "3395189204293871444"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "6192629144332209564"
       }
     ],
     "projectFileMap": {
@@ -1152,7 +1152,7 @@
         },
         {
           "file": "libs/frontend/features/src/lib/games/game-details/game-details.component.html",
-          "hash": "13644389603689624598"
+          "hash": "14942275423587967853"
         },
         {
           "file": "libs/frontend/features/src/lib/games/game-details/game-details.component.spec.ts",
@@ -1415,7 +1415,7 @@
         },
         {
           "file": "libs/frontend/features/src/lib/teams/team-details-small/team-details-small.component.html",
-          "hash": "1737413859202056151"
+          "hash": "919121018690306234"
         },
         {
           "file": "libs/frontend/features/src/lib/teams/team-details-small/team-details-small.component.spec.ts",
@@ -1582,7 +1582,7 @@
         },
         {
           "file": "libs/frontend/features/src/lib/users/user-details/user-details.component.html",
-          "hash": "5712202195329834077"
+          "hash": "2654134844150575280"
         },
         {
           "file": "libs/frontend/features/src/lib/users/user-details/user-details.component.spec.ts",

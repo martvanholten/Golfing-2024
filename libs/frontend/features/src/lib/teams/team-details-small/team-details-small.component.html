@@ -8,7 +8,11 @@
     </div>
     <div class="row text-success">
         <div class="col">{{team?.name}}</div>
-        <div class="col">{{team?.rank}}</div>
+        @if(team?.rank === 0){
+            <div class="col">Geen rank</div>
+        }@else {
+            <div class="col">{{team?.rank}}</div>
+        }
     </div>
     <div class="row text-success">
         <div class="col"><a class="btn btn-success mt-3" routerLink="detail" routerLinkActive="actieve-link">Detail</a></div>
