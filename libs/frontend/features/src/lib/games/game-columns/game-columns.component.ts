@@ -22,6 +22,8 @@ export class GameColumnsComponent {
                 this.currentUser = u;
             }
         });
+        console.log(this.currentUser)
+        console.log(this.currentUser?.role)
     };
     
     ngOnDestroy(): void {

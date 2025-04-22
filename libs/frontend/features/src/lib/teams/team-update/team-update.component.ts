@@ -47,27 +47,25 @@ export class TeamUpdateComponent implements OnDestroy{
         this.authSub$ = this.authService.getUserFromLocalStorage().subscribe((u) => {
           if(u){
             this.currentUser = u;
-          }
-        });
-
-        this.token$ = this.authService.getTokenFromLocalStorage().subscribe((t) => {
-          if(t){
-            this.token = t
-          }
-        });
-
-        if(this.currentUser){
-          this.httpOptions = {
-            headers: new HttpHeaders({
-              'Content-Type': 'application/json',
-              Authorization: 'Bearer ' + this.token,
-              userRole: this.currentUser.role
+            this.token$ = this.authService.getTokenFromLocalStorage().subscribe((t) => {
+              if(t){
+                this.token = t
+                if(this.currentUser){
+                  this.httpOptions = {
+                    headers: new HttpHeaders({
+                      'Content-Type': 'application/json',
+                      Authorization: 'Bearer ' + this.token,
+                      userRole: this.currentUser.role
+                    })
+                  }
+                }else{
+                  this.errorService.errorMessage = "Niet ingelogd"
+                  this.router.navigate(['/error']);
+                }
+              }
             })
           }
-        }else{
-          this.errorService.errorMessage = "Niet ingelogd"
-          this.router.navigate(['/error']);
-        }
+        });
       } catch (error) {
         this.router.navigate(['error']);
       }
@@ -133,19 +131,17 @@ export class TeamUpdateComponent implements OnDestroy{
             this.user = r.results as UserInterface
             if(this.user){
               if(this.team._id){
-                this.teamService.getOne(this.team._id).subscribe(r =>{
-                  this.team.golfers.push({
-                    firstName: this.user!.firstName,
-                    lastName: this.user!.lastName,
-                    email: this.user!.email,
-                  })
-                  this.teamService.updateOne(this.user!._id, this.team as TeamInterface, this.httpOptions).subscribe()
-                  this.user!.teams.push({
-                    rank: this.team!.rank!,
-                    name: this.team!.name!,
-                  })
-                  this.userService.updateOne(this.user!, this.httpOptions).subscribe()
+                this.team.golfers.push({
+                  firstName: this.user!.firstName,
+                  lastName: this.user!.lastName,
+                  email: this.user!.email,
                 })
+                this.teamService.updateOne(this.user!._id, this.team as TeamInterface, this.httpOptions).subscribe()
+                this.user!.teams.push({
+                  rank: this.team!.rank!,
+                  name: this.team!.name!,
+                })
+                this.userService.updateOne(this.user!, this.httpOptions).subscribe()
               }else{
                 this.router.navigate(['/error']);
               }

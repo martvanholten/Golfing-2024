@@ -38,48 +38,40 @@
   "fileMap": {
     "nonProjectFiles": [
       {
+        "file": ".prettierrc",
+        "hash": "6192629144332209564"
+      },
+      {
         "file": "jest.preset.js",
         "hash": "9430166341120122740"
-      },
-      {
-        "file": ".github/workflows/deployment-data-api.yml",
-        "hash": "12831517980691678147"
-      },
-      {
-        "file": "nx.json",
-        "hash": "13543554231657983656"
-      },
-      {
-        "file": "README.md",
-        "hash": "1955868086715526908"
       },
       {
         "file": ".eslintignore",
         "hash": "7663861978715868291"
       },
       {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
-        "file": ".github/workflows/azure-static-web-apps-happy-pond-0613f1a03.yml",
-        "hash": "1985272814684873236"
-      },
-      {
-        "file": ".prettierrc",
-        "hash": "6192629144332209564"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "3395189204293871444"
-      },
-      {
         "file": "migrations.json",
         "hash": "10764924908146528248"
       },
       {
+        "file": "nx.json",
+        "hash": "13543554231657983656"
+      },
+      {
         "file": "package.json",
         "hash": "8850056696451452867"
+      },
+      {
+        "file": "README.md",
+        "hash": "1955868086715526908"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "18315524891129148814"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "3395189204293871444"
       },
       {
         "file": "package-lock.json",
@@ -90,147 +82,350 @@
         "hash": "1482425692442590103"
       },
       {
-        "file": ".gitignore",
-        "hash": "8491837053101957257"
-      },
-      {
-        "file": ".eslintrc.json",
-        "hash": "18315524891129148814"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "10108623148106491341"
-      },
-      {
         "file": "jest.config.ts",
         "hash": "12333515226966617182"
       },
       {
+        "file": ".github/workflows/azure-static-web-apps-happy-pond-0613f1a03.yml",
+        "hash": "1985272814684873236"
+      },
+      {
+        "file": ".github/workflows/deployment-data-api.yml",
+        "hash": "12831517980691678147"
+      },
+      {
         "file": "Nx-workshop.postman_collection.json",
         "hash": "13796819436055774183"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "8491837053101957257"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "10108623148106491341"
       }
     ],
     "projectFileMap": {
-      "comon": [
+      "share-a-meal-web": [
         {
-          "file": "libs/frontend/common/.eslintrc.json",
-          "hash": "9293852775400125686"
+          "file": "apps/share-a-meal-web/.eslintrc.json",
+          "hash": "12118854377797659445"
         },
         {
-          "file": "libs/frontend/common/README.md",
-          "hash": "4396730449551246043"
+          "file": "apps/share-a-meal-web/jest.config.ts",
+          "hash": "2667253891853561832"
         },
         {
-          "file": "libs/frontend/common/jest.config.ts",
-          "hash": "2860428092991195410"
+          "file": "apps/share-a-meal-web/project.json",
+          "hash": "6021475482155891052"
         },
         {
-          "file": "libs/frontend/common/project.json",
-          "hash": "12664314604764245708"
+          "file": "apps/share-a-meal-web/src/app/app.component.html",
+          "hash": "14096303333607304980"
         },
         {
-          "file": "libs/frontend/common/src/index.ts",
-          "hash": "14177925512953375293"
+          "file": "apps/share-a-meal-web/src/app/app.component.ts",
+          "hash": "10064478920892536205",
+          "deps": [
+            "npm:@angular/core",
+            "npm:flowbite",
+            "npm:@angular/router"
+          ]
         },
         {
-          "file": "libs/frontend/common/src/lib/common.module.ts",
-          "hash": "12637408136721052307",
+          "file": "apps/share-a-meal-web/src/app/app.config.ts",
+          "hash": "8993342557759126848",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router"
+          ]
+        },
+        {
+          "file": "apps/share-a-meal-web/src/app/app.routes.ts",
+          "hash": "1640601350016319054",
+          "deps": [
+            "npm:@angular/router"
+          ]
+        },
+        {
+          "file": "apps/share-a-meal-web/src/app/components/about/about.component.html",
+          "hash": "16089002778921768123"
+        },
+        {
+          "file": "apps/share-a-meal-web/src/app/components/about/about.component.spec.ts",
+          "hash": "8855752337671383617",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/share-a-meal-web/src/app/components/about/about.component.ts",
+          "hash": "12127380471888693726",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/share-a-meal-web/src/app/components/dashboard/dashboard.component.html",
+          "hash": "13178263766354848654"
+        },
+        {
+          "file": "apps/share-a-meal-web/src/app/components/dashboard/dashboard.component.ts",
+          "hash": "3591264399526952365",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/share-a-meal-web/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/share-a-meal-web/src/assets/Entity-Relationship-Diagram.png",
+          "hash": "10440411800400986942"
+        },
+        {
+          "file": "apps/share-a-meal-web/src/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "apps/share-a-meal-web/src/index.html",
+          "hash": "1306304337514846625"
+        },
+        {
+          "file": "apps/share-a-meal-web/src/main.ts",
+          "hash": "7323565367452876306",
+          "deps": [
+            "npm:@angular/platform-browser",
+            "npm:@angular/core",
+            "util-env"
+          ]
+        },
+        {
+          "file": "apps/share-a-meal-web/src/styles.css",
+          "hash": "6917432578050628436"
+        },
+        {
+          "file": "apps/share-a-meal-web/src/test-setup.ts",
+          "hash": "12935735732682149507",
+          "deps": [
+            "npm:jest-preset-angular"
+          ]
+        },
+        {
+          "file": "apps/share-a-meal-web/tailwind.config.js",
+          "hash": "17076277411316600840",
+          "deps": [
+            "npm:@nx/angular",
+            "npm:tailwindcss",
+            "npm:flowbite"
+          ]
+        },
+        {
+          "file": "apps/share-a-meal-web/tsconfig.app.json",
+          "hash": "12911920861351469827"
+        },
+        {
+          "file": "apps/share-a-meal-web/tsconfig.editor.json",
+          "hash": "17511610827034788226"
+        },
+        {
+          "file": "apps/share-a-meal-web/tsconfig.json",
+          "hash": "12094030803572703611"
+        },
+        {
+          "file": "apps/share-a-meal-web/tsconfig.spec.json",
+          "hash": "2927375835638640771"
+        }
+      ],
+      "golfing": [
+        {
+          "file": "apps/golfing/.eslintrc.json",
+          "hash": "16921288866599104771"
+        },
+        {
+          "file": "apps/golfing/jest.config.ts",
+          "hash": "17436411479244898047"
+        },
+        {
+          "file": "apps/golfing/project.json",
+          "hash": "1217409385440370797"
+        },
+        {
+          "file": "apps/golfing/src/app/app.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/golfing/src/app/app.component.html",
+          "hash": "17600603678692415054"
+        },
+        {
+          "file": "apps/golfing/src/app/app.component.spec.ts",
+          "hash": "10459802259896326559",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router"
+          ]
+        },
+        {
+          "file": "apps/golfing/src/app/app.component.ts",
+          "hash": "8685551820808045672",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "ui"
+          ]
+        },
+        {
+          "file": "apps/golfing/src/app/app.config.ts",
+          "hash": "4973721659042621253",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "npm:@angular/common"
+          ]
+        },
+        {
+          "file": "apps/golfing/src/app/app.routes.ts",
+          "hash": "14453475198280433907",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "ui",
+            "features"
+          ]
+        },
+        {
+          "file": "apps/golfing/src/app/nx-welcome.component.ts",
+          "hash": "15884860509626438075",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common"
           ]
         },
         {
-          "file": "libs/frontend/common/src/test-setup.ts",
-          "hash": "4022486634036225089",
+          "file": "apps/golfing/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/golfing/src/assets/image/erd.golfing.jpg",
+          "hash": "3039354406952091692"
+        },
+        {
+          "file": "apps/golfing/src/assets/image/fr1.golfing.jpg",
+          "hash": "2204324081862509311"
+        },
+        {
+          "file": "apps/golfing/src/assets/image/fr2.golfing.jpg",
+          "hash": "17892127439641857041"
+        },
+        {
+          "file": "apps/golfing/src/assets/image/fr3.golfing.jpg",
+          "hash": "8173424844645500555"
+        },
+        {
+          "file": "apps/golfing/src/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "apps/golfing/src/index.html",
+          "hash": "7109762676964208167"
+        },
+        {
+          "file": "apps/golfing/src/main.ts",
+          "hash": "5432768832348368295",
+          "deps": [
+            "npm:@angular/platform-browser"
+          ]
+        },
+        {
+          "file": "apps/golfing/src/styles.css",
+          "hash": "5195668842064076916"
+        },
+        {
+          "file": "apps/golfing/src/test-setup.ts",
+          "hash": "18384032036193434871",
           "deps": [
             "npm:jest-preset-angular"
           ]
         },
         {
-          "file": "libs/frontend/common/tsconfig.json",
-          "hash": "16345539577515900790"
+          "file": "apps/golfing/tsconfig.app.json",
+          "hash": "10832768672368521252"
         },
         {
-          "file": "libs/frontend/common/tsconfig.lib.json",
-          "hash": "3924040990733920241"
+          "file": "apps/golfing/tsconfig.editor.json",
+          "hash": "3782190314296404468"
         },
         {
-          "file": "libs/frontend/common/tsconfig.spec.json",
-          "hash": "17344764448552449211"
+          "file": "apps/golfing/tsconfig.json",
+          "hash": "16270926144463289155"
+        },
+        {
+          "file": "apps/golfing/tsconfig.spec.json",
+          "hash": "7582695473675793029"
         }
       ],
-      "dto": [
+      "data-api": [
         {
-          "file": "libs/backend/dto/.eslintrc.json",
-          "hash": "14803369877490046397"
+          "file": "apps/data-api/.eslintrc.json",
+          "hash": "13800677001662881425"
         },
         {
-          "file": "libs/backend/dto/README.md",
-          "hash": "2079580637005403667"
+          "file": "apps/data-api/jest.config.ts",
+          "hash": "4536376685111812873"
         },
         {
-          "file": "libs/backend/dto/jest.config.ts",
-          "hash": "18008281603643191550"
+          "file": "apps/data-api/project.json",
+          "hash": "9844984168826012667"
         },
         {
-          "file": "libs/backend/dto/project.json",
-          "hash": "16936054644790140176"
-        },
-        {
-          "file": "libs/backend/dto/src/index.ts",
-          "hash": "1970455548510730566"
-        },
-        {
-          "file": "libs/backend/dto/src/lib/dto.module.ts",
-          "hash": "1666275309093498050",
+          "file": "apps/data-api/src/app/app.module.ts",
+          "hash": "7053098346586976163",
           "deps": [
-            "npm:@nestjs/common"
+            "npm:@nestjs/common",
+            "npm:@nestjs/mongoose",
+            "util-env",
+            "BackendFeatures",
+            "npm:@nestjs/config"
           ]
         },
         {
-          "file": "libs/backend/dto/src/lib/game/game.dto.ts",
-          "hash": "4808294371666931476",
+          "file": "apps/data-api/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/data-api/src/main.ts",
+          "hash": "13433179829055888804",
           "deps": [
-            "npm:class-validator",
-            "shared-interfaces"
+            "npm:@nestjs/common",
+            "npm:@nestjs/core",
+            "npm:@nestjs/config"
           ]
         },
         {
-          "file": "libs/backend/dto/src/lib/location/location.dto.ts",
-          "hash": "11361546295904731189",
+          "file": "apps/data-api/tsconfig.app.json",
+          "hash": "3171572500325445971"
+        },
+        {
+          "file": "apps/data-api/tsconfig.json",
+          "hash": "3490524966360018312"
+        },
+        {
+          "file": "apps/data-api/tsconfig.spec.json",
+          "hash": "11550347367511341917"
+        },
+        {
+          "file": "apps/data-api/webpack.config.js",
+          "hash": "10619490397189790225",
           "deps": [
-            "npm:class-validator",
-            "shared-interfaces"
+            "npm:@nx/webpack"
           ]
-        },
-        {
-          "file": "libs/backend/dto/src/lib/team/team.dto.ts",
-          "hash": "1879346009258871272",
-          "deps": [
-            "npm:class-validator",
-            "shared-interfaces"
-          ]
-        },
-        {
-          "file": "libs/backend/dto/src/lib/user/user.dto.ts",
-          "hash": "9084352071592092149",
-          "deps": [
-            "npm:class-validator",
-            "shared-interfaces"
-          ]
-        },
-        {
-          "file": "libs/backend/dto/tsconfig.json",
-          "hash": "4144762477106208688"
-        },
-        {
-          "file": "libs/backend/dto/tsconfig.lib.json",
-          "hash": "5754459057639250434"
-        },
-        {
-          "file": "libs/backend/dto/tsconfig.spec.json",
-          "hash": "2579164740543429247"
         }
       ],
       "neo4j": [
@@ -382,6 +577,75 @@
         {
           "file": "libs/backend/neo4j/tsconfig.spec.json",
           "hash": "2579164740543429247"
+        }
+      ],
+      "shared-interfaces": [
+        {
+          "file": "libs/shared/interfaces/.eslintrc.json",
+          "hash": "12096744579003383200"
+        },
+        {
+          "file": "libs/shared/interfaces/README.md",
+          "hash": "12529304555068786879"
+        },
+        {
+          "file": "libs/shared/interfaces/jest.config.ts",
+          "hash": "12095003696342054987"
+        },
+        {
+          "file": "libs/shared/interfaces/project.json",
+          "hash": "10525616735170414946"
+        },
+        {
+          "file": "libs/shared/interfaces/src/index.ts",
+          "hash": "5166610667105449861"
+        },
+        {
+          "file": "libs/shared/interfaces/src/lib/api-response.interface.ts",
+          "hash": "14144403976170270212"
+        },
+        {
+          "file": "libs/shared/interfaces/src/lib/api-response.ts",
+          "hash": "12797335873589977164"
+        },
+        {
+          "file": "libs/shared/interfaces/src/lib/game.interface.ts",
+          "hash": "1811546196350844858"
+        },
+        {
+          "file": "libs/shared/interfaces/src/lib/location.interface.ts",
+          "hash": "13745900346815672429"
+        },
+        {
+          "file": "libs/shared/interfaces/src/lib/neo4jConfig.interface.ts",
+          "hash": "14731917723107541452"
+        },
+        {
+          "file": "libs/shared/interfaces/src/lib/team.interface.ts",
+          "hash": "11140541112384635493"
+        },
+        {
+          "file": "libs/shared/interfaces/src/lib/user.interface.ts",
+          "hash": "15761712634421359663"
+        },
+        {
+          "file": "libs/shared/interfaces/src/test-setup.ts",
+          "hash": "18384032036193434871",
+          "deps": [
+            "npm:jest-preset-angular"
+          ]
+        },
+        {
+          "file": "libs/shared/interfaces/tsconfig.json",
+          "hash": "2952183243805677762"
+        },
+        {
+          "file": "libs/shared/interfaces/tsconfig.lib.json",
+          "hash": "5606283485481779905"
+        },
+        {
+          "file": "libs/shared/interfaces/tsconfig.spec.json",
+          "hash": "10021680246547187312"
         }
       ],
       "ui": [
@@ -553,343 +817,6 @@
           "hash": "10021680246547187312"
         }
       ],
-      "data-api": [
-        {
-          "file": "apps/data-api/.eslintrc.json",
-          "hash": "13800677001662881425"
-        },
-        {
-          "file": "apps/data-api/jest.config.ts",
-          "hash": "4536376685111812873"
-        },
-        {
-          "file": "apps/data-api/project.json",
-          "hash": "9844984168826012667"
-        },
-        {
-          "file": "apps/data-api/src/app/app.module.ts",
-          "hash": "7053098346586976163",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/mongoose",
-            "util-env",
-            "BackendFeatures",
-            "npm:@nestjs/config"
-          ]
-        },
-        {
-          "file": "apps/data-api/src/assets/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/data-api/src/main.ts",
-          "hash": "13433179829055888804",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/core",
-            "npm:@nestjs/config"
-          ]
-        },
-        {
-          "file": "apps/data-api/tsconfig.app.json",
-          "hash": "3171572500325445971"
-        },
-        {
-          "file": "apps/data-api/tsconfig.json",
-          "hash": "3490524966360018312"
-        },
-        {
-          "file": "apps/data-api/tsconfig.spec.json",
-          "hash": "11550347367511341917"
-        },
-        {
-          "file": "apps/data-api/webpack.config.js",
-          "hash": "10619490397189790225",
-          "deps": [
-            "npm:@nx/webpack"
-          ]
-        }
-      ],
-      "data-api-e2e": [
-        {
-          "file": "apps/data-api-e2e/.eslintrc.json",
-          "hash": "13800677001662881425"
-        },
-        {
-          "file": "apps/data-api-e2e/jest.config.ts",
-          "hash": "11289544556175763105"
-        },
-        {
-          "file": "apps/data-api-e2e/project.json",
-          "hash": "14487847278478867191"
-        },
-        {
-          "file": "apps/data-api-e2e/src/data-api/api-meal.spec.ts",
-          "hash": "16680147159455964675"
-        },
-        {
-          "file": "apps/data-api-e2e/src/support/global-setup.ts",
-          "hash": "18221119270488052961"
-        },
-        {
-          "file": "apps/data-api-e2e/src/support/global-teardown.ts",
-          "hash": "17927034305001160425"
-        },
-        {
-          "file": "apps/data-api-e2e/src/support/test-setup.ts",
-          "hash": "3638361683491578594",
-          "deps": [
-            "npm:axios"
-          ]
-        },
-        {
-          "file": "apps/data-api-e2e/tsconfig.json",
-          "hash": "15443990093475294480"
-        },
-        {
-          "file": "apps/data-api-e2e/tsconfig.spec.json",
-          "hash": "14954872453723519891"
-        }
-      ],
-      "share-a-meal-web-e2e": [
-        {
-          "file": "apps/share-a-meal-web-e2e/.eslintrc.json",
-          "hash": "9199987846761270635"
-        },
-        {
-          "file": "apps/share-a-meal-web-e2e/cypress.config.ts",
-          "hash": "16639359929265687390",
-          "deps": [
-            "npm:@nx/cypress",
-            "npm:cypress"
-          ]
-        },
-        {
-          "file": "apps/share-a-meal-web-e2e/project.json",
-          "hash": "15924191116928498889"
-        },
-        {
-          "file": "apps/share-a-meal-web-e2e/src/e2e/app.cy.ts",
-          "hash": "7534840248335012081"
-        },
-        {
-          "file": "apps/share-a-meal-web-e2e/src/fixtures/example.json",
-          "hash": "11785586596216172004"
-        },
-        {
-          "file": "apps/share-a-meal-web-e2e/src/support/app.po.ts",
-          "hash": "11157016311132186162"
-        },
-        {
-          "file": "apps/share-a-meal-web-e2e/src/support/commands.ts",
-          "hash": "5397443931564808659"
-        },
-        {
-          "file": "apps/share-a-meal-web-e2e/src/support/e2e.ts",
-          "hash": "1054106023200826784"
-        },
-        {
-          "file": "apps/share-a-meal-web-e2e/tsconfig.json",
-          "hash": "4332380883180617610"
-        }
-      ],
-      "golfing": [
-        {
-          "file": "apps/golfing/.eslintrc.json",
-          "hash": "16921288866599104771"
-        },
-        {
-          "file": "apps/golfing/jest.config.ts",
-          "hash": "17436411479244898047"
-        },
-        {
-          "file": "apps/golfing/project.json",
-          "hash": "1217409385440370797"
-        },
-        {
-          "file": "apps/golfing/src/app/app.component.css",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/golfing/src/app/app.component.html",
-          "hash": "17600603678692415054"
-        },
-        {
-          "file": "apps/golfing/src/app/app.component.spec.ts",
-          "hash": "10459802259896326559",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/router"
-          ]
-        },
-        {
-          "file": "apps/golfing/src/app/app.component.ts",
-          "hash": "8685551820808045672",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/router",
-            "ui"
-          ]
-        },
-        {
-          "file": "apps/golfing/src/app/app.config.ts",
-          "hash": "4973721659042621253",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/router",
-            "npm:@angular/common"
-          ]
-        },
-        {
-          "file": "apps/golfing/src/app/app.routes.ts",
-          "hash": "14453475198280433907",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/router",
-            "ui",
-            "features"
-          ]
-        },
-        {
-          "file": "apps/golfing/src/app/nx-welcome.component.ts",
-          "hash": "15884860509626438075",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/common"
-          ]
-        },
-        {
-          "file": "apps/golfing/src/assets/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/golfing/src/assets/image/erd.golfing.jpg",
-          "hash": "3039354406952091692"
-        },
-        {
-          "file": "apps/golfing/src/assets/image/fr1.golfing.jpg",
-          "hash": "2204324081862509311"
-        },
-        {
-          "file": "apps/golfing/src/assets/image/fr2.golfing.jpg",
-          "hash": "17892127439641857041"
-        },
-        {
-          "file": "apps/golfing/src/assets/image/fr3.golfing.jpg",
-          "hash": "8173424844645500555"
-        },
-        {
-          "file": "apps/golfing/src/favicon.ico",
-          "hash": "9303420814833116677"
-        },
-        {
-          "file": "apps/golfing/src/index.html",
-          "hash": "7109762676964208167"
-        },
-        {
-          "file": "apps/golfing/src/main.ts",
-          "hash": "5432768832348368295",
-          "deps": [
-            "npm:@angular/platform-browser"
-          ]
-        },
-        {
-          "file": "apps/golfing/src/styles.css",
-          "hash": "5195668842064076916"
-        },
-        {
-          "file": "apps/golfing/src/test-setup.ts",
-          "hash": "18384032036193434871",
-          "deps": [
-            "npm:jest-preset-angular"
-          ]
-        },
-        {
-          "file": "apps/golfing/tsconfig.app.json",
-          "hash": "10832768672368521252"
-        },
-        {
-          "file": "apps/golfing/tsconfig.editor.json",
-          "hash": "3782190314296404468"
-        },
-        {
-          "file": "apps/golfing/tsconfig.json",
-          "hash": "16270926144463289155"
-        },
-        {
-          "file": "apps/golfing/tsconfig.spec.json",
-          "hash": "7582695473675793029"
-        }
-      ],
-      "shared-interfaces": [
-        {
-          "file": "libs/shared/interfaces/.eslintrc.json",
-          "hash": "12096744579003383200"
-        },
-        {
-          "file": "libs/shared/interfaces/README.md",
-          "hash": "12529304555068786879"
-        },
-        {
-          "file": "libs/shared/interfaces/jest.config.ts",
-          "hash": "12095003696342054987"
-        },
-        {
-          "file": "libs/shared/interfaces/project.json",
-          "hash": "10525616735170414946"
-        },
-        {
-          "file": "libs/shared/interfaces/src/index.ts",
-          "hash": "5166610667105449861"
-        },
-        {
-          "file": "libs/shared/interfaces/src/lib/api-response.interface.ts",
-          "hash": "14144403976170270212"
-        },
-        {
-          "file": "libs/shared/interfaces/src/lib/api-response.ts",
-          "hash": "12797335873589977164"
-        },
-        {
-          "file": "libs/shared/interfaces/src/lib/game.interface.ts",
-          "hash": "1811546196350844858"
-        },
-        {
-          "file": "libs/shared/interfaces/src/lib/location.interface.ts",
-          "hash": "13745900346815672429"
-        },
-        {
-          "file": "libs/shared/interfaces/src/lib/neo4jConfig.interface.ts",
-          "hash": "14731917723107541452"
-        },
-        {
-          "file": "libs/shared/interfaces/src/lib/team.interface.ts",
-          "hash": "11140541112384635493"
-        },
-        {
-          "file": "libs/shared/interfaces/src/lib/user.interface.ts",
-          "hash": "15761712634421359663"
-        },
-        {
-          "file": "libs/shared/interfaces/src/test-setup.ts",
-          "hash": "18384032036193434871",
-          "deps": [
-            "npm:jest-preset-angular"
-          ]
-        },
-        {
-          "file": "libs/shared/interfaces/tsconfig.json",
-          "hash": "2952183243805677762"
-        },
-        {
-          "file": "libs/shared/interfaces/tsconfig.lib.json",
-          "hash": "5606283485481779905"
-        },
-        {
-          "file": "libs/shared/interfaces/tsconfig.spec.json",
-          "hash": "10021680246547187312"
-        }
-      ],
       "features": [
         {
           "file": "libs/frontend/features/.eslintrc.json",
@@ -989,7 +916,7 @@
         },
         {
           "file": "libs/frontend/features/src/lib/games/game-columns/game-columns.component.html",
-          "hash": "8621030706182562365"
+          "hash": "3806910127887164873"
         },
         {
           "file": "libs/frontend/features/src/lib/games/game-columns/game-columns.component.spec.ts",
@@ -1000,7 +927,7 @@
         },
         {
           "file": "libs/frontend/features/src/lib/games/game-columns/game-columns.component.ts",
-          "hash": "10481986514792401429",
+          "hash": "9989748960268039279",
           "deps": [
             "npm:@angular/core",
             "shared-interfaces",
@@ -1089,7 +1016,7 @@
         },
         {
           "file": "libs/frontend/features/src/lib/games/game-update/game-update.component.html",
-          "hash": "12648653535961333266"
+          "hash": "16952368049840753569"
         },
         {
           "file": "libs/frontend/features/src/lib/games/game-update/game-update.component.spec.ts",
@@ -1100,7 +1027,7 @@
         },
         {
           "file": "libs/frontend/features/src/lib/games/game-update/game-update.component.ts",
-          "hash": "1743890965666047325",
+          "hash": "2589055523439936540",
           "deps": [
             "npm:@angular/common",
             "npm:@angular/core",
@@ -1377,7 +1304,7 @@
         },
         {
           "file": "libs/frontend/features/src/lib/teams/team-update/team-update.component.html",
-          "hash": "15537841414437623604"
+          "hash": "11717573034564939922"
         },
         {
           "file": "libs/frontend/features/src/lib/teams/team-update/team-update.component.spec.ts",
@@ -1388,7 +1315,7 @@
         },
         {
           "file": "libs/frontend/features/src/lib/teams/team-update/team-update.component.ts",
-          "hash": "18345553678020583080",
+          "hash": "17016398204726277285",
           "deps": [
             "npm:@angular/common",
             "npm:@angular/core",
@@ -1399,7 +1326,7 @@
         },
         {
           "file": "libs/frontend/features/src/lib/teams/team.service.ts",
-          "hash": "2530714913028149835",
+          "hash": "17586357393757889253",
           "deps": [
             "npm:@angular/core",
             "npm:rxjs",
@@ -1530,7 +1457,7 @@
         },
         {
           "file": "libs/frontend/features/src/lib/users/user-update/user-update.component.ts",
-          "hash": "15825278481167848586",
+          "hash": "17503516106605914740",
           "deps": [
             "npm:@angular/common",
             "npm:@angular/core",
@@ -1696,7 +1623,7 @@
         },
         {
           "file": "libs/backend/features/src/lib/location/location.service.ts",
-          "hash": "12713829264487855640",
+          "hash": "3238812773147391625",
           "deps": [
             "npm:@nestjs/common",
             "shared-interfaces",
@@ -1709,7 +1636,7 @@
         },
         {
           "file": "libs/backend/features/src/lib/team/team.controller.ts",
-          "hash": "11419358752366202626",
+          "hash": "7125967566063573796",
           "deps": [
             "npm:@nestjs/common",
             "shared-interfaces",
@@ -1748,7 +1675,7 @@
         },
         {
           "file": "libs/backend/features/src/lib/team/team.service.ts",
-          "hash": "14610344341585890332",
+          "hash": "10359526886042577280",
           "deps": [
             "npm:@nestjs/common",
             "shared-interfaces",
@@ -1833,6 +1760,242 @@
         {
           "file": "libs/backend/features/tsconfig.spec.json",
           "hash": "2579164740543429247"
+        }
+      ],
+      "rcmnd-api-e2e": [
+        {
+          "file": "apps/rcmnd-api-e2e/.eslintrc.json",
+          "hash": "13800677001662881425"
+        },
+        {
+          "file": "apps/rcmnd-api-e2e/jest.config.ts",
+          "hash": "14918991315131840020"
+        },
+        {
+          "file": "apps/rcmnd-api-e2e/project.json",
+          "hash": "2771499577721644088"
+        },
+        {
+          "file": "apps/rcmnd-api-e2e/src/rcmnd-api/rcmnd-api.spec.ts",
+          "hash": "11131149364395067784"
+        },
+        {
+          "file": "apps/rcmnd-api-e2e/src/support/global-setup.ts",
+          "hash": "13856893327133783170"
+        },
+        {
+          "file": "apps/rcmnd-api-e2e/src/support/global-teardown.ts",
+          "hash": "15926885386591514827"
+        },
+        {
+          "file": "apps/rcmnd-api-e2e/src/support/test-setup.ts",
+          "hash": "10498693217992212040"
+        },
+        {
+          "file": "apps/rcmnd-api-e2e/tsconfig.json",
+          "hash": "15443990093475294480"
+        },
+        {
+          "file": "apps/rcmnd-api-e2e/tsconfig.spec.json",
+          "hash": "14954872453723519891"
+        }
+      ],
+      "share-a-meal-web-e2e": [
+        {
+          "file": "apps/share-a-meal-web-e2e/.eslintrc.json",
+          "hash": "9199987846761270635"
+        },
+        {
+          "file": "apps/share-a-meal-web-e2e/cypress.config.ts",
+          "hash": "16639359929265687390",
+          "deps": [
+            "npm:@nx/cypress",
+            "npm:cypress"
+          ]
+        },
+        {
+          "file": "apps/share-a-meal-web-e2e/project.json",
+          "hash": "15924191116928498889"
+        },
+        {
+          "file": "apps/share-a-meal-web-e2e/src/e2e/app.cy.ts",
+          "hash": "7534840248335012081"
+        },
+        {
+          "file": "apps/share-a-meal-web-e2e/src/fixtures/example.json",
+          "hash": "11785586596216172004"
+        },
+        {
+          "file": "apps/share-a-meal-web-e2e/src/support/app.po.ts",
+          "hash": "11157016311132186162"
+        },
+        {
+          "file": "apps/share-a-meal-web-e2e/src/support/commands.ts",
+          "hash": "5397443931564808659"
+        },
+        {
+          "file": "apps/share-a-meal-web-e2e/src/support/e2e.ts",
+          "hash": "1054106023200826784"
+        },
+        {
+          "file": "apps/share-a-meal-web-e2e/tsconfig.json",
+          "hash": "4332380883180617610"
+        }
+      ],
+      "dto": [
+        {
+          "file": "libs/backend/dto/.eslintrc.json",
+          "hash": "14803369877490046397"
+        },
+        {
+          "file": "libs/backend/dto/README.md",
+          "hash": "2079580637005403667"
+        },
+        {
+          "file": "libs/backend/dto/jest.config.ts",
+          "hash": "18008281603643191550"
+        },
+        {
+          "file": "libs/backend/dto/project.json",
+          "hash": "16936054644790140176"
+        },
+        {
+          "file": "libs/backend/dto/src/index.ts",
+          "hash": "1970455548510730566"
+        },
+        {
+          "file": "libs/backend/dto/src/lib/dto.module.ts",
+          "hash": "1666275309093498050",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "libs/backend/dto/src/lib/game/game.dto.ts",
+          "hash": "4808294371666931476",
+          "deps": [
+            "npm:class-validator",
+            "shared-interfaces"
+          ]
+        },
+        {
+          "file": "libs/backend/dto/src/lib/location/location.dto.ts",
+          "hash": "11361546295904731189",
+          "deps": [
+            "npm:class-validator",
+            "shared-interfaces"
+          ]
+        },
+        {
+          "file": "libs/backend/dto/src/lib/team/team.dto.ts",
+          "hash": "1879346009258871272",
+          "deps": [
+            "npm:class-validator",
+            "shared-interfaces"
+          ]
+        },
+        {
+          "file": "libs/backend/dto/src/lib/user/user.dto.ts",
+          "hash": "9084352071592092149",
+          "deps": [
+            "npm:class-validator",
+            "shared-interfaces"
+          ]
+        },
+        {
+          "file": "libs/backend/dto/tsconfig.json",
+          "hash": "4144762477106208688"
+        },
+        {
+          "file": "libs/backend/dto/tsconfig.lib.json",
+          "hash": "5754459057639250434"
+        },
+        {
+          "file": "libs/backend/dto/tsconfig.spec.json",
+          "hash": "2579164740543429247"
+        }
+      ],
+      "golfing-e2e": [
+        {
+          "file": "apps/golfing-e2e/.eslintrc.json",
+          "hash": "2268504342791978563"
+        },
+        {
+          "file": "apps/golfing-e2e/cypress.config.ts",
+          "hash": "13758650857735414517",
+          "deps": [
+            "npm:@nx/cypress",
+            "npm:cypress"
+          ]
+        },
+        {
+          "file": "apps/golfing-e2e/project.json",
+          "hash": "5169983888102655560"
+        },
+        {
+          "file": "apps/golfing-e2e/src/e2e/app.cy.ts",
+          "hash": "16488491556291926919"
+        },
+        {
+          "file": "apps/golfing-e2e/src/fixtures/example.json",
+          "hash": "8244047265829016264"
+        },
+        {
+          "file": "apps/golfing-e2e/src/support/app.po.ts",
+          "hash": "11157016311132186162"
+        },
+        {
+          "file": "apps/golfing-e2e/src/support/commands.ts",
+          "hash": "4709268516280968380"
+        },
+        {
+          "file": "apps/golfing-e2e/src/support/e2e.ts",
+          "hash": "1054106023200826784"
+        },
+        {
+          "file": "apps/golfing-e2e/tsconfig.json",
+          "hash": "16101841879267239062"
+        }
+      ],
+      "data-api-e2e": [
+        {
+          "file": "apps/data-api-e2e/.eslintrc.json",
+          "hash": "13800677001662881425"
+        },
+        {
+          "file": "apps/data-api-e2e/jest.config.ts",
+          "hash": "11289544556175763105"
+        },
+        {
+          "file": "apps/data-api-e2e/project.json",
+          "hash": "14487847278478867191"
+        },
+        {
+          "file": "apps/data-api-e2e/src/data-api/api-meal.spec.ts",
+          "hash": "16680147159455964675"
+        },
+        {
+          "file": "apps/data-api-e2e/src/support/global-setup.ts",
+          "hash": "18221119270488052961"
+        },
+        {
+          "file": "apps/data-api-e2e/src/support/global-teardown.ts",
+          "hash": "17927034305001160425"
+        },
+        {
+          "file": "apps/data-api-e2e/src/support/test-setup.ts",
+          "hash": "3638361683491578594",
+          "deps": [
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "apps/data-api-e2e/tsconfig.json",
+          "hash": "15443990093475294480"
+        },
+        {
+          "file": "apps/data-api-e2e/tsconfig.spec.json",
+          "hash": "14954872453723519891"
         }
       ],
       "rcmnd-api": [
@@ -1944,216 +2107,53 @@
           "hash": "2579164740543429247"
         }
       ],
-      "share-a-meal-web": [
+      "comon": [
         {
-          "file": "apps/share-a-meal-web/.eslintrc.json",
-          "hash": "12118854377797659445"
+          "file": "libs/frontend/common/.eslintrc.json",
+          "hash": "9293852775400125686"
         },
         {
-          "file": "apps/share-a-meal-web/jest.config.ts",
-          "hash": "2667253891853561832"
+          "file": "libs/frontend/common/README.md",
+          "hash": "4396730449551246043"
         },
         {
-          "file": "apps/share-a-meal-web/project.json",
-          "hash": "6021475482155891052"
+          "file": "libs/frontend/common/jest.config.ts",
+          "hash": "2860428092991195410"
         },
         {
-          "file": "apps/share-a-meal-web/src/app/app.component.html",
-          "hash": "14096303333607304980"
+          "file": "libs/frontend/common/project.json",
+          "hash": "12664314604764245708"
         },
         {
-          "file": "apps/share-a-meal-web/src/app/app.component.ts",
-          "hash": "10064478920892536205",
+          "file": "libs/frontend/common/src/index.ts",
+          "hash": "14177925512953375293"
+        },
+        {
+          "file": "libs/frontend/common/src/lib/common.module.ts",
+          "hash": "12637408136721052307",
           "deps": [
             "npm:@angular/core",
-            "npm:flowbite",
-            "npm:@angular/router"
+            "npm:@angular/common"
           ]
         },
         {
-          "file": "apps/share-a-meal-web/src/app/app.config.ts",
-          "hash": "8993342557759126848",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/router"
-          ]
-        },
-        {
-          "file": "apps/share-a-meal-web/src/app/app.routes.ts",
-          "hash": "1640601350016319054",
-          "deps": [
-            "npm:@angular/router"
-          ]
-        },
-        {
-          "file": "apps/share-a-meal-web/src/app/components/about/about.component.html",
-          "hash": "16089002778921768123"
-        },
-        {
-          "file": "apps/share-a-meal-web/src/app/components/about/about.component.spec.ts",
-          "hash": "8855752337671383617",
-          "deps": [
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "apps/share-a-meal-web/src/app/components/about/about.component.ts",
-          "hash": "12127380471888693726",
-          "deps": [
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "apps/share-a-meal-web/src/app/components/dashboard/dashboard.component.html",
-          "hash": "13178263766354848654"
-        },
-        {
-          "file": "apps/share-a-meal-web/src/app/components/dashboard/dashboard.component.ts",
-          "hash": "3591264399526952365",
-          "deps": [
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "apps/share-a-meal-web/src/assets/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/share-a-meal-web/src/assets/Entity-Relationship-Diagram.png",
-          "hash": "10440411800400986942"
-        },
-        {
-          "file": "apps/share-a-meal-web/src/favicon.ico",
-          "hash": "9303420814833116677"
-        },
-        {
-          "file": "apps/share-a-meal-web/src/index.html",
-          "hash": "1306304337514846625"
-        },
-        {
-          "file": "apps/share-a-meal-web/src/main.ts",
-          "hash": "7323565367452876306",
-          "deps": [
-            "npm:@angular/platform-browser",
-            "npm:@angular/core",
-            "util-env"
-          ]
-        },
-        {
-          "file": "apps/share-a-meal-web/src/styles.css",
-          "hash": "6917432578050628436"
-        },
-        {
-          "file": "apps/share-a-meal-web/src/test-setup.ts",
-          "hash": "12935735732682149507",
+          "file": "libs/frontend/common/src/test-setup.ts",
+          "hash": "4022486634036225089",
           "deps": [
             "npm:jest-preset-angular"
           ]
         },
         {
-          "file": "apps/share-a-meal-web/tailwind.config.js",
-          "hash": "17076277411316600840",
-          "deps": [
-            "npm:@nx/angular",
-            "npm:tailwindcss",
-            "npm:flowbite"
-          ]
+          "file": "libs/frontend/common/tsconfig.json",
+          "hash": "16345539577515900790"
         },
         {
-          "file": "apps/share-a-meal-web/tsconfig.app.json",
-          "hash": "12911920861351469827"
+          "file": "libs/frontend/common/tsconfig.lib.json",
+          "hash": "3924040990733920241"
         },
         {
-          "file": "apps/share-a-meal-web/tsconfig.editor.json",
-          "hash": "17511610827034788226"
-        },
-        {
-          "file": "apps/share-a-meal-web/tsconfig.json",
-          "hash": "12094030803572703611"
-        },
-        {
-          "file": "apps/share-a-meal-web/tsconfig.spec.json",
-          "hash": "2927375835638640771"
-        }
-      ],
-      "rcmnd-api-e2e": [
-        {
-          "file": "apps/rcmnd-api-e2e/.eslintrc.json",
-          "hash": "13800677001662881425"
-        },
-        {
-          "file": "apps/rcmnd-api-e2e/jest.config.ts",
-          "hash": "14918991315131840020"
-        },
-        {
-          "file": "apps/rcmnd-api-e2e/project.json",
-          "hash": "2771499577721644088"
-        },
-        {
-          "file": "apps/rcmnd-api-e2e/src/rcmnd-api/rcmnd-api.spec.ts",
-          "hash": "11131149364395067784"
-        },
-        {
-          "file": "apps/rcmnd-api-e2e/src/support/global-setup.ts",
-          "hash": "13856893327133783170"
-        },
-        {
-          "file": "apps/rcmnd-api-e2e/src/support/global-teardown.ts",
-          "hash": "15926885386591514827"
-        },
-        {
-          "file": "apps/rcmnd-api-e2e/src/support/test-setup.ts",
-          "hash": "10498693217992212040"
-        },
-        {
-          "file": "apps/rcmnd-api-e2e/tsconfig.json",
-          "hash": "15443990093475294480"
-        },
-        {
-          "file": "apps/rcmnd-api-e2e/tsconfig.spec.json",
-          "hash": "14954872453723519891"
-        }
-      ],
-      "golfing-e2e": [
-        {
-          "file": "apps/golfing-e2e/.eslintrc.json",
-          "hash": "2268504342791978563"
-        },
-        {
-          "file": "apps/golfing-e2e/cypress.config.ts",
-          "hash": "13758650857735414517",
-          "deps": [
-            "npm:@nx/cypress",
-            "npm:cypress"
-          ]
-        },
-        {
-          "file": "apps/golfing-e2e/project.json",
-          "hash": "5169983888102655560"
-        },
-        {
-          "file": "apps/golfing-e2e/src/e2e/app.cy.ts",
-          "hash": "16488491556291926919"
-        },
-        {
-          "file": "apps/golfing-e2e/src/fixtures/example.json",
-          "hash": "8244047265829016264"
-        },
-        {
-          "file": "apps/golfing-e2e/src/support/app.po.ts",
-          "hash": "11157016311132186162"
-        },
-        {
-          "file": "apps/golfing-e2e/src/support/commands.ts",
-          "hash": "4709268516280968380"
-        },
-        {
-          "file": "apps/golfing-e2e/src/support/e2e.ts",
-          "hash": "1054106023200826784"
-        },
-        {
-          "file": "apps/golfing-e2e/tsconfig.json",
-          "hash": "16101841879267239062"
+          "file": "libs/frontend/common/tsconfig.spec.json",
+          "hash": "17344764448552449211"
         }
       ]
     }

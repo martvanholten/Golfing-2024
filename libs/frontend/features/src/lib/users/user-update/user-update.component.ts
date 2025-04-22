@@ -72,15 +72,17 @@ export class UserUpdateComponent implements OnDestroy{
           }
         });
       }else{
-        if(this.user instanceof User){
+        console.log('REACHED')
+        if(this.currentUser){
+          console.log('REACHEDCURRENT')
           this.httpOptions = {
             headers: new HttpHeaders({
               'Content-Type': 'application/json',
               Authorization: 'Bearer ' + this.token,
-              userRole: this.user.role
+              userRole: this.currentUser.role
             })
           }
-          this.userService.updateOne(this.user, this.httpOptions).subscribe((r) => {
+          this.userService.updateOne(this.user as UserInterface, this.httpOptions).subscribe((r) => {
             if(r.message === "error"){
               this.router.navigate(['error']);
             }else if(r.message === 'user not found'){
@@ -89,12 +91,12 @@ export class UserUpdateComponent implements OnDestroy{
             }else if(r.message === "succes"){
               if(this.token){
                 this.authService.saveUserToLocalStorage(this.user as UserInterface, this.token)
+                this.router.navigate(['']);
               }
             }
           });
         }
       }
-      this.router.navigate([''], { relativeTo: this.route });
     } catch (error) {
       this.router.navigate(['error']);
     }

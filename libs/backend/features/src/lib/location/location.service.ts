@@ -49,7 +49,8 @@ export class LocationService {
     async create(location: LocationDto): Promise<ApiResponseInterface<LocationInterface>> {
         try {
             this.location = await this.locationRepo.findOneByName(location.name)
-            if(this.location !== null || this.location !== undefined){
+            console.log(this.location)
+            if(this.location){
                 this.response = new ApiResponse<LocationInterface>('location already exists')
                 return this.response as ApiResponseInterface<LocationInterface>;
             }else{

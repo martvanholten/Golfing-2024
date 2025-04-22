@@ -124,6 +124,29 @@ export class TeamService {
         }
     }
 
+    async updateGame(team: TeamInterface): Promise<ApiResponseInterface<TeamInterface>> {
+        console.log('REACHED UPDATE GAME')
+        try {
+            this.team = await this.teamRepo.findOne(team._id)
+            if(this.team !== null){
+                this.team = await this.teamRepo.update(team._id, team);
+                if(this.team){
+                    this.response = new ApiResponse<TeamInterface>('succes', this.team)
+                    return this.response as ApiResponseInterface<TeamInterface>;
+                }else{
+                    this.response = new ApiResponse<TeamInterface>('error')
+                    return this.response as ApiResponseInterface<TeamInterface>;
+                }            
+            }else{
+                this.response = new ApiResponse<TeamInterface>('team not found')
+                return this.response as ApiResponseInterface<TeamInterface>;
+            }
+        } catch (error) {
+            this.response = new ApiResponse<TeamInterface>('error')
+            return this.response as ApiResponseInterface<TeamInterface>;
+        }
+    }
+
     async delete(_id: string, userId: string): Promise<ApiResponseInterface<TeamInterface>> {
         try {
             this.team = await this.teamRepo.findOne(_id)

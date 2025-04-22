@@ -9,7 +9,9 @@
       <router-outlet></router-outlet>
     </div>
   </div>
-  @if (this.currentUser?.role === 'location manager' || 'game manager') {
+  @if (this.currentUser?.role === 'location manager') {
+    <div class="col" align="center"><a class="btn btn-success mt-3" routerLink="new" routerLinkActive="actieve-link">Voeg toe</a></div>
+  }@else if(this.currentUser?.role === 'game manager'){
     <div class="col" align="center"><a class="btn btn-success mt-3" routerLink="new" routerLinkActive="actieve-link">Voeg toe</a></div>
   }
 </div>

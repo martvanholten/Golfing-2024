@@ -52,10 +52,21 @@ export class TeamController {
         return defer(() => this.teamService.create(team));
     }
 
+    @Put('game/add')
+    @UseGuards(AccessTokenGuard)
+    @UseGuards(UserRoleGuard)
+    @Roles('location manager', 'game manager')
+    addGame(
+        @Body() team: UpdateTeamDto
+    ): Observable<ApiResponseInterface<TeamInterface>> {
+        console.log('RECHED TEAM CONTROLLER')
+        return defer(() => this.teamService.updateGame(team));
+    }
+
     @Put(':userId')
     @UseGuards(AccessTokenGuard)
     @UseGuards(UserRoleGuard)
-    @Roles('team captain', 'game manager')
+    @Roles('team captain')
     update(
         @Param('userId') userId: string,
         @Body() team: UpdateTeamDto
@@ -63,7 +74,6 @@ export class TeamController {
         return defer(() => this.teamService.update(userId, team));
     }
 
-    //Might be easier to use teamInterface instead of id
     @Delete(':id/:userId')
     @UseGuards(AccessTokenGuard)
     @UseGuards(UserRoleGuard)

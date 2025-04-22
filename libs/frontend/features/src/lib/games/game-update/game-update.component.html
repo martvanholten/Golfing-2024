@@ -149,6 +149,9 @@
                 </button>
             </div>
         </form>
+        <div class="text-success">
+            <h6 class="font-weight-bold">Teams</h6>
+        </div>
         <table class="table table-bordered table-striped table-sm">
             <thead>
                 <tr>
@@ -163,5 +166,15 @@
                 </tr>
             </tbody>
         </table>
+        @if(game.gameManager?._id === currentUser?._id) {
+            <div class="col">
+                <input
+                    type="text"
+                    [(ngModel)]="teamName"
+                    name="teamName"
+                />
+            </div>
+            <div class="col" align="center"><button class="btn btn-success mt-3" (click)="addTeam(teamName)" routerLinkActive="actieve-link">Voeg toe</button></div>
+        }
     </div>
 </div>

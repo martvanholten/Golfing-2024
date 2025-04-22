@@ -74,10 +74,21 @@ export class TeamService {
     }
 
     public updateOne(userId: string, team: TeamInterface, options?: any): Observable<ApiResponseInterface<TeamInterface>> {
-        console.log('REACHED TEAM UPDATE')
-        console.log(`read ${this.endpoint}`);
         return this.http
             .put<ApiResponseInterface<TeamInterface>>(this.endpoint + "/" + userId, team, {
+                ...options,
+                ...httpOptionsTeam,
+            })
+            .pipe(
+                tap(console.log),
+                map((response: any) => response as ApiResponseInterface<TeamInterface>),
+                catchError(this.handleError)
+            );
+    }
+
+    public addGame(team: TeamInterface, options?: any): Observable<ApiResponseInterface<TeamInterface>> {
+        return this.http
+            .put<ApiResponseInterface<TeamInterface>>(this.endpoint + "/game/add", team, {
                 ...options,
                 ...httpOptionsTeam,
             })
