@@ -2,7 +2,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService, CreateGame, CreateTeam, ErrorService, Game, GameService, LocationService, Manager, Team, TeamService } from '@avans-nx-workshop/frontend/features';
-import { CreateGameInterface, GameInterface, LocationInterface, TeamInterface, UserInterface } from '@avans-nx-workshop/shared/interfaces';
+import { CreateGameInterface, GameInterface, GameTeamInterface, LocationInterface, TeamGameInterface, TeamInterface, UserInterface } from '@avans-nx-workshop/shared/interfaces';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -182,6 +182,62 @@ export class GameUpdateComponent implements OnDestroy{
           this.errorService.errorMessage = "Niet ingelogd"
           this.router.navigate(['/error']);
         }
+    } catch (error) {
+      this.router.navigate(['error']);
+    }
+  }
+
+  deleteTeam(name?: string): void{
+    try {
+      if(this.currentUser && name){
+        if(this.locationId && this.gameName){
+          this.sub$ = this.gameService.getOne(this.gameName, this.locationId).subscribe(r =>{
+            this.game = r.results as GameInterface
+            if(this.game){
+              var teamList = new Array<GameTeamInterface>
+              this.game.teams.forEach(t =>{
+                if(name === t.name){
+                  this.inGame = true
+                }else{
+                  teamList.push(t)
+                }
+              })
+              if(!this.inGame){
+                this.errorService.errorMessage = "Team is niet in de wedstrijd"
+                this.router.navigate(['/error']);
+              }else{
+                this.game.teams = teamList
+                this.teamService.getOneByName(name).subscribe(r =>{
+                  this.team = r.results as TeamInterface
+                    if(this.team){
+                      var gameList = new Array<TeamGameInterface>
+                      this.team.games.forEach(g => {
+                        if(g.name !== this.game.name){
+                          gameList.push(g)
+                        }
+                      })
+                      this.team.games = gameList
+                      this.gameService.updateOne(this.locationId!, this.game.name!, this.game as GameInterface, this.httpOptions).subscribe()
+                      this.teamService.addGame(this.team, this.httpOptions).subscribe()
+                    }else{
+                      this.errorService.errorMessage = "Team bestaat niet"
+                      this.router.navigate(['/error']);
+                    }
+                })
+              }
+            }else{
+              this.errorService.errorMessage = "De wedstrijd bestaat niet"
+              this.router.navigate(['/error']);
+            }
+          })
+        }else{
+          this.errorService.errorMessage = "Geen locatie id of wedstrijd naam in de link"
+          this.router.navigate(['/error']);
+        }
+      }else{
+        this.errorService.errorMessage = "Niet ingelogd of geen team naam ingevoerd"
+        this.router.navigate(['/error']);
+      }
     } catch (error) {
       this.router.navigate(['error']);
     }

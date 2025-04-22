@@ -2,7 +2,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TeamService, UserService, AuthService, CreateTeam, Team, ErrorService } from '@avans-nx-workshop/frontend/features';
-import { CreateTeamInterface, GameInterface, TeamInterface, UserInterface } from '@avans-nx-workshop/shared/interfaces';
+import { CreateTeamInterface, GameInterface, TeamInterface, TeamUserInterface, UserInterface, UserTeamInterface } from '@avans-nx-workshop/shared/interfaces';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -108,6 +108,53 @@ export class TeamUpdateComponent implements OnDestroy{
         }
       }else{
         this.errorService.errorMessage = "Niet ingelogd"
+        this.router.navigate(['/error']);
+      }
+    } catch (error) {
+      this.router.navigate(['error']);
+    }
+  }
+
+  deleteTeamMember(email?: string): void{
+    try {
+      if(this.currentUser && email){
+        var golferList = new Array<TeamUserInterface>
+        this.team.golfers.forEach(g =>{
+          if(email === g.email){
+            this.inTeam = true
+          }else{
+            golferList.push(g)
+          }
+        })
+        if(!this.inTeam){
+          this.errorService.errorMessage = "Gebruiker is niet in het team"
+          this.router.navigate(['/error']);
+        }else{
+          this.team.golfers = golferList;
+          this.sub$ = this.userService.getOneByEmail(email).subscribe(r =>{
+            this.user = r.results as UserInterface
+            if(this.user){
+              if(this.team._id){
+                var teamList = new Array<UserTeamInterface>
+                this.user.teams.forEach(t =>{
+                  if(t.name !== this.team.name){
+                    teamList.push(t)
+                  }
+                })
+                this.user.teams = teamList
+                this.teamService.updateOne(this.user!._id, this.team as TeamInterface, this.httpOptions).subscribe()
+                this.userService.updateOne(this.user!, this.httpOptions).subscribe()
+              }else{
+                this.router.navigate(['/error']);
+              }
+            }else{
+              this.errorService.errorMessage = "Gebruiker bestaat niet"
+              this.router.navigate(['/error']);
+            }
+          })
+        }
+      }else{
+        this.errorService.errorMessage = "Niet ingelogd of geen email ingevoerd"
         this.router.navigate(['/error']);
       }
     } catch (error) {
