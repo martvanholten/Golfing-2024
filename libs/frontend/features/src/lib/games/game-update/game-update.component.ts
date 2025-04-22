@@ -13,6 +13,7 @@ import { Subscription } from 'rxjs';
 export class GameUpdateComponent implements OnDestroy{
     game: CreateGameInterface | GameInterface = new CreateGame;
     locationName?: string | null;
+    location?: LocationInterface;
     gameName?: string | null
     sub$?: Subscription;
     authSub$?: Subscription;
@@ -45,9 +46,9 @@ export class GameUpdateComponent implements OnDestroy{
 
         if(this.gameName && this.locationName){
           this.sub$ = this.locationService.getOneByName(this.locationName).subscribe((l) =>{
-            var location = l.results as LocationInterface
-            if(location){
-              this.locationId = location._id
+            this.location = l.results as LocationInterface
+            if(this.location){
+              this.locationId = this.location._id
             }
             if(this.locationId){
               this.sub$ = this.gameService.getOne(this.gameName!, this.locationId).subscribe((g) =>{
@@ -108,19 +109,24 @@ export class GameUpdateComponent implements OnDestroy{
                     this.errorService.errorMessage = "Vul een mee spelend team in of vul Geen winnaar in voor geen winnaar"
                     this.router.navigate(['/error']);
                   }else{
-                    this.gameService.createOne(this.locationId, this.game as CreateGameInterface, this.httpOptions).subscribe((r) => {
-                      if(r.message === "error"){
-                        this.router.navigate(['error']);
-                      }else if(r.message === "succes"){
-                        this.router.navigate(['games']);
-                      }else if(r.message === 'game already exists'){
-                        this.errorService.errorMessage = "Game bestaat al"
-                        this.router.navigate(['/error']);
-                      }else if(r.message === 'location not found'){
-                        this.errorService.errorMessage = "Locatie niet gevonden"
-                        this.router.navigate(['/error']);
-                      }
-                    });  
+                    if(!this.location?.large && this.game.holes! > 9){
+                      this.errorService.errorMessage = `Locatie ${this.location?.name} heeft maar negen holes en kan geen wedstrijd hebben met meer dan negen holes`
+                      this.router.navigate(['/error']);
+                    }else{
+                      this.gameService.createOne(this.locationId, this.game as CreateGameInterface, this.httpOptions).subscribe((r) => {
+                        if(r.message === "error"){
+                          this.router.navigate(['error']);
+                        }else if(r.message === "succes"){
+                          this.router.navigate(['games']);
+                        }else if(r.message === 'game already exists'){
+                          this.errorService.errorMessage = "Game bestaat al"
+                          this.router.navigate(['/error']);
+                        }else if(r.message === 'location not found'){
+                          this.errorService.errorMessage = "Locatie niet gevonden"
+                          this.router.navigate(['/error']);
+                        }
+                      });
+                    }  
                   }
                 }else{
                   this.router.navigate(['/error']);
@@ -145,17 +151,24 @@ export class GameUpdateComponent implements OnDestroy{
                   this.errorService.errorMessage = "Vul een mee spelend team in of vul Geen winnaar in voor geen winnaar"
                   this.router.navigate(['/error']);
                 }else{
-                  this.gameService.updateOne(this.locationId, this.gameName!, this.game as GameInterface, this.httpOptions).subscribe(r =>{
-                    if(r.message === 'succes'){
-                      this.router.navigate(['games']);
-                    }else if(r.message === 'game not found'){
-                      this.errorService.errorMessage = "Game niet gevonden"
-                      this.router.navigate(['/error']);
-                    }else if(r.message === 'location not found'){
-                      this.errorService.errorMessage = "Locatie niet gevonden"
-                      this.router.navigate(['/error']);
-                    }
-                  })
+                  if(!this.location?.large && this.game.holes! > 9){
+                    this.errorService.errorMessage = `Locatie ${this.location?.name} heeft maar negen holes en kan geen wedstrijd hebben met meer dan negen holes`
+                    this.router.navigate(['/error']);
+                  }else{
+                    this.gameService.updateOne(this.locationId, this.gameName!, this.game as GameInterface, this.httpOptions).subscribe(r =>{
+                      if(r.message === 'succes'){
+                        this.router.navigate(['games']);
+                      }else if(r.message === 'game not found'){
+                        this.errorService.errorMessage = "Game niet gevonden"
+                        this.router.navigate(['/error']);
+                      }else if(r.message === 'location not found'){
+                        this.errorService.errorMessage = "Locatie niet gevonden"
+                        this.router.navigate(['/error']);
+                      }else{
+                        this.router.navigate(['/error']);
+                      }
+                    })
+                  }
                 }
               }else{
                 this.errorService.errorMessage = "Niet de game manager"
@@ -201,9 +214,6 @@ export class GameUpdateComponent implements OnDestroy{
                           name: this.team.name,
                           rank: this.team.rank,
                         })
-                        console.log(this.currentUser)
-                        console.log(this.token)
-                        console.log(this.httpOptions)
                         this.gameService.updateOne(this.locationId!, this.game.name!, this.game as GameInterface, this.httpOptions).subscribe()
                         this.team.games.push({
                           name: this.game.name!,
