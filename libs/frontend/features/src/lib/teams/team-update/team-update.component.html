@@ -100,7 +100,7 @@
                     <td class="text-center">{{ user.lastName }}</td>
                     <td class="text-center">{{ user.email }}</td>
                     @if(team.teamCaptain === currentUser?._id) {
-                        <div class="col" align="center"><button class="btn btn-success mt-3" (click)="deleteTeamMember(user.email)" routerLinkActive="actieve-link">Delete</button></div>
+                        <td class="col" align="center"><button class="btn btn-success mt-3" (click)="deleteTeamMember(user.email)" routerLinkActive="actieve-link">Delete</button></td>
                     }
                 </tr>
             </tbody>
